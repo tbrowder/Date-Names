@@ -27,7 +27,7 @@ Module **Date::Names** provides the full name of months and days of the week for
 the numbers 1..12 and 1..7, respectively, primarily for use with
 **Perl 6**'s date functions.
 
-Three-letter abbreviations for months and week days are also available
+Three-letter abbreviations for months and week days are available
 in **English** in this version.
 
 Two-letter abbreviations for week days are available in **English**
