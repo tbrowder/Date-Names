@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/tbrowder/Date-Names-Perl6.svg?branch=master)](https://travis-ci.org/tbrowder/Date-Names-Perl6)
 
-NAME
-====
+Date::Names
+===========
 
-Date::Names - Provides month and day-of-the-week names for numbers (multilingual)
+Module **Date::Names** - Provides month and day-of-the-week names for numbers (multilingual)
 
 SYNOPSIS
 ========
@@ -25,18 +25,23 @@ Module **Date::Names** provides the full name of months and days of the week for
 the numbers 1..12 and 1..7, respectively, primarily for use with
 **Perl 6**'s date functions.
 
-Three-letter abbreviations for months and week days are also available in **English** in this version.
+Three-letter abbreviations for months and week days are also available
+in **English** in this version.
 
-Two-letter abbreviations for week days are available in **English** and **German**.
+Two-letter abbreviations for week days are available in **English**
+and **German**.
 
-Full names of the months and week days are currently available in the following languages:
+Full names of the months and week days are currently available in the
+following languages:
 
-    Dutch   - Lower-case
-    English - Caplitalized
-    French  - Lower-case
-    German  - Capitalized
-    Italian - Months capitalized, week days in lower-case
-    Spanish - Lower-case
+Name | ISO two-letter code | Notes
+=====|=====================|===
+Dutch | nl |  Lower-case
+English | en | Caplitalized
+French  | fr | Lower-case
+German  | de | Capitalized
+Italian | it | Months capitalized, week days in lower-case
+Spanish | es |x Lower-case
 
 LIMITATIONS
 ===========
