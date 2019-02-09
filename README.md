@@ -16,6 +16,8 @@ SYNOPSIS
     say "The name of weekday 3 in German is {%dow<de><3>}";
     say "The name of weekday 3 in Italian is {%dow<it><3>}";
     say "The name of weekday 3 in Spanish is {%dow<es><3>}";
+    say "The two-letter abbreviation of weekday 3 in German is {%dow-abbrev2<de><3>}";
+    say "The three-letter abbreviation of weekday 3 in English is {%dow-abbrev3<3>}";
 
 
 DESCRIPTION
