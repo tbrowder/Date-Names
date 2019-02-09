@@ -34,14 +34,14 @@ and **German**.
 Full names of the months and week days are currently available in the
 following languages:
 
-Name | ISO two-letter code | Notes
-=====|=====================|===
-Dutch | nl |  Lower-case
-English | en | Caplitalized
-French  | fr | Lower-case
-German  | de | Capitalized
-Italian | it | Months capitalized, week days in lower-case
-Spanish | es |x Lower-case
+  Name | ISO two-letter code | Notes
+  =====|=====================|===
+  Dutch | nl |  Lower-case
+  English | en | Caplitalized
+  French  | fr | Lower-case
+  German  | de | Capitalized
+  Italian | it | Months capitalized, week days in lower-case
+  Spanish | es |x Lower-case
 
 LIMITATIONS
 ===========
