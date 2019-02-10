@@ -13,7 +13,6 @@ SYNOPSIS
     say "The name of month 3 in Dutch is {%mon<nl><3>}";
     say "The name of month 3 in English is {%mon<3>} or {%mon<en><3>}";
     say "The name of month 3 in French is {%mon<fr><3>}";
-    say "The name of weekday 3 in German is {%dow<de><3>}";
     say "The name of weekday 3 in Italian is {%dow<it><3>}";
     say "The name of weekday 3 in Spanish is {%dow<es><3>}";
     say "The two-letter abbreviation of weekday 3 in German is {%dow2<de><3>}";
@@ -43,16 +42,20 @@ following languages:
   French  | fr | Lower-case
   German  | de | Capitalized
   Italian | it | Months capitalized, week days in lower-case
-  Spanish | es | Lower-case
   Norwegian (Bokmål) | nb | Lower-case
+  Russian | ru | Lower-case 
+  Spanish | es | Lower-case
 
 LIMITATIONS
 ===========
 
-Whether to capitalize the names or not seems to be inconsistent in my
-Internet search for the values for the various languages. It is clear
-in English: they are always capitalized. The choices I made for the
-current languages are shown in the list above.
+Not all languages have a complete set of two- and three-letter
+abbreviations, and some require up to four letters for the
+official abbreviations.
+
+The following table shows the hash names for the abbreviations
+currently available:
+
 
 
 PULL REQUESTS
@@ -62,6 +65,17 @@ Native language speakers please submit PRs to (1) complete the
 existing language abbreviations, (2), correct errors, and (3) provide
 more languages.
 
+ACKNOWLEDGEMENTS
+================
+
+The following persons (shown are their #perl6 IRC handles)
+contributed to this project via PRs and comments:
+
++ @moritz - German and Norwegian data
++ @sena_kun - Russian data
++ @luc - French data
+
+I am grateful for their help!
 
 AUTHOR
 ======
