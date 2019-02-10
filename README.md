@@ -44,6 +44,7 @@ following languages:
   German  | de | Capitalized
   Italian | it | Months capitalized, week days in lower-case
   Spanish | es | Lower-case
+  Norwegian (Bokmål) | nb | Lower-case
 
 LIMITATIONS
 ===========
