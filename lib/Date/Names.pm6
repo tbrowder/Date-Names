@@ -9,12 +9,16 @@ unit module Date::Names;
 #   es - Spanish
 #   fr - French
 #   it - Italian
+#   nb - Norwegian
 #   nl - Dutch
 #   ru - Russian
 
+# From @luc, an authoritative link for French terms:
+#   http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3619
+
 # a list of the language two-letter codes currently considered
 # in this module
-constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl', 'nb', 'ru';
+constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
 
 constant %mon is export = %(
     # English is the default
@@ -46,7 +50,7 @@ constant %mon is export = %(
     # French
     fr => %(
         1, 'janvier',    2, 'février',  3, 'mars',      4, 'avril',
-        5, 'mai',        6, 'juin',     7, 'juillet',   8, 'aout',
+        5, 'mai',        6, 'juin',     7, 'juillet',   8, 'août',
         9, 'septembre', 10, 'octobre', 11, 'novembre', 12, 'décembre'
     ),
 
@@ -110,8 +114,8 @@ constant %dow is export = %(
 
     # Italian
     it => %(
-        1, 'lunedì',  2, ' martedì', 3, 'mercoledì', 4,  'giovedì',
-        5, 'venerdì', 6, ' sabato',  7, ' domenica'
+        1, 'lunedì',  2, 'martedì', 3, 'mercoledì', 4,  'giovedì',
+        5, 'venerdì', 6, 'sabato',  7, 'domenica'
     ),
 
     # Dutch
@@ -122,14 +126,14 @@ constant %dow is export = %(
 
     # Norwegian (Bokmål)
     nb => %(
-        1, 'mandag',  2, 'tirsdag',  3, 'onsdag',   4, 'torsdag',
-        5, 'fredag',  6, 'lørdag',   7, 'søndag',
+        1, 'mandag', 2, 'tirsdag', 3, 'onsdag', 4, 'torsdag',
+        5, 'fredag', 6, 'lørdag',  7, 'søndag',
     ),
 
     # Russian
     ru => %(
-        1, 'понедельник', 2, 'вторник',  3, 'среда', 4, 'четверг',
-        5, 'пятница', 6, 'суббота', 7, 'воскресенье'
+        1, 'понедельник', 2, 'вторник', 3, 'среда',      4, 'четверг',
+        5, 'пятница',     6, 'суббота', 7, 'воскресенье'
 
     ),
 );
@@ -148,8 +152,8 @@ constant %mon3 is export = %(
 
     # German
     de => %(
-        1, 'Jan',    2, 'Feb',  3, 'Mär',     4,  'Apr',
-        5, 'Mai',    6, 'Jun',  7, 'Jul',     8,  'Aug',
+        1, 'Jan',    2, 'Feb',  3, 'Mär',     4, 'Apr',
+        5, 'Mai',    6, 'Jun',  7, 'Jul',     8, 'Aug',
         9, 'Sep',   10, 'Okt',  11, 'Nov',   12, 'Dez'
     ),
 
@@ -187,7 +191,7 @@ constant %mon3 is export = %(
         5, '',        6, '',      7, '',      8,  '',
         9, '', 10, '',  11, '', 12, ''
     ),
-    
+
     # Russian
     ru => %(
         1, 'янв', 2, 'фев', 3, 'мар',  4, 'апр',  5, 'май',  6, 'июн',
@@ -244,7 +248,7 @@ constant %dow2 is export = %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, ''
     ),
-    
+
     # Russian
     ru => %(
         1, 'Пн', 2, 'Вт', 3, 'Ср', 4, 'Чт',
@@ -304,4 +308,14 @@ constant %dow3 is export = %(
         1, 'пон', 2, 'втр', 3, 'Ср', 4, 'чтв',
         5, 'пт', 6, 'сбт', 7, 'Вс'
     ),
+);
+
+# some languages don't have a complete set of two- or three-letter
+# abbreviations so we use another hash
+constant %mona is export = %(
+    # Russian and French
+);
+
+constant %dowa is export = %(
+    # Russian and French
 );

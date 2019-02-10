@@ -1,7 +1,7 @@
 use v6;
 use Test;
 
-plan 30;
+plan 40;
 
 use Date::Names :ALL;
 

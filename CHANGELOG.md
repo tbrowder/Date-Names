@@ -1,5 +1,10 @@
+## [v1.0.4]
+- Change description in META6.json file.
+- Merged PRs () from @morits (German three-letter abbreviaitons, Norwegian).
+- Merged PR () from @sena_kun (AKA @Altai-man) (Russian).
+
 ## [v1.0.3] - 2019-02-10
-- Move version number to top of META6.json.
+- Move version number to top of META6.json file.
 - Make tests more efficient and easier to modify.
 - Add export to @lang variable.
 - Add 'en' to @lang variable.
