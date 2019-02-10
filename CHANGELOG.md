@@ -1,3 +1,6 @@
+## [v1.0.2] - 2019-02-10
+- Fix typos.
+
 ## [v1.0.1] - 2019-02-10
 - Changed abbreviation hash name format, e.g,
   '%mon-abbrev2' was changed to '%mon2'.
