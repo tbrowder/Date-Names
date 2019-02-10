@@ -11,6 +11,10 @@ unit module Date::Names;
 #   it - Italian
 #   nl - Dutch
 
+# a list of the language two-letter codes currently considered
+# in this module
+constant @lang = 'de', 'es', 'fr', 'it', 'nl';
+
 constant %mon is export = %(
     # English is the default
     1, 'January',    2, 'February',  3, 'March',     4, 'April',
@@ -103,7 +107,7 @@ constant %dow is export = %(
 );
 
 # three-letter abbreviations
-constant %mon-abbrev3 is export = %(
+constant %mon3 is export = %(
     # English is the default
     1, 'Jan', 2, 'Feb', 3, 'Mar',  4, 'Apr',  5, 'May',  6, 'Jun',
     7, 'Jul', 8, 'Aug', 9, 'Sep', 10, 'Oct', 11, 'Nov', 12, 'Dec',
@@ -151,7 +155,7 @@ constant %mon-abbrev3 is export = %(
 );
 
 # two-letter abbreviations
-constant %dow-abbrev2 is export = %(
+constant %dow2 is export = %(
     # English is the default
     1, 'Mo', 2, 'Tu', 3, 'We', 4, 'Th',
     5, 'Fr', 6, 'Sa', 7, 'Su',
@@ -193,7 +197,7 @@ constant %dow-abbrev2 is export = %(
     ),
 );
 
-constant %dow-abbrev3 is export = %(
+constant %dow3 is export = %(
     1, 'Mon', 2, 'Tue', 3, 'Wed', 4, 'Thu',
     5, 'Fri', 6, 'Sat', 7, 'Sun',
 

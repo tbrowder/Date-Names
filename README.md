@@ -16,8 +16,8 @@ SYNOPSIS
     say "The name of weekday 3 in German is {%dow<de><3>}";
     say "The name of weekday 3 in Italian is {%dow<it><3>}";
     say "The name of weekday 3 in Spanish is {%dow<es><3>}";
-    say "The two-letter abbreviation of weekday 3 in German is {%dow-abbrev2<de><3>}";
-    say "The three-letter abbreviation of weekday 3 in English is {%dow-abbrev3<3>}";
+    say "The two-letter abbreviation of weekday 3 in German is {%dow2<de><3>}";
+    say "The three-letter abbreviation of weekday 3 in English is {%dow3<3>}";
 
 
 DESCRIPTION
@@ -72,4 +72,4 @@ COPYRIGHT & LICENSE
 Copyright (c) 2019 Tom Browder, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+it under the same terms as Perl 6 itself.

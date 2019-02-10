@@ -17,15 +17,15 @@ for 1..12 -> $mon {
 }
 
 for 1..12 -> $mon {
-    ok %mon-abbrev3{$mon};
-    ok %mon-abbrev3<en>{$mon};
+    ok %mon3{$mon};
+    ok %mon3<en>{$mon};
 
     # the following don't yet have values
-    nok %mon-abbrev3<de>{$mon};
-    nok %mon-abbrev3<es>{$mon};
-    nok %mon-abbrev3<fr>{$mon};
-    nok %mon-abbrev3<it>{$mon};
-    nok %mon-abbrev3<nl>{$mon};
+    nok %mon3<de>{$mon}, "no value yet";
+    nok %mon3<es>{$mon};
+    nok %mon3<fr>{$mon};
+    nok %mon3<it>{$mon};
+    nok %mon3<nl>{$mon};
 }
 
 for 1..7 -> $day {
@@ -39,25 +39,25 @@ for 1..7 -> $day {
 }
 
 for 1..7 -> $day {
-    ok %dow-abbrev3{$day};
-    ok %dow-abbrev3<en>{$day};
+    ok %dow3{$day};
+    ok %dow3<en>{$day};
 
     # the following don't yet have values
-    nok %dow-abbrev3<de>{$day};
-    nok %dow-abbrev3<es>{$day};
-    nok %dow-abbrev3<fr>{$day};
-    nok %dow-abbrev3<it>{$day};
-    nok %dow-abbrev3<nl>{$day};
+    nok %dow3<de>{$day};
+    nok %dow3<es>{$day};
+    nok %dow3<fr>{$day};
+    nok %dow3<it>{$day};
+    nok %dow3<nl>{$day};
 }
 
 for 1..7 -> $day {
-    ok %dow-abbrev2{$day};
-    ok %dow-abbrev2<en>{$day};
-    ok %dow-abbrev2<de>{$day};
+    ok %dow2{$day};
+    ok %dow2<en>{$day};
+    ok %dow2<de>{$day};
 
     # the following don't yet have values
-    nok %dow-abbrev2<es>{$day};
-    nok %dow-abbrev2<fr>{$day};
-    nok %dow-abbrev2<it>{$day};
-    nok %dow-abbrev2<nl>{$day};
+    nok %dow2<es>{$day};
+    nok %dow2<fr>{$day};
+    nok %dow2<it>{$day};
+    nok %dow2<nl>{$day};
 }
