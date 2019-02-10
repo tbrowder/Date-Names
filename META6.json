@@ -1,4 +1,5 @@
 {
+  "version" : "1.0.3",
   "auth" : "github:tbrowder",
   "author" : "github:tbrowder",
   "authors" : [
@@ -26,6 +27,5 @@
   ],
   "test-depends" : [
     "Test::META"
-  ],
-  "version" : "1.0.2"
+  ]
 }

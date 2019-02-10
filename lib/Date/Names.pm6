@@ -13,7 +13,7 @@ unit module Date::Names;
 
 # a list of the language two-letter codes currently considered
 # in this module
-constant @lang = 'de', 'es', 'fr', 'it', 'nl';
+constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl';
 
 constant %mon is export = %(
     # English is the default

@@ -1,3 +1,9 @@
+## [v1.0.3] - 2019-02-10
+- Move version number to top of META6.json.
+- Make tests more efficient and easier to modify.
+- Add export to @lang variable.
+- Add 'en' to @lang variable.
+
 ## [v1.0.2] - 2019-02-10
 - Fix typos.
 
