@@ -10,10 +10,11 @@ unit module Date::Names;
 #   fr - French
 #   it - Italian
 #   nl - Dutch
+#   ru - Russian
 
 # a list of the language two-letter codes currently considered
 # in this module
-constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl', 'nb';
+constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl', 'nb', 'ru';
 
 constant %mon is export = %(
     # English is the default
@@ -69,6 +70,13 @@ constant %mon is export = %(
        5, 'mai',         6, 'juni',      7, 'juli',      8, 'august',
        9, 'september',  10, 'oktober',  11, 'november', 12, 'desember',
     ),
+
+    # Russian
+    ru => %(
+        1, 'январь',    2, 'февраль',  3, 'март',     4, 'апрель',
+        5, 'май',        6, 'июнь',      7, 'июль',      8, 'август',
+        9, 'сентябрь', 10, 'октябрь',  11, 'ноябрь', 12, 'декабрь'
+    ),
 );
 
 constant %dow is export = %(
@@ -111,10 +119,18 @@ constant %dow is export = %(
         1, 'maandag', 2, 'dinsdag',  3, 'woensdag', 4,  'donderdag',
         5, 'vrijdag', 6, 'zaterdag', 7, 'zondag'
     ),
+
     # Norwegian (Bokmål)
     nb => %(
         1, 'mandag',  2, 'tirsdag',  3, 'onsdag',   4, 'torsdag',
         5, 'fredag',  6, 'lørdag',   7, 'søndag',
+    ),
+
+    # Russian
+    ru => %(
+        1, 'понедельник', 2, 'вторник',  3, 'среда', 4, 'четверг',
+        5, 'пятница', 6, 'суббота', 7, 'воскресенье'
+
     ),
 );
 
@@ -132,9 +148,9 @@ constant %mon3 is export = %(
 
     # German
     de => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, '',      8,  '',
-        9, '', 10, '',  11, '', 12, ''
+        1, 'Jan',    2, 'Feb',  3, 'Mär',     4,  'Apr',
+        5, 'Mai',    6, 'Jun',  7, 'Jul',     8,  'Aug',
+        9, 'Sep',   10, 'Okt',  11, 'Nov',   12, 'Dez'
     ),
 
     # Spanish
@@ -170,6 +186,13 @@ constant %mon3 is export = %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, '',      8,  '',
         9, '', 10, '',  11, '', 12, ''
+    ),
+    
+    # Russian
+    ru => %(
+        1, 'янв', 2, 'фев', 3, 'мар',  4, 'апр',  5, 'май',  6, 'июн',
+        7, 'июл', 8, 'авг', 9, 'сен', 10, 'окт', 11, 'ноя', 12, 'дек'
+
     ),
 );
 
@@ -215,10 +238,18 @@ constant %dow2 is export = %(
         5, '',        6, '',      7, ''
     ),
 
+
     # Norwegian (Bokmål)
     nb => %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, ''
+    ),
+    
+    # Russian
+    ru => %(
+        1, 'Пн', 2, 'Вт', 3, 'Ср', 4, 'Чт',
+        5, 'Пт', 6, 'Сб', 7, 'Вс'
+
     ),
 );
 
@@ -266,5 +297,11 @@ constant %dow3 is export = %(
     nb => %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, ''
+    ),
+
+    # Russian
+    ru => %(
+        1, 'пон', 2, 'втр', 3, 'Ср', 4, 'чтв',
+        5, 'пт', 6, 'сбт', 7, 'Вс'
     ),
 );
