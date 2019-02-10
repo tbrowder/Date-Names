@@ -13,7 +13,7 @@ unit module Date::Names;
 
 # a list of the language two-letter codes currently considered
 # in this module
-constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl';
+constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nl', 'nb';
 
 constant %mon is export = %(
     # English is the default
@@ -62,6 +62,13 @@ constant %mon is export = %(
         5, 'mei',        6, 'juni',      7, 'juli',      8, 'augustus',
         9, 'september', 10, 'oktober',  11, 'november', 12, 'december'
     ),
+
+    # Norwegian (Bokmål)
+    nb => %(
+       1, 'januar',      2, 'februar',   3, 'mars',      4, 'april',
+       5, 'mai',         6, 'juni',      7, 'juli',      8, 'august',
+       9, 'september',  10, 'oktober',  11, 'november', 12, 'desember',
+    ),
 );
 
 constant %dow is export = %(
@@ -103,6 +110,11 @@ constant %dow is export = %(
     nl => %(
         1, 'maandag', 2, 'dinsdag',  3, 'woensdag', 4,  'donderdag',
         5, 'vrijdag', 6, 'zaterdag', 7, 'zondag'
+    ),
+    # Norwegian (Bokmål)
+    nb => %(
+        1, 'mandag',  2, 'tirsdag',  3, 'onsdag',   4, 'torsdag',
+        5, 'fredag',  6, 'lørdag',   7, 'søndag',
     ),
 );
 
@@ -152,6 +164,13 @@ constant %mon3 is export = %(
         5, '',        6, '',      7, '',      8,  '',
         9, '', 10, '',  11, '', 12, ''
     ),
+
+    # Norwegian (Bokmål)
+    nb => %(
+        1, '',    2, '',  3, '',     4,  '',
+        5, '',        6, '',      7, '',      8,  '',
+        9, '', 10, '',  11, '', 12, ''
+    ),
 );
 
 # two-letter abbreviations
@@ -195,6 +214,12 @@ constant %dow2 is export = %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, ''
     ),
+
+    # Norwegian (Bokmål)
+    nb => %(
+        1, '',    2, '',  3, '',     4,  '',
+        5, '',        6, '',      7, ''
+    ),
 );
 
 constant %dow3 is export = %(
@@ -233,6 +258,12 @@ constant %dow3 is export = %(
 
     # Dutch
     nl => %(
+        1, '',    2, '',  3, '',     4,  '',
+        5, '',        6, '',      7, ''
+    ),
+
+    # Norwegian (Bokmål)
+    nb => %(
         1, '',    2, '',  3, '',     4,  '',
         5, '',        6, '',      7, ''
     ),
