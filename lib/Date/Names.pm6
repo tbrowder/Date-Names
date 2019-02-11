@@ -17,34 +17,96 @@ unit module Date::Names;
 # in this module
 constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
 
-use Date::Names::EN;
+use Date::Names::de;
+use Date::Names::en;
+use Date::Names::es;
+use Date::Names::fr;
+use Date::Names::it;
+use Date::Names::nb;
+use Date::Names::nl;
+use Date::Names::ru;
 
 # the class (beta)
+enum Case <tc uc lc keep-c>;
+enum Period <yes no keep-p>;
 class Date::Names {
-    has $.lang is required;
-    has $.dow  is required;
-    has $.mon  is required;
+    has $.lang     is required;
+    has $.day-hash is required; # name of hash to use
+    has $.mon-hash is required; # name of hash to use
 
     has %.d;
     has %.m;
 
-    has $.period     = -1; # add or keep a period to end abbreviations?
-                           # (True or False; default -1 means use the
-                           # native value as is)
-    has UInt $.trunc =  0; # truncate to N chars if N > 0
-    has $.case       = ''; # use native case (or choose: TC, LC, UC)
+    has Period $.period = keep-p; # add, remove, or keep a period to end abbreviations
+                                  # (True or False; default -1 means use the
+                                  # native value as is)
+    has UInt $.trunc    = 0;      # truncate to N chars if N > 0
+    has Case $.case     = keep-c; # use native case (or choose: tc, lc, uc)
+    has $.pad           = False;  # used with trunc to fill short values with
+                                  # spaces on the right
 
     submethod TWEAK() {
-        %!d = $::("Date::Names::{uc $!lang}::{$!dow}");
-        %!m = $::("Date::Names::{uc $!lang}::{$!mon}");
+        # this sets the class var to the desired
+        # dow and mon hashes (lang and value width)
+        %!d = $::("Date::Names::{$!lang}::{$!day-hash}");
+        %!m = $::("Date::Names::{$!lang}::{$!mon-hash}");
     }
 
-    method dow(UInt $n where {$n > 0 && $n < 8}) {
+    method !handle-val-attrs($val, :$is-abbrev!) {
+        # check for any changes that are to be made
+        my $has-period = 0;
+        my $nchars = $val.chars; # includes an ending period
+        if $val ~~ /^(\s+) '.'$/ {
+            die "FATAL: found ending period in val $val (not an abbbreviation)"
+                if !$is-abbrev;
+
+            # remove the period and return it later if required
+            $val = ~$0;
+            $has-period = 1;
+        }
+        elsif $val ~~ /'.'/ {
+            die "FATAL: found INTERIOR period in val $val";
+        }
+
+        if $.trunc && $val.chars > $.trunc {
+            $val .= substr(0, self.trunc);
+        }
+        elsif $.trunc && $.pad && $val.chars < $.trunc {
+            $val .= substr(0, $.trunc);
+        }
+
+        if $.case !~~ /keep/ {
+            # more checks needed
+        }
+
+        if $.trunc && $val.chars > self.trunc {
+            $val .= substr(0, $.trunc);
+        }
+        elsif $.trunc && $.pad && $val.chars < $.truncx {
+            $val .= substr(0, $.trunc);
+        }
+        if $.case !~~ /keep/ {
+            # more checks needed
+        }
+
+        # treat the period carefully, it may or may not
+        # have been removed by now
+
+        return $val;
+
+    }
+
+    method dow(UInt $n where { $n > 0 && $n < 8 }) {
         my $val = %.d{$n};
+        my $is-abbrev = $.day-hash eq 'dow' ?? False !! True;
+        $val = self!handle-val-attrs($val, :$is-abbrev);
         return $val;
     }
-    method mon(UInt $n where { $n > 0 && $n < 13}) {
+
+    method mon(UInt $n where { $n > 0 && $n < 13 }) {
         my $val = %.m{$n};
+        my $is-abbrev = $.mon-hash eq 'mon' ?? False !! True;
+        $val = self!handle-val-attrs($val, :$is-abbrev);
         return $val;
     }
 }
