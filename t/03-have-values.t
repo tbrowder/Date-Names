@@ -15,13 +15,12 @@ for 1..12 -> $mon {
     ok %Date::Names::mon2<fr>{$mon};
 
     ok %Date::Names::mon3{$mon};
-    ok %Date::Names::mon3<de>{$mon};
-    ok %Date::Names::mon3<en>{$mon};
-    ok %Date::Names::mon3<es>{$mon};
-    ok %Date::Names::mon3<ru>{$mon};
+    for <de en es nl ru> -> $L {
+        ok %Date::Names::mon3{$L}{$mon};
+    }
 
     # the following don't yet have values
-    for <fr it nb nl> -> $L {
+    for <fr it nb> -> $L {
         nok %Date::Names::mon3{$L}{$mon}, "no value yet";
     }
 }
@@ -33,23 +32,22 @@ for 1..7 -> $day {
     }
 
     ok %Date::Names::dow3{$day};
-    ok %Date::Names::dow3<en>{$day};
-    ok %Date::Names::dow3<es>{$day};
-    ok %Date::Names::dow3<fr>{$day};
+    for <en es fr nl> -> $L {
+        ok %Date::Names::dow3{$L}{$day};
+    }
 
     # the following don't yet have values
-    for <de it nb nl ru> -> $L {
+    for <de it nb ru> -> $L {
         nok %Date::Names::dow3{$L}{$day}, "no value yet";
     }
 
     ok %Date::Names::dow2{$day};
-    ok %Date::Names::dow2<de>{$day};
-    ok %Date::Names::dow2<en>{$day};
-    ok %Date::Names::dow2<es>{$day};
-    ok %Date::Names::dow2<ru>{$day};
+    for <de en es nl ru> -> $L {
+        ok %Date::Names::dow2{$L}{$day};
+    }
 
     # the following don't yet have values
-    for <fr it nb nl> -> $L {
+    for <fr it nb> -> $L {
         nok %Date::Names::dow2{$L}{$day}, "no value yet";
     }
 }
