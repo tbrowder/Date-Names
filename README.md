@@ -114,6 +114,8 @@ and increased utility.
 VERSION 2 PLANS
 ===============
 
+In work now is a class to ease use of the module:
+
 ~~~perl6
 # need some enums:
 #   Period yes no keep
