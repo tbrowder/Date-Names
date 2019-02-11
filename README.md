@@ -44,16 +44,17 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 Full names of the months and weekdays are currently available in the
 following languages:
 
-  Language | ISO two-letter code
-  ---      | :---:
-  Dutch    | nl
-  English  | en
-  French   | fr
-  German   | de
-  Italian  | it
+  Language           | ISO two-letter code
+                     | (lower-case)
+  :---               | :---:
+  Dutch              | nl
+  English            | en
+  French             | fr
+  German             | de
+  Italian            | it
   Norwegian (Bokmål) | nb
-  Russian  | ru
-  Spanish  | es
+  Russian            | ru
+  Spanish            | es
 
 CAPITALIZATION AND PUNCTUATION
 ==============================
