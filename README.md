@@ -26,12 +26,6 @@ Module **Date::Names** provides the full name of months and days of the week for
 the numbers 1..12 and 1..7, respectively, primarily for use with
 **Perl 6**'s date functions.
 
-Three-letter abbreviations for months and week days are available
-in **English** in this version.
-
-Two-letter abbreviations for week days are available in **English**
-and **German**.
-
 Full names of the months and week days are currently available in the
 following languages:
 
@@ -54,9 +48,23 @@ abbreviations, and some require up to four letters for the
 official abbreviations.
 
 The following table shows the hash names for the abbreviations
-currently available:
+currently available. Hash names with a 2, 3, or 4 appended are
+complete abbreviation sets of that length only. 
+Hash names with an 'a' appended are sets of abbreviations of mixed length.
 
+Various two-, three-, and mixed-abbreviation hashes are also
+available. See the table below for a complete, current list.
 
+Language | %mon2 | %mon3 | %mon4 | %mona | %dow2 | %dow3 | %dow4 | %dowa
+---      | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:  
+Dutch    |      |       |       |       |      |       |       |        
+English  |      |       |       |       |      |       |       |        
+French   |      |       |       |       |      |       |       |        
+Germen   |      |       |       |       |      |       |       |        
+Italian  |      |       |       |       |      |       |       |        
+Norwegian|      |       |       |       |      |       |       |        
+Russian  |      |       |       |       |      |       |       |        
+Spanish  |      |       |       |       |      |       |       |        
 
 PULL REQUESTS
 =============
