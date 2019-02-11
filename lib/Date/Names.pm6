@@ -159,9 +159,9 @@ constant %mon3 is export = %(
 
     # Spanish
     es => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, '',      8,  '',
-        9, '', 10, '',  11, '', 12, ''
+        1, 'ene',    2, 'feb',  3, 'mar',     4,  'abr',
+        5, 'may',    6, 'jun',  7, 'jul',     8,  'ago',
+        9, 'sep',   10, 'oct', 11, 'nov',    12,  'dic'
     ),
 
     # French
@@ -230,8 +230,8 @@ constant %dow2 is export = %(
 
     # Spanish
     es => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, 'lu',    2, 'ma',  3, 'mi',     4,  'ju',
+        5, 'vi',    6, 'sá',  7, 'do'
     ),
 
     # French
@@ -285,8 +285,8 @@ constant %dow3 is export = %(
 
     # Spanish
     es => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, 'lun',  2, 'mar',  3, 'mié',  4, 'jue',
+        5, 'vie',  6, 'sáb',  7, 'dom'
     ),
 
     # French
