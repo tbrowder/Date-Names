@@ -17,14 +17,16 @@ unit module Date::Names;
 # in this module
 constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
 
+use Date::Names::EN;
+
 # the class (beta)
 class Date::Names {
     has $.lang is required;
     has $.dow  is required;
     has $.mon  is required;
 
-    has %.dow;
-    has %.mon;
+    has %.d;
+    has %.m;
 
     has $.period     = -1; # add or keep a period to end abbreviations?
                            # (True or False; default -1 means use the
@@ -33,17 +35,16 @@ class Date::Names {
     has $.case       = ''; # use native case (or choose: TC, LC, UC)
 
     submethod TWEAK() {
-        my $L = $!lang;
-        %!dow = %(::{$!dow{$L}});;
+        %!d = $::("Date::Names::{uc $!lang}::{$!dow}");
+        %!m = $::("Date::Names::{uc $!lang}::{$!mon}");
     }
 
     method dow(UInt $n where {$n > 0 && $n < 8}) {
-        my $val = %.dow{$n};
-        # if $.period
+        my $val = %.d{$n};
         return $val;
     }
     method mon(UInt $n where { $n > 0 && $n < 13}) {
-        my $val = %.dow{$n};
+        my $val = %.m{$n};
         return $val;
     }
 }
