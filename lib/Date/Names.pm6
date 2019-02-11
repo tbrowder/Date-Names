@@ -13,9 +13,6 @@ unit module Date::Names;
 #   nl - Dutch
 #   ru - Russian
 
-# From @luc, an authoritative link for French terms:
-#   http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3619
-
 # a list of the language two-letter codes currently considered
 # in this module
 constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
@@ -114,19 +111,19 @@ constant %dow  = %(
 
     # French
     fr => %(
-        1, 'lundi',    2, 'mardi',  3, 'mercredi', 4,  'jeudi',
+        1, 'lundi',    2, 'mardi',  3, 'mercredi', 4, 'jeudi',
         5, 'vendredi', 6, 'samedi', 7, 'dimanche'
     ),
 
     # Italian
     it => %(
-        1, 'lunedì',  2, 'martedì', 3, 'mercoledì', 4,  'giovedì',
+        1, 'lunedì',  2, 'martedì', 3, 'mercoledì', 4, 'giovedì',
         5, 'venerdì', 6, 'sabato',  7, 'domenica'
     ),
 
     # Dutch
     nl => %(
-        1, 'maandag', 2, 'dinsdag',  3, 'woensdag', 4,  'donderdag',
+        1, 'maandag', 2, 'dinsdag',  3, 'woensdag', 4, 'donderdag',
         5, 'vrijdag', 6, 'zaterdag', 7, 'zondag'
     ),
 
@@ -158,44 +155,44 @@ constant %mon3  = %(
 
     # German
     de => %(
-        1, 'Jan',    2, 'Feb',  3, 'Mär',     4, 'Apr',
-        5, 'Mai',    6, 'Jun',  7, 'Jul',     8, 'Aug',
-        9, 'Sep',   10, 'Okt',  11, 'Nov',   12, 'Dez'
+        1, 'Jan',  2, 'Feb',  3, 'Mär',  4, 'Apr',
+        5, 'Mai',  6, 'Jun',  7, 'Jul',  8, 'Aug',
+        9, 'Sep', 10, 'Okt', 11, 'Nov', 12, 'Dez'
     ),
 
     # Spanish
     es => %(
-        1, 'ene',    2, 'feb',  3, 'mar',     4,  'abr',
-        5, 'may',    6, 'jun',  7, 'jul',     8,  'ago',
-        9, 'sep',   10, 'oct', 11, 'nov',    12,  'dic'
+        1, 'ene',  2, 'feb',  3, 'mar',  4, 'abr',
+        5, 'may',  6, 'jun',  7, 'jul',  8, 'ago',
+        9, 'sep', 10, 'oct', 11, 'nov', 12, 'dic'
     ),
 
     # French
     fr => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, '',      8,  '',
-        9, '', 10, '',  11, '', 12, ''
+        1, '',  2, '',  3, '',  4, '',
+        5, '',  6, '',  7, '',  8, '',
+        9, '', 10, '', 11, '', 12, ''
     ),
 
     # Italian
     it => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, '',      8,  '',
-        9, '', 10, '',  11, '', 12, ''
+        1, '',  2, '',  3, '',  4, '',
+        5, '',  6, '',  7, '',  8, '',
+        9, '', 10, '', 11, '', 12, ''
     ),
 
     # Dutch
     nl => %(
-        1, 'jan',   2, 'feb',  3, 'maa',   4,  'apr',
-        5, 'mei',   6, 'jun',  7, 'jul',   8,  'aug',
+        1, 'jan',   2, 'feb',  3, 'maa',   4, 'apr',
+        5, 'mei',   6, 'jun',  7, 'jul',   8, 'aug',
         9, 'sep',  10, 'okt', 11, 'nov',  12, 'dec'
     ),
 
     # Norwegian (Bokmål)
     nb => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, '',      8,  '',
-        9, '', 10, '',  11, '', 12, ''
+        1, '',  2, '',  3, '',  4, '',
+        5, '',  6, '',  7, '',  8, '',
+        9, '', 10, '', 11, '', 12, ''
     ),
 
     # Russian
@@ -236,20 +233,20 @@ constant %dow2  = %(
 
     # Spanish
     es => %(
-        1, 'lu',    2, 'ma',  3, 'mi',     4,  'ju',
-        5, 'vi',    6, 'sá',  7, 'do'
+        1, 'lu', 2, 'ma', 3, 'mi', 4, 'ju',
+        5, 'vi', 6, 'sá', 7, 'do'
     ),
 
     # French
     fr => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 
     # Italian
     it => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 
     # Dutch
@@ -261,8 +258,8 @@ constant %dow2  = %(
 
     # Norwegian (Bokmål)
     nb => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 
     # Russian
@@ -303,20 +300,20 @@ constant %dow3  = %(
 
     # Italian
     it => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 
     # Dutch
     nl => %(
-        1, 'maa',  2, 'din',  3, 'woe', 4,  'don',
-        5, 'vri',  6, 'zat',  7, 'zon'
+        1, 'maa', 2, 'din', 3, 'woe', 4, 'don',
+        5, 'vri', 6, 'zat', 7, 'zon'
     ),
 
     # Norwegian (Bokmål)
     nb => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 
     # Russian
@@ -329,7 +326,6 @@ constant %dow3  = %(
 # some languages don't have a complete set of two- or three-letter
 # abbreviations so we use another hash
 constant %mona  = %(
-    # Russian and French
     # French (abbreviations "courante")
     fr => %(
         1, 'janv',  2, 'févr',  3, 'mars',   4, 'avr',
