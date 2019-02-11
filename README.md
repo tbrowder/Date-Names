@@ -8,15 +8,17 @@ Module **Date::Names** - Provides month and day-of-the-week names for numbers (m
 SYNOPSIS
 ========
 
-    use Date::Names;
+~~~perl6
+use Date::Names;
 
-    say "The name of month 3 in Dutch is {%mon<nl><3>}";
-    say "The name of month 3 in English is {%mon<3>} or {%mon<en><3>}";
-    say "The name of month 3 in French is {%mon<fr><3>}";
-    say "The name of weekday 3 in Italian is {%dow<it><3>}";
-    say "The name of weekday 3 in Spanish is {%dow<es><3>}";
-    say "The two-letter abbreviation of weekday 3 in German is {%dow2<de><3>}";
-    say "The three-letter abbreviation of weekday 3 in English is {%dow3<3>}";
+say "The name of month 3 in Dutch is {%mon<nl><3>}";
+say "The name of month 3 in English is {%mon<3>} or {%mon<en><3>}";
+say "The name of month 3 in French is {%mon<fr><3>}";
+say "The name of weekday 3 in Italian is {%dow<it><3>}";
+say "The name of weekday 3 in Spanish is {%dow<es><3>}";
+say "The two-letter abbreviation of weekday 3 in German is {%dow2<de><3>}";
+say "The three-letter abbreviation of weekday 3 in English is {%dow3<3>}";
+~~~
 
 
 DESCRIPTION
@@ -26,19 +28,19 @@ Module **Date::Names** provides the full name of months and days of the week for
 the numbers 1..12 and 1..7, respectively, primarily for use with
 **Perl 6**'s date functions.
 
-Full names of the months and week days are currently available in the
+Full names of the months and weekdays are currently available in the
 following languages:
 
-  Language | ISO two-letter code 
-  ---      | :---:    
-  Dutch    | nl 
-  English  | en 
-  French   | fr 
-  German   | de 
-  Italian  | it 
-  Norwegian (Bokmål) | nb 
-  Russian  | ru  
-  Spanish  | es 
+  Language | ISO two-letter code
+  ---      | :---:
+  Dutch    | nl
+  English  | en
+  French   | fr
+  German   | de
+  Italian  | it
+  Norwegian (Bokmål) | nb
+  Russian  | ru
+  Spanish  | es
 
 CAPITALIZATION AND PUNCTUATION
 ==============================
@@ -63,21 +65,21 @@ official abbreviations.
 
 The following table shows the hash names for the abbreviations
 currently available. Hash names with a 2 or 3 appended are
-complete abbreviation sets of that length only. 
+complete abbreviation sets of that length only.
 Hash names with an 'a' appended are sets of abbreviations of mixed length.
 An 'X' in a cell indicates a language has a complete set of that type
 of abbreviation.
 
 Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
----      | :---: | :---: | :---: | :---: | :---: | :---:  
-Dutch    |       |       |       |       |       |        
-English  |       |       |       |       |       |              
-French   |       |       |       |       |       |              
-German   |       |       |       |       |       |              
-Italian  |       |       |       |       |       |              
-Norwegian|       |       |       |       |       |              
-Russian  |       |       |       |       |       |              
-Spanish  |       |       |       |       |       |              
+---      | :---: | :---: | :---: | :---: | :---: | :---:
+Dutch    |       |       |       |       |       |
+English  |       |       |       |       |       |
+French   |       |       |       |       |       |
+German   |       |       |       |       |       |
+Italian  |       |       |       |       |       |
+Norwegian|       |       |       |       |       |
+Russian  |       |       |       |       |       |
+Spanish  |       |       |       |       |       |
 
 PULL REQUESTS
 =============
