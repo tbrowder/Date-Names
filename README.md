@@ -8,11 +8,13 @@ Module **Date::Names** - Provides month and day-of-the-week names for numbers (m
 SYNOPSIS
 ========
 
-## IMPORTANT NOTE: the modules hashes are no longer exported in order
-## to avoid interference with the user's environment.
+## IMPORTANT NOTE:
+
+The module's hashes are no longer exported in order to avoid interference with the user's environment.
+But the **@lang** array is still exported.
 
 ~~~perl6
-use Date::Names;
+use Date::Names; # <== note no :ALL
 
 # For one-off use
 say "Month 3 in Dutch is '{%Date::Names::mon<nl><3>}'";
