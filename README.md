@@ -51,16 +51,15 @@ The following table shows the hash names for the abbreviations
 currently available. Hash names with a 2, 3, or 4 appended are
 complete abbreviation sets of that length only. 
 Hash names with an 'a' appended are sets of abbreviations of mixed length.
-
-Various two-, three-, and mixed-abbreviation hashes are also
-available. See the table below for a complete, current list.
+An 'X' in a cell indicates a language has a complete set of that type
+of abbreviation.
 
 Language | %mon2 | %mon3 | %mon4 | %mona | %dow2 | %dow3 | %dow4 | %dowa
 ---      | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:  
 Dutch    |      |       |       |       |      |       |       |        
 English  |      |       |       |       |      |       |       |        
 French   |      |       |       |       |      |       |       |        
-Germen   |      |       |       |       |      |       |       |        
+German   |      |       |       |       |      |       |       |        
 Italian  |      |       |       |       |      |       |       |        
 Norwegian|      |       |       |       |      |       |       |        
 Russian  |      |       |       |       |      |       |       |        
