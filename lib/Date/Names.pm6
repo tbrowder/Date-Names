@@ -17,7 +17,38 @@ unit module Date::Names;
 # in this module
 constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
 
-constant %mon  = %(
+# the class (beta)
+class Date::Names {
+    has $.lang is required;
+    has $.dow  is required;
+    has $.mon  is required;
+
+    has %.dow;
+    has %.mon;
+
+    has $.period     = -1; # add or keep a period to end abbreviations?
+                           # (True or False; default -1 means use the
+                           # native value as is)
+    has UInt $.trunc =  0; # truncate to N chars if N > 0
+    has $.case       = ''; # use native case (or choose: TC, LC, UC)
+
+    submethod TWEAK() {
+        my $L = $!lang;
+        %!dow = %(::{$!dow{$L}});;
+    }
+
+    method dow(UInt $n where {$n > 0 && $n < 8}) {
+        my $val = %.dow{$n};
+        # if $.period
+        return $val;
+    }
+    method mon(UInt $n where { $n > 0 && $n < 13}) {
+        my $val = %.dow{$n};
+        return $val;
+    }
+}
+
+constant %mon = %(
     # English is the default
     1, 'January',    2, 'February',  3, 'March',     4, 'April',
     5, 'May',        6, 'June',      7, 'July',      8, 'August',
@@ -81,9 +112,10 @@ constant %mon  = %(
 
     # Dutch
     nl => %(
-        1, 'januari',    2, 'februari', 3, 'maart',     4, 'april,
+        1, 'januari',    2, 'februari', 3, 'maart',     4, 'april',
         5, 'mei',        6, 'juni',     7, 'juli',      8, 'augustus',
         9, 'september', 10, 'oktober', 11, 'november', 12, 'december'
+    ),
 );
 
 constant %dow  = %(
