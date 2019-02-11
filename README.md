@@ -66,8 +66,8 @@ but the user can always explicitly set the case by applying
 the Perl 6 routines **tc**, **uc**, or **lc** to the name or
 abbreviation.
 
-None of the abbreviations include an ending period even though
-that might be customary use in some languages.
+Some of the abbreviations include an ending period since that is
+customary use in some languages (e.g., French).
 
 LIMITATIONS
 ===========
