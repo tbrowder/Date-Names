@@ -40,7 +40,7 @@ following languages:
   Russian  | ru  
   Spanish  | es 
 
-CAPITILAZATION AND PUNCTUATION
+CAPITALIZATION AND PUNCTUATION
 ==============================
 
 All English month and weekday names are always capitalized.
