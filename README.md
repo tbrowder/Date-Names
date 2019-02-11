@@ -84,11 +84,11 @@ indicates a language has a complete set of that type of abbreviation.
 
 Note that in some countries the term "abbreviation" is distinctly
 different than "code" as applies to date names. An asterisk in a cell
-marks those which are technically codes rater than abbreviations.
+marks those which are technically codes rather than abbreviations.
 
 Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
 ---      | :---: | :---: | :---: | :---: | :---: | :---:
-Dutch    |       |       |       |       |       |
+Dutch    |       |   Y   |       |   Y   |   Y   |
 English  |       |   Y   |       |   Y   |   Y   |
 French   |   Y*  |       |   Y   |       |   Y   |   Y
 German   |       |   Y   |       |       |       |
@@ -140,7 +140,7 @@ my class Date::Names {
 }
 
 my $dn = Date::Names.new(
-    :lang<fr>,     # Rrench
+    :lang<fr>,     # French
     :period(True), # keep or add a period at the end of abbreviations
     :dow<dow>,     # use full-length dow
     :mon<mon3>,    # use 3-char abbreviation
