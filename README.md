@@ -117,35 +117,21 @@ VERSION 2 PLANS
 In work now is a class to ease use of the module:
 
 ~~~perl6
-# need some enums:
-#   Period yes no keep
-#   Case tc uc ls keep
-my class Date::Names {
-    has $.lang is required;
-    has %.dow  is required;
-    has %.mon  is required;
-
-    has $.period        = -1; # add or keep a period to end abbreviations? (True or False; default -1 means use the native value as is)
-    has UInt $.truncate =  0; # truncate to N chars if N > 0
-    has $.case          = ''; # use native case (or choose: TC, LC, UC)
-
-    method dow($n where ($n>0 && $n<7)) {
-        my $val = %.dow{$n};
-        if $period > -1
-        return $val;
-    }
-    method mon($n where ($n>0 && $n<13)) {
-        return %mon{$n};
-    }
-}
-
+use Date::Names;
 my $dn = Date::Names.new(
-    :lang<fr>,     # French
-    :period(True), # keep or add a period at the end of abbreviations
-    :dow<dow>,     # use full-length dow
-    :mon<mon3>,    # use 3-char abbreviation
+    :lang<en>,
+    :day-hash<dow2>,
+    :mon-hash<mon3>,
 );
+is $dn.dow(1), "Mo";
+is $dn.mon(1), "Jan";
 ~~~
+
+The basic class is working and is tested briefly.  More is to be done,
+but eventually it will be able to proved a unified handling of full
+names and abbreviations. The user will be able to control casing,
+absence or presence of periods on abbreviations, and truncation or
+padding as desired.
 
 
 ACKNOWLEDGEMENTS
