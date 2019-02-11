@@ -111,6 +111,41 @@ The goal of this module is to be useful to non-English users as well
 as English users. The author welcomes suggestions for improvement
 and increased utility.
 
+VERSION 2 PLANS
+===============
+
+~~~perl6
+# need some enums:
+#   Period yes no keep
+#   Case tc uc ls keep
+my class Date::Names {
+    has $.lang is required;
+    has %.dow  is required;
+    has %.mon  is required;
+
+    has $.period        = -1; # add or keep a period to end abbreviations? (True or False; default -1 means use the native value as is)
+    has UInt $.truncate =  0; # truncate to N chars if N > 0
+    has $.case          = ''; # use native case (or choose: TC, LC, UC)
+
+    method dow($n where ($n>0 && $n<7)) {
+        my $val = %.dow{$n};
+        if $period > -1
+        return $val;
+    }
+    method mon($n where ($n>0 && $n<13)) {
+        return %mon{$n};
+    }
+}
+
+my $dn = Date::Names.new(
+    :lang<fr>,     # Rrench
+    :period(True), # keep or add a period at the end of abbreviations
+    :dow<dow>,     # use full-length dow
+    :mon<mon3>,    # use 3-char abbreviation
+);
+~~~
+
+
 ACKNOWLEDGEMENTS
 ================
 
@@ -121,6 +156,7 @@ comments (@name is an alias on IRC #perl6):
 + @sena_kun - Russian data
 + Luc St-Louis (@lucs) - French data
 + Luis F. Uceta (github: uzluisf) - Spanish data
++ @lizmat - Dutch data
 
 I am grateful for their help!
 
