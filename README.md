@@ -8,8 +8,8 @@ Module **Date::Names** - Provides month and day-of-the-week names for numbers (m
 SYNOPSIS
 ========
 
-## IMPORTANT NOTE: the hashes are not exported now in order to interfere
-with the user's environment.
+## IMPORTANT NOTE: the modules hashes are no longer exported in order
+## to avoid interference with the user's environment.
 
 ~~~perl6
 use Date::Names;
@@ -23,8 +23,8 @@ say "Weekday 3 in Spanish is '{%Date::Names::dow<it><3>}'";
 say "Two-letter abbrev. of weekday 3 in German is '{%Date::Names::dow2<de><3>}'";
 say "Three-letter abbrev. of weekday 3 in English is '{%Date::Names::dow3<en><3>}'";
 
-# For more intense uses, one can use this syntax:
-my %dow = %Date::Names::dow<nl>;
+# For more intense cases, one can use this syntax:
+my %dow = %Date::Names::dow<nl>; # a convenience hash
 say "Weekdays in Dutch:";
 for 1..7 -> $n {
     say "  day $n: {%dow{$n}}";
