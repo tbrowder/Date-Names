@@ -57,7 +57,7 @@ class Date::Names {
         my $has-period = 0;
         my $nchars = $val.chars; # includes an ending period
         if $val ~~ /^(\s+) '.'$/ {
-            die "FATAL: found ending period in val $val (not an abbbreviation)"
+            die "FATAL: found ending period in val $val (not an abbreviation)"
                 if !$is-abbrev;
 
             # remove the period and return it later if required
