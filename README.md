@@ -107,6 +107,11 @@ contributed to this project via PRs and comments:
 
 I am grateful for their help!
 
+REFERENCES
+==========
+
+1. [fr] <http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3617>
+
 AUTHOR
 ======
 
