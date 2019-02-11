@@ -18,9 +18,9 @@ unit module Date::Names;
 
 # a list of the language two-letter codes currently considered
 # in this module
-constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
+constant @lang  = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
 
-constant %mon is export = %(
+constant %mon  = %(
     # English is the default
     1, 'January',    2, 'February',  3, 'March',     4, 'April',
     5, 'May',        6, 'June',      7, 'July',      8, 'August',
@@ -83,7 +83,7 @@ constant %mon is export = %(
     ),
 );
 
-constant %dow is export = %(
+constant %dow  = %(
     # English is the default
     1, 'Monday', 2, 'Tuesday',  3, 'Wednesday', 4, 'Thursday',
     5, 'Friday', 6, 'Saturday', 7, 'Sunday',
@@ -139,7 +139,7 @@ constant %dow is export = %(
 );
 
 # three-letter abbreviations
-constant %mon3 is export = %(
+constant %mon3  = %(
     # English is the default
     1, 'Jan', 2, 'Feb', 3, 'Mar',  4, 'Apr',  5, 'May',  6, 'Jun',
     7, 'Jul', 8, 'Aug', 9, 'Sep', 10, 'Oct', 11, 'Nov', 12, 'Dec',
@@ -201,7 +201,7 @@ constant %mon3 is export = %(
 );
 
 # two-letter abbreviations
-constant %mon2 is export = %(
+constant %mon2  = %(
     # French
     fr => %(
         1, 'JR',  2, 'FR',  3, 'MS',  4, 'AL',
@@ -211,7 +211,7 @@ constant %mon2 is export = %(
 );
 
 # two-letter abbreviations
-constant %dow2 is export = %(
+constant %dow2  = %(
     # English is the default
     1, 'Mo', 2, 'Tu', 3, 'We', 4, 'Th',
     5, 'Fr', 6, 'Sa', 7, 'Su',
@@ -267,7 +267,7 @@ constant %dow2 is export = %(
     ),
 );
 
-constant %dow3 is export = %(
+constant %dow3  = %(
     1, 'Mon', 2, 'Tue', 3, 'Wed', 4, 'Thu',
     5, 'Fri', 6, 'Sat', 7, 'Sun',
 
@@ -322,7 +322,7 @@ constant %dow3 is export = %(
 
 # some languages don't have a complete set of two- or three-letter
 # abbreviations so we use another hash
-constant %mona is export = %(
+constant %mona  = %(
     # Russian and French
     # French (abbreviations "courante")
     fr => %(
@@ -332,7 +332,7 @@ constant %mona is export = %(
     ),
 );
 
-constant %dowa is export = %(
+constant %dowa  = %(
     # French (abbreviations "courante")
     fr => %(
         1, 'lundi', 2, 'mardi', 3, 'mercr', 4, 'jeudi',

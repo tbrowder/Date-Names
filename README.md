@@ -8,16 +8,27 @@ Module **Date::Names** - Provides month and day-of-the-week names for numbers (m
 SYNOPSIS
 ========
 
+## IMPORTANT NOTE: the hashes are not exported now in order to interfere
+with the user's environment.
+
 ~~~perl6
 use Date::Names;
 
-say "The name of month 3 in Dutch is {%mon<nl><3>}";
-say "The name of month 3 in English is {%mon<3>} or {%mon<en><3>}";
-say "The name of month 3 in French is {%mon<fr><3>}";
-say "The name of weekday 3 in Italian is {%dow<it><3>}";
-say "The name of weekday 3 in Spanish is {%dow<es><3>}";
-say "The two-letter abbreviation of weekday 3 in German is {%dow2<de><3>}";
-say "The three-letter abbreviation of weekday 3 in English is {%dow3<3>}";
+# For one-off use
+say "Month 3 in Dutch is '{%Date::Names::mon<nl><3>}'";
+say "Month 3 in English is '{%Date::Names::mon<3>}' or '{%Date::Names::mon<en><3>}'";
+say "Month 3 in French is '{%Date::Names::mon<fr><3>}'";
+say "Weekday 3 in Italian is '{%Date::Names::dow<it><3>}'";
+say "Weekday 3 in Spanish is '{%Date::Names::dow<it><3>}'";
+say "Two-letter abbrev. of weekday 3 in German is '{%Date::Names::dow2<de><3>}'";
+say "Three-letter abbrev. of weekday 3 in English is '{%Date::Names::dow3<en><3>}'";
+
+# For more intense uses, one can use this syntax:
+my %dow = %Date::Names::dow<nl>;
+say "Weekdays in Dutch:";
+for 1..7 -> $n {
+    say "  day $n: {%dow{$n}}";
+}
 ~~~
 
 
@@ -60,26 +71,29 @@ LIMITATIONS
 ===========
 
 Not all languages have a complete set of two- and three-letter
-abbreviations, and some require up to four letters for the
-official abbreviations.
+abbreviations, and some require up to four letters for the official
+abbreviations.
 
 The following table shows the hash names for the abbreviations
-currently available. Hash names with a 2 or 3 appended are
-complete abbreviation sets of that length only.
-Hash names with an 'a' appended are sets of abbreviations of mixed length.
-An 'X' in a cell indicates a language has a complete set of that type
-of abbreviation.
+currently available. Hash names with a 2 or 3 appended are complete
+abbreviation sets of that length only.  Hash names with an 'a'
+appended are sets of abbreviations of mixed length.  A 'Y' in a cell
+indicates a language has a complete set of that type of abbreviation.
+
+Note that in some countries the term "abbreviation" is distinctly
+different than "code" as applies to date names. An asterisk in a cell
+marks those which are technically codes rater than abbreviations.
 
 Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
 ---      | :---: | :---: | :---: | :---: | :---: | :---:
 Dutch    |       |       |       |       |       |
-English  |       |       |       |       |       |
-French   |       |       |       |       |       |
-German   |       |       |       |       |       |
+English  |       |   Y   |       |   Y   |   Y   |
+French   |   Y*  |       |   Y   |       |   Y   |   Y
+German   |       |   Y   |       |       |       |
 Italian  |       |       |       |       |       |
 Norwegian|       |       |       |       |       |
-Russian  |       |       |       |       |       |
-Spanish  |       |       |       |       |       |
+Russian  |       |   Y   |       |       |       |   Y
+Spanish  |       |   Y*  |       |       |   Y*  |
 
 PULL REQUESTS
 =============
@@ -98,19 +112,22 @@ and increased utility.
 ACKNOWLEDGEMENTS
 ================
 
-The following persons (shown by their #perl6 IRC handles)
-contributed to this project via PRs and comments:
+The following persons contributed to this project via PRs and
+comments (@name is an alias on IRC #perl6):
 
 + @moritz - German and Norwegian data
 + @sena_kun - Russian data
-+ @luc - French data
++ Luc St-Louis (@lucs) - French data
++ Luis F. Uceta (github: uzluisf) - Spanish data
 
 I am grateful for their help!
 
 REFERENCES
 ==========
 
-1. [fr] <http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3617>
+1. [FR] <http://bdl.oqlf.gouv.qc.ca/bdl/gabarit_bdl.asp?id=3617>
+2. [ES] <http://www.wikilengua.org/index.php/Abreviaciones_en_fechas>
+3. [ES] <http://lema.rae.es/dpd/srv/search?id=fKODyKTfZD6s0mX7bz>
 
 AUTHOR
 ======
