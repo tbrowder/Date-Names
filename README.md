@@ -29,16 +29,30 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 Full names of the months and week days are currently available in the
 following languages:
 
-  Name | ISO two-letter code | Notes
-  ---  | :---:                 | ---
-  Dutch   | nl | Lower-case
-  English | en | Capitalized
-  French  | fr | Lower-case
-  German  | de | Capitalized
-  Italian | it | Months capitalized, week days in lower-case
-  Norwegian (Bokmål) | nb | Lower-case
-  Russian | ru | Lower-case 
-  Spanish | es | Lower-case
+  Language | ISO two-letter code 
+  ---      | :---:    
+  Dutch    | nl 
+  English  | en 
+  French   | fr 
+  German   | de 
+  Italian  | it 
+  Norwegian (Bokmål) | nb 
+  Russian  | ru  
+  Spanish  | es 
+
+CAPITILAZATION AND PUNCTUATION
+==============================
+
+All English month and weekday names are always capitalized.
+Other languages vary in capitalization depending on where
+the word or abbreviation is used or other factors. The
+names and abbreviations herein are in the most common form,
+but the user can always explicitly set the case by applying
+the Perl 6 routines **tc**, **uc**, or **lc** to the name or
+abbreviation.
+
+None of the abbreviations include an ending period even though
+that might be customary use in some languages.
 
 LIMITATIONS
 ===========
@@ -48,22 +62,22 @@ abbreviations, and some require up to four letters for the
 official abbreviations.
 
 The following table shows the hash names for the abbreviations
-currently available. Hash names with a 2, 3, or 4 appended are
+currently available. Hash names with a 2 or 3 appended are
 complete abbreviation sets of that length only. 
 Hash names with an 'a' appended are sets of abbreviations of mixed length.
 An 'X' in a cell indicates a language has a complete set of that type
 of abbreviation.
 
-Language | %mon2 | %mon3 | %mon4 | %mona | %dow2 | %dow3 | %dow4 | %dowa
----      | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:  
-Dutch    |      |       |       |       |      |       |       |        
-English  |      |       |       |       |      |       |       |        
-French   |      |       |       |       |      |       |       |        
-German   |      |       |       |       |      |       |       |        
-Italian  |      |       |       |       |      |       |       |        
-Norwegian|      |       |       |       |      |       |       |        
-Russian  |      |       |       |       |      |       |       |        
-Spanish  |      |       |       |       |      |       |       |        
+Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
+---      | :---: | :---: | :---: | :---: | :---: | :---:  
+Dutch    |       |       |       |       |       |        
+English  |       |       |       |       |       |              
+French   |       |       |       |       |       |              
+German   |       |       |       |       |       |              
+Italian  |       |       |       |       |       |              
+Norwegian|       |       |       |       |       |              
+Russian  |       |       |       |       |       |              
+Spanish  |       |       |       |       |       |              
 
 PULL REQUESTS
 =============
@@ -72,10 +86,17 @@ Native language speakers please submit PRs to (1) complete the
 existing language abbreviations, (2), correct errors, and (3) provide
 more languages.
 
+CORRECTIONS & SUGGESTIONS
+=========================
+
+The goal of this module is to be useful to non-English users as well
+as English users. The author welcomes suggestions for improvement
+and increased utility.
+
 ACKNOWLEDGEMENTS
 ================
 
-The following persons (shown are their #perl6 IRC handles)
+The following persons (shown by their #perl6 IRC handles)
 contributed to this project via PRs and comments:
 
 + @moritz - German and Norwegian data

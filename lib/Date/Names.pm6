@@ -201,6 +201,16 @@ constant %mon3 is export = %(
 );
 
 # two-letter abbreviations
+constant %mon2 is export = %(
+    # French
+    fr => %(
+        1, 'JR',  2, 'FR',  3, 'MS',  4, 'AL',
+        5, 'MI',  6, 'JN',  7, 'JT',  8, 'AT',
+        9, 'SE', 10, 'OE', 11, 'NE', 12, 'DE'
+    ),
+);
+
+# two-letter abbreviations
 constant %dow2 is export = %(
     # English is the default
     1, 'Mo', 2, 'Tu', 3, 'We', 4, 'Th',
@@ -281,8 +291,8 @@ constant %dow3 is export = %(
 
     # French
     fr => %(
-        1, '',    2, '',  3, '',     4,  '',
-        5, '',        6, '',      7, ''
+        1, 'lun', 2, 'mar', 3, 'mer', 4,  'jeu',
+        5, 'ver', 6, 'sam', 7, 'dim'
     ),
 
     # Italian
@@ -305,8 +315,8 @@ constant %dow3 is export = %(
 
     # Russian
     ru => %(
-        1, 'пон', 2, 'втр', 3, 'Ср', 4, 'чтв',
-        5, 'пт', 6, 'сбт', 7, 'Вс'
+        1, '', 2, '', 3, '', 4, '',
+        5, '', 6, '', 7, ''
     ),
 );
 
@@ -314,8 +324,23 @@ constant %dow3 is export = %(
 # abbreviations so we use another hash
 constant %mona is export = %(
     # Russian and French
+    # French (abbreviations "courante")
+    fr => %(
+        1, 'janv',  2, 'févr',  3, 'mars',   4, 'avr',
+        5, 'mai',   6, 'juin',  7, 'juill',  8, 'août',
+        9, 'sept', 10, 'oct',  11, 'nov',   12, 'déc'
+    ),
 );
 
 constant %dowa is export = %(
-    # Russian and French
+    # French (abbreviations "courante")
+    fr => %(
+        1, 'lundi', 2, 'mardi', 3, 'mercr', 4, 'jeudi',
+        5, 'vendr', 6, 'sam',   7, 'dim'
+    ),
+    # Russian
+    ru => %(
+        1, 'пон', 2, 'втр', 3, 'Ср', 4, 'чтв',
+        5, 'пт',  6, 'сбт', 7, 'Вс'
+    ),
 );
