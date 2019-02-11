@@ -156,7 +156,7 @@ comments (@name is an alias on IRC #perl6):
 
 + Moritz Lenz (@moritz, github: moritz) - German and Norwegian data
 + @sena_kun (github: Altai-man) - Russian data
-+ Luc St-Louis (@lucs) - French data
++ Luc St-Louis (@lucs, github: lucs) - French data
 + Luis F. Uceta (github: uzluisf) - Spanish data
 + Elizabeth Mattijsen (@lizmat, github: lizmat) - Dutch data
 
