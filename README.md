@@ -91,11 +91,11 @@ Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
 Dutch    |       |   Y   |       |   Y   |   Y   |
 English  |       |   Y   |       |   Y   |   Y   |
 French   |   Y*  |       |   Y   |       |   Y   |   Y
-German   |       |   Y   |       |       |       |
+German   |       |   Y   |       |   Y   |       |
 Italian  |       |       |       |       |       |
 Norwegian|       |       |       |       |       |
-Russian  |       |   Y   |       |       |       |   Y
-Spanish  |       |   Y*  |       |       |   Y*  |
+Russian  |       |   Y   |       |   Y   |       |   Y
+Spanish  |       |   Y*  |       |   Y   |   Y*  |
 
 PULL REQUESTS
 =============
@@ -108,24 +108,26 @@ CORRECTIONS & SUGGESTIONS
 =========================
 
 The goal of this module is to be useful to non-English users as well
-as English users. The author welcomes suggestions for improvement
-and increased utility.
+as English users. The author welcomes suggestions for improvement and
+increased utility.
 
 VERSION 2 PLANS
 ===============
 
 In work now is a class to ease use of the module:
 
-~~~perl6
+```perl6
+perl6
 use Date::Names;
 my $dn = Date::Names.new(
     :lang<en>,
     :day-hash<dow2>,
     :mon-hash<mon3>,
 );
-is $dn.dow(1), "Mo";
-is $dn.mon(1), "Jan";
-~~~
+is $dn.dow(1), "Mo";  # ok
+is $dn.mon(1), "Jan"; # ok
+
+```
 
 The basic class is working and is tested briefly.  More is to be done,
 but eventually it will be able to proved a unified handling of full

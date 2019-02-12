@@ -30,6 +30,6 @@ constant $dow2 = %(
 
 constant $dow3 = %(
     # Spanish
-    1, 'lun',  2, 'mar',  3, 'mié',  4, 'jue',
-    5, 'vie',  6, 'sáb',  7, 'dom'
+    1, 'lun', 2, 'mar', 3, 'mié', 4, 'jue',
+    5, 'vie', 6, 'sáb', 7, 'dom'
 );
