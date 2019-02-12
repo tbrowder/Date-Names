@@ -306,6 +306,13 @@ constant %mon2  = %(
         5, 'MI',  6, 'JN',  7, 'JT',  8, 'AT',
         9, 'SE', 10, 'OE', 11, 'NE', 12, 'DE'
     ),
+    # Spanish
+    es => %(
+        1, 'en',  2, 'fb',  3, 'mr',  4, 'ab',
+        5, 'my',  6, 'jn',  7, 'jl',  8, 'ag',
+        9, 'sp', 10, 'oc', 11, 'nv', 12, 'dc'
+    ),
+
 );
 
 # two-letter abbreviations
@@ -349,7 +356,6 @@ constant %dow2  = %(
         1, 'ma',  2, 'di',  3, 'wo', 4, 'do',
         5, 'vr',  6, 'za',  7, 'zo'
     ),
-
 
     # Norwegian (Bokmål)
     nb => %(
@@ -421,6 +427,12 @@ constant %dow3  = %(
 # some languages don't have a complete set of two- or three-letter
 # abbreviations so we use another hash
 constant %mona  = %(
+    # Spanish
+    es => %(
+        1, 'en.',    2, 'febr.',  3, 'mzo.',   4, 'abr.',
+        5, 'my.',    6, 'jun.',   7, 'jul.',   8, 'ag.',
+        9, 'sept.', 10, 'oct.',  11, 'nov.',  12, 'dic.'
+    ),
     # French (abbreviations "courante")
     fr => %(
         1, 'janv',  2, 'févr',  3, 'mars',   4, 'avr',
@@ -430,6 +442,11 @@ constant %mona  = %(
 );
 
 constant %dowa  = %(
+    # Spanish
+    es => %(
+        1, 'lun.',  2, 'mart.',  3, 'miér.', 4, 'juev.',
+        5, 'vier.', 6, 'sáb.',   7, 'dom.'
+    ),
     # French (abbreviations "courante")
     fr => %(
         1, 'lundi', 2, 'mardi', 3, 'mercr', 4, 'jeudi',
