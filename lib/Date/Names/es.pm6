@@ -1,5 +1,6 @@
 unit module Date::Names::es;
 
+# note all possible hashes and keys exist but they may have missing values
 # DAYS OF THE WEEK
 
 constant $dow = %(
