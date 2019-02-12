@@ -184,7 +184,22 @@ my $dn = Date::Names.new(
 
 ```
 
-The basic class is working and is tested briefly.  More is to be done,
+### Planned features:
+
+1. English language default [complete]
+2. Default month and weekday hash choices [complete]
+3. User chooses truncation or padding [API complete]
+4. User chooses which month and weekday has to use [complete, var names may change]
+5. User choose case of the output names [API complete]
+6. User can choose raw truncation on a full name, if permitted by the language [API partially complete]
+
+### Future features
+
+1. Language-specific attributes to affect class behavior (e.g., allow raw truncation or not)
+2. Add additional hash names and types on a language basis
+3. Graceful messages if a desired hash is empty [version 2+]
+
+The basic class is working (see **Planned features** above) and is tested briefly.  More is to be done,
 but eventually it will be able to proved a unified handling of full
 names and abbreviations. The user will be able to control casing,
 absence or presence of periods on abbreviations, and truncation or
@@ -193,8 +208,8 @@ padding as desired.
 VERSION 3
 =========
 
-The Date::Names class API will be fixed and all planned features
-will be implemented.
+The Date::Names class API will be fixed and all currently planned
+features will be implemented.
 
 
 ACKNOWLEDGEMENTS
