@@ -5,45 +5,49 @@ Date::Names
 
 Module **Date::Names** - Provides month and day-of-the-week names for numbers (multilingual)
 
+This is Version 2. A new Date::Names class is available and
+direct hash access has changed from Version 1.
+
+Version 2:
+
+```perl6
+# three syntaxes to use, in all the hash name is now listed
+# last n the identifier following the language code:
+
+my %dow = $Date::Names::nl::dow; # <== the author's preference
+say "key $_" for %dow.keys.sort; # 1..7
+my $dow = $Date::Names::nl::dow;
+say "key $_" for $dow.keys.sort; # 1..7
+my %dow = %($Date::Names::nl::dow);
+say "key $_" for %dow.keys.sort; # 1..7
+
+```
+
+Version 1 for comparison (deprecated):
+
+``` perl6
+my %dow = %Date::Names::dow<nl>;
+
+```
+
 SYNOPSIS
 ========
 
-## IMPORTANT NOTE:
-
-The module's hashes are no longer exported in order to avoid interference with the user's environment.
-But the **@lang** array is still exported.
-
-### VERSION 1
-
 ~~~perl6
-use Date::Names; # <== note no :ALL
+use Date::Names;
 
 # For one-off use
-say "Month 3 in Dutch is '{%Date::Names::mon<nl><3>}'";
-say "Month 3 in English is '{%Date::Names::mon<3>}' or '{%Date::Names::mon<en><3>}'";
-say "Weekday 3 in Italian is '{%Date::Names::dow<it><3>}'";
-say "Two-letter abbrev. of weekday 3 in German is '{%Date::Names::dow2<de><3>}'";
-say "Three-letter abbrev. of weekday 3 in English is '{%Date::Names::dow3<en><3>}'";
+say "Month 3, Dutch: '{$Date::Names::nl::mon<3>}'";
+say "Weekday 3, Italian: '{$Date::Names::it::dow<3>}'";
+say "Two-letter abbrev., weekday 3, German is '{$Date::Names::de::dow2<3>}'";
+say "Three-letter abbrev., weekday 3, English is '{$Date::Names::en::dow3<3>}'";
 
 # For more intense cases, one can use this syntax:
-my %dow = %Date::Names::dow<nl>; # a convenience hash
+my %dow = $Date::Names::nl::dow; # a convenience hash
 say "Weekdays in Dutch:";
 for 1..7 -> $n {
     say "  day $n: {%dow{$n}}";
 }
-~~~
-
-### VERSION 2
-
-The direct access to the hashes has changed, and the new syntax is shown here.
-Notice there are two ways to do it.
-
-~~~perl6
-use Date::Names;
-my %dow = %($Date::Names::de::mon);
-say "key $_" for %dow.keys.sort; # 1..7
-my $dow = $Date::Names::de::mon;
-say "key $_" for $dow.keys.sort; # 1..7
 ~~~
 
 DESCRIPTION
@@ -90,42 +94,48 @@ Not all languages have a complete set of two- and three-letter
 abbreviations, and some require up to four letters for the official
 abbreviations.
 
-Table 2 shows the hash names for the abbreviations
+Table 2 shows the hash names for the full names and abbreviations
 currently available. Hash names with a 2 or 3 appended are complete
 abbreviation sets of that length only.  Hash names with an 'a'
 appended are sets of abbreviations of mixed length.  A 'Y' in a cell
 indicates a language has a complete set of that type of abbreviation.
 
 Note that in some countries the term "abbreviation" is distinctly
-different than "code" as applies to date names. An asterisk in a cell
+different than "code" as it applies to date names. An asterisk in a cell
 marks those which are technically codes rather than abbreviations.
 Table 3 shows the meaning of other codes used in the Table 2 cells.
 
+The hash names in Table 2 (without a sigil) are the ones to be used
+for the day and motn hash names for the Date::Names class constructor.
+
 ### Table 2. Name hash availability by language
 
-Language / Hash | mon2 | mon3 | mona | dow2 | dow3 | dowa
----      | :---: | :---: | :---: | :---: | :---: | :---:
-Dutch    |       |   Y   |       |   Y   |   Y   |
-English  |       |   Y   |       |   Y   |   Y   |
-French   |   Y*  |       |   Y   |       |   Y   |   Y
-German   |       |   Y   |       |   Y   |       |
-Italian  |       |       |       |       |       |
-Norwegian|       |       |       |       |       |
-Russian  |       |   Y   |       |   Y   |       |   Y
-Spanish  |       |   Y*  |       |   Y   |   Y*  |
+Language / Hash  |  mon  | dow   | mon3  | dow3  | mon2  | dow2  | mona  | dowa
+---              | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+Dutch            |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
+English          |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
+French           |   Y   |   Y   |       |   Y   |   Y*  |       |   Y   |   Y
+German           |   Y   |   Y   |   Y   |       |       |   Y   |       |
+Italian          |   Y   |   Y   |       |       |       |       |       |
+Norwegian        |   Y   |   Y   |       |       |       |       |       |
+Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |   Y
+Spanish          |   Y   |   Y   |   Y*  |   Y*  |       |   Y   |       |
 
 ### Table 3. Name hash cell codes and meaning
 
 Code | Meaning
 ---  | ---
-\*    | code rather than an abbreviation
-Y    | language has this hash
-U    | hash values are upper-case
-M    | hash values are mixed case
+\*   | code rather than an abbreviation
 L    | hash values are lower-case
-T    | hash values are title-case
+M    | hash values are mixed-case
 P    | hash values have a trailing period
+T    | hash values are title-case
+U    | hash values are upper-case
+Y    | language has this hash
 
+Note that when the Date::Names class is fully implemented in Version 3,
+the user will be able to specify desired hash table attributes for
+his or her tastes (case, trailing period, truncation or padding);
 
 PULL REQUESTS
 =============
@@ -141,21 +151,36 @@ The goal of this module is to be useful to non-English users as well
 as English users. The author welcomes suggestions for improvement and
 increased utility.
 
-VERSION 2 PLANS
-===============
+Class Date::Names
+=================
 
-In work now is a class to ease use of the module:
+Now available is class Date::Names to ease use of the module:
 
 ```perl6
 perl6
 use Date::Names;
+my $dn = Date::Names.new; # default: English, full names
+is $dn.dow(1), "Monday";  # ok
+is $dn.mon(1), "January"; # ok
+is $dn.dow(1, 3), "Mon";  # ok, raw truncation on full names only
+is $dn.mon(1, 3), "Jan";  # ok, raw truncation on full named only
+```
+
+The full API for the class constructor looks like this but the names
+aren't all set in concrete yet (SUGGESTIONS WELCOME):
+
+``` perl6
+enum Period <yes no keep-p>;
+enum Case <uc lc tc p keep-c>;
 my $dn = Date::Names.new(
-    :lang<en>,
-    :day-hash<dow2>,
-    :mon-hash<mon3>,
-);
-is $dn.dow(1), "Mo";  # ok
-is $dn.mon(1), "Jan"; # ok
+    lang     => 'nl',   # default: 'en'
+    day-hash => 'dow3', # default: 'dow' # VAR NAME SUBJECT TO CHANGE
+    mon-hash => 'mon',  # default: 'mon' # VAR NAME SUBJECT TO CHANGE
+    period   => yes,    # default: keep-p (use native)
+    case     => uc,     # default: keep-c (use native)
+    truncate => 0,      # default
+    pad      => 0,      # default
+):
 
 ```
 
@@ -164,6 +189,12 @@ but eventually it will be able to proved a unified handling of full
 names and abbreviations. The user will be able to control casing,
 absence or presence of periods on abbreviations, and truncation or
 padding as desired.
+
+VERSION 3
+=========
+
+The Date::Names class API will be fixed and all planned features
+will be implemented.
 
 
 ACKNOWLEDGEMENTS

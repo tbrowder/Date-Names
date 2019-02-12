@@ -3,6 +3,8 @@
 use lib <../lib>;
 use Date::Names;
 
+=finish
+
 # VERSION 1
 say "The example from the README:";
 say "Month 3 in Dutch is '{%Date::Names::mon<nl><3>}'";

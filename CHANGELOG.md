@@ -1,4 +1,10 @@
-## [v1.1.0]
+## [v2.0.0] - 2019-02-13
+- Permanently removed the hashes from lib/Date/Names.pm6
+  so the original direct hash access syntax has changed
+  (for the better IMHO).
+- Changed defaults for the class to English and full names.
+
+## [v1.1.0] - 2019-02-12
 - Change description in META6.json file.
 - Merged PRs from @moritz (German three-letter abbreviaitons, Norwegian).
 - Merged PR from @sena_kun (AKA @Altai-man) (Russian).
