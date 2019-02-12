@@ -13,15 +13,15 @@ SYNOPSIS
 The module's hashes are no longer exported in order to avoid interference with the user's environment.
 But the **@lang** array is still exported.
 
+### VERSION 1
+
 ~~~perl6
 use Date::Names; # <== note no :ALL
 
 # For one-off use
 say "Month 3 in Dutch is '{%Date::Names::mon<nl><3>}'";
 say "Month 3 in English is '{%Date::Names::mon<3>}' or '{%Date::Names::mon<en><3>}'";
-say "Month 3 in French is '{%Date::Names::mon<fr><3>}'";
 say "Weekday 3 in Italian is '{%Date::Names::dow<it><3>}'";
-say "Weekday 3 in Spanish is '{%Date::Names::dow<it><3>}'";
 say "Two-letter abbrev. of weekday 3 in German is '{%Date::Names::dow2<de><3>}'";
 say "Three-letter abbrev. of weekday 3 in English is '{%Date::Names::dow3<en><3>}'";
 
@@ -33,6 +33,18 @@ for 1..7 -> $n {
 }
 ~~~
 
+### VERSION 2
+
+The direct access to the hashes has changed, and the new syntax is shown here.
+Notice there are two ways to do it.
+
+~~~perl6
+use Date::Names;
+my %dow = %($Date::Names::de::mon);
+say "key $_" for %dow.keys.sort; # 1..7
+my $dow = $Date::Names::de::mon;
+say "key $_" for $dow.keys.sort; # 1..7
+~~~
 
 DESCRIPTION
 ===========
@@ -44,7 +56,9 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 Full names of the months and weekdays are currently available in the
 following languages:
 
-  Language           | ISO two-letter code (lower-case)
+### Table 1. Language two-letter ISO codes (lower-case)
+
+  Language           | ISO code
   :---               | :---:
   Dutch              | nl
   English            | en
@@ -76,7 +90,7 @@ Not all languages have a complete set of two- and three-letter
 abbreviations, and some require up to four letters for the official
 abbreviations.
 
-The following table shows the hash names for the abbreviations
+Table 2 shows the hash names for the abbreviations
 currently available. Hash names with a 2 or 3 appended are complete
 abbreviation sets of that length only.  Hash names with an 'a'
 appended are sets of abbreviations of mixed length.  A 'Y' in a cell
@@ -85,8 +99,11 @@ indicates a language has a complete set of that type of abbreviation.
 Note that in some countries the term "abbreviation" is distinctly
 different than "code" as applies to date names. An asterisk in a cell
 marks those which are technically codes rather than abbreviations.
+Table 3 shows the meaning of other codes used in the Table 2 cells.
 
-Language | %mon2 | %mon3 | %mona | %dow2 | %dow3 | %dowa
+### Table 2. Name hash availability by language
+
+Language / Hash | mon2 | mon3 | mona | dow2 | dow3 | dowa
 ---      | :---: | :---: | :---: | :---: | :---: | :---:
 Dutch    |       |   Y   |       |   Y   |   Y   |
 English  |       |   Y   |       |   Y   |   Y   |
@@ -96,6 +113,19 @@ Italian  |       |       |       |       |       |
 Norwegian|       |       |       |       |       |
 Russian  |       |   Y   |       |   Y   |       |   Y
 Spanish  |       |   Y*  |       |   Y   |   Y*  |
+
+### Table 3. Name hash cell codes and meaning
+
+Code | Meaning
+---  | ---
+*    | code rather than an abbreviation
+Y    | language has this hash
+U    | hash values are upper-case
+M    | hash values are mixed case
+L    | hash values are lower-case
+T    | hash values are title-case
+P    | hash values have a trailing period
+
 
 PULL REQUESTS
 =============
