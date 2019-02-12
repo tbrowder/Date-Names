@@ -62,16 +62,16 @@ following languages:
 
 ### Table 1. Language two-letter ISO codes (lower-case)
 
-  Language           | ISO code
-  :---               | :---:
-  Dutch              | nl
-  English            | en
-  French             | fr
-  German             | de
-  Italian            | it
-  Norwegian (Bokmål) | nb
-  Russian            | ru
-  Spanish            | es
+Language           | ISO code
+:---               | :---:
+Dutch              | nl
+English            | en
+French             | fr
+German             | de
+Italian            | it
+Norwegian (Bokmål) | nb
+Russian            | ru
+Spanish            | es
 
 CAPITALIZATION AND PUNCTUATION
 ==============================
@@ -166,7 +166,7 @@ is $dn.dow(1, 3), "Mon";  # ok, raw truncation on full names only
 is $dn.mon(1, 3), "Jan";  # ok, raw truncation on full named only
 ```
 
-The full API for the class constructor looks like this but the names
+The full API for the class constructor looks like this, but the names
 aren't all set in concrete yet (SUGGESTIONS WELCOME):
 
 ``` perl6

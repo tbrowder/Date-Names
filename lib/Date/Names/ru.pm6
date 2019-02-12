@@ -1,7 +1,7 @@
 unit module Date::Names::ru;
 
 #********
-# Russion
+# Russian
 #********
 
 # Note all possible hashes and keys should exist in the file (see
