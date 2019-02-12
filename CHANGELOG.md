@@ -1,10 +1,21 @@
-## [v2.0.0] - 2019-02-13
+## [v2.0.0] - 2019-02-12
 - Permanently removed the hashes from lib/Date/Names.pm6
   so the original direct hash access syntax has changed
   (for the better IMHO).
 - Changed defaults for the class to English and full names.
+- Added a CONTRIBUTING file.
+- Added a resources template file. xx.pm6, for contributors
+  of a new language.
+- Added a "raw" truncation capability for the class when
+  using full name hashes.
+- Added table titles and numbers.
+- Added a new Table 3 showing codes, and their meanings,
+  used for Table 2.
+- Added full-name hash names to Table 2.
+- Added two example files, mainly to check correctness of
+  code used in the README file.
 
-## [v1.1.0] - 2019-02-12
+## [v1.1.0] - 2019-02-11
 - Change description in META6.json file.
 - Merged PRs from @moritz (German three-letter abbreviaitons, Norwegian).
 - Merged PR from @sena_kun (AKA @Altai-man) (Russian).
