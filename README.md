@@ -118,7 +118,7 @@ Spanish  |       |   Y*  |       |   Y   |   Y*  |
 
 Code | Meaning
 ---  | ---
-*    | code rather than an abbreviation
+\*    | code rather than an abbreviation
 Y    | language has this hash
 U    | hash values are upper-case
 M    | hash values are mixed case
