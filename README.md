@@ -11,8 +11,8 @@ direct hash access has changed from Version 1.
 Version 2:
 
 ```perl6
-# three syntaxes to use, in all the hash name is now listed
-# last n the identifier following the language code:
+# Three syntaxes to use, in all the hash name is now listed
+# last inthe identifier following the language code:
 
 my %dow = $Date::Names::nl::dow; # <== the author's preference
 say "key $_" for %dow.keys.sort; # 1..7
