@@ -11,8 +11,11 @@ unit module Date::Names;
 #   ru - Russian
 
 # a list of the language two-letter codes currently considered
-# in this module
-constant @lang is export = 'de', 'en', 'es', 'fr', 'it', 'nb', 'nl', 'ru';
+# in this module:
+constant @lang is export = <de en es fr it nb nl ru>;
+
+# a list of the eight standard hash names fot each language:
+constant @hnames is export = <mon doy mon2 mon3 mona dow2 dow3 dowa>;
 
 use Date::Names::de;
 use Date::Names::en;
