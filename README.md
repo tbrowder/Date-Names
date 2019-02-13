@@ -12,7 +12,7 @@ Version 2:
 
 ```perl6
 # Three syntaxes to use, in all the hash name is now listed
-# last inthe identifier following the language code:
+# last in the identifier following the language code:
 
 my %dow = $Date::Names::nl::dow; # <== the author's preference
 say "key $_" for %dow.keys.sort; # 1..7
@@ -106,7 +106,7 @@ marks those which are technically codes rather than abbreviations.
 Table 3 shows the meaning of other codes used in the Table 2 cells.
 
 The hash names in Table 2 (without a sigil) are the ones to be used
-for the day and motn hash names for the Date::Names class constructor.
+for the day and month hash names for the Date::Names class constructor.
 
 ### Table 2. Name hash availability by language
 
