@@ -142,7 +142,7 @@ PULL REQUESTS
 
 Native language speakers please submit PRs to (1) complete the
 existing language abbreviations, (2), correct errors, and (3) provide
-more languages. See the (CONTRIBUTING)[./CONTRIBUTING.md] file for
+more languages. See the [CONTRIBUTING](./CONTRIBUTING.md) file for
 details.
 
 CORRECTIONS & SUGGESTIONS
