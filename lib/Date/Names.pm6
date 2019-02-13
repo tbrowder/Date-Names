@@ -14,8 +14,9 @@ unit module Date::Names;
 # in this module:
 constant @lang is export = <de en es fr it nb nl ru>;
 
-# a list of the eight standard hash names fot each language:
-constant @hnames is export = <mon doy mon2 mon3 mona dow2 dow3 dowa>;
+#  lists of the eight standard hash names for each language:
+constant @mnames is export = <mon mon2 mon3 mona>;
+constant @dnames is export = <doy dow2 dow3 dowa>;
 
 use Date::Names::de;
 use Date::Names::en;
