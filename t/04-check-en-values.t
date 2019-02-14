@@ -10,6 +10,7 @@ my @m = <January February March April May June July August September October Nov
 my @d = <Monday Tuesday Wednesday Thursday Friday Saturday Sunday>;
 my $i;
 
+# direct hash access 
 $i = -1;
 for 1..12 -> $mon {
     ++$i;

@@ -3,10 +3,13 @@
 Date::Names
 ===========
 
-Module **Date::Names** - Provides month and day-of-the-week names for numbers (multilingual)
+Module **Date::Names** - Provides month and weekday names for numbers (multilingual)
 
 This is Version 2. A new Date::Names class is available and
 direct hash access has changed from Version 1.
+Direct hash access is not recommended since the storage
+object may be an array soon, so use a class instance
+to extract data.
 
 Version 2:
 
@@ -175,8 +178,8 @@ enum Period <yes no keep-p>;
 enum Case <uc lc tc p keep-c>;
 my $dn = Date::Names.new(
     lang     => 'nl',   # default: 'en'
-    day-hash => 'dow3', # default: 'dow' # VAR NAME SUBJECT TO CHANGE
-    mon-hash => 'mon',  # default: 'mon' # VAR NAME SUBJECT TO CHANGE
+    dset     => 'dow3', # default: 'dow'
+    mset     => 'mon',  # default: 'mon'
     period   => yes,    # default: keep-p (use native)
     case     => uc,     # default: keep-c (use native)
     truncate => 0,      # default
