@@ -10,7 +10,7 @@ unit module Date::Names::it;
 # values, but there should be eight (8) total hashes:
 
 # Names of sets with all non-empty values for this language:
-our $sets = set <mon dow2>;
+our $sets = set <mon dow>;
 
 #=== FULL NAMES ======================================================
 # 1

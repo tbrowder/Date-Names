@@ -14,16 +14,16 @@ our $sets = set <mon dow mon3 dow3 mon2 dow2 mona dowa>;
 
 #=== FULL NAMES ======================================================
 # 1
-constant $dow = %(
-    1, 'lunes',   2, 'martes', 3, 'miércoles', 4, 'jueves',
-    5, 'viernes', 6, 'sábado', 7, 'domingo'
-);
-
-# 2
 constant $mon = %(
     1, 'enero',       2, 'febrero',  3, 'marzo',      4, 'abril',
     5, 'mayo',        6, 'junio',    7, 'julio',      8, 'agosto',
     9, 'septiembre', 10, 'octubre', 11, 'noviembre', 12, 'diciembre'
+);
+
+# 2
+constant $dow = %(
+    1, 'lunes',   2, 'martes', 3, 'miércoles', 4, 'jueves',
+    5, 'viernes', 6, 'sábado', 7, 'domingo'
 );
 
 #=== THREE-LETTER ABBREVIATIONS ======================================

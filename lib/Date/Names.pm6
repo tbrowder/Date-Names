@@ -140,4 +140,8 @@ class Date::Names {
         say "name sets with values:";
         say "  $_" for $.s.keys.sort;
     }
+    method nsets {
+        return $.s.elems;
+    }
+
 }

@@ -118,11 +118,11 @@ Language / Hash  |  mon  | dow   | mon3  | dow3  | mon2  | dow2  | mona  | dowa
 Dutch            |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 English          |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 French           |   Y   |   Y   |       |   Y   |   Y*  |       |   Y   |   Y
-German           |   Y   |   Y   |   Y   |       |       |   Y   |       |
+German           |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 Italian          |   Y   |   Y   |       |       |       |       |       |
 Norwegian        |   Y   |   Y   |       |       |       |       |       |
-Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |   Y
-Spanish          |   Y   |   Y   |   Y*  |   Y*  |       |   Y   |       |
+Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |
+Spanish          |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
 
 ### Table 3. Name hash cell codes and meaning
 
