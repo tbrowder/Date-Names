@@ -43,7 +43,6 @@ enum Case <tc uc lc keep-c>;
     has $.m is rw;
     has %.s is rw; # this an auto-generated hash of the names of all non-empty data sets and values of that array
 
-    =begin comment
     has Period $.period = keep-p; # add, remove, or keep a period to end abbreviations
                                   # (True or False; default -1 means use the
                                   # native value as is)
@@ -51,7 +50,6 @@ enum Case <tc uc lc keep-c>;
     has Case $.case     = keep-c; # use native case (or choose: tc, lc, uc)
     has $.pad           = False;  # used with trunc to fill short values with
                                   # spaces on the right
-    =end comment
 
     submethod TWEAK() {
         # this sets the class var to the desired
