@@ -23,56 +23,56 @@ unit module Date::Names::es;
 
 #=== FULL NAMES ======================================================
 # 1
-our $mon = <
+constant $mon = <
     enero       febrero  marzo      abril
     mayo        junio    julio      agosto
     septiembre  octubre  noviembre  diciembre
 >;
 
 # 2
-our $dow = <
+constant $dow = <
      lunes    martes  miércoles  jueves
      viernes  sábado  domingo
 >;
 
 #=== THREE-LETTER ABBREVIATIONS ======================================
 # 3
-our $mon3 = <
+constant $mon3 = <
      ene   feb   mar   abr
      may   jun   jul   ago
      sep   oct   nov   dic
 >;
 
 # 4
-our $dow3 = <
+constant $dow3 = <
      lun  mar  mié  jue
      vie  sáb  dom
 >;
 
 #=== TWO-LETTER ABBREVIATIONS ========================================
 # 5
-our $mon2 = <
+constant $mon2 = <
      en   fb   mr   ab
      my   jn   jl   ag
      sp   oc   nv   dc
 >;
 
 # 6
-our $dow2 = <
+constant $dow2 = <
      lu  ma  mi  ju
      vi  sá  do
 >;
 
 #=== MIXED-LENGTH ABBREVIATIONS ======================================
 # 7
-our $mona = <
+constant $mona = <
      en.     febr.   mzo.    abr.
      my.     jun.    jul.    ag.
      sept.   oct.    nov.    dic.
 >;
 
 # 8
-our $dowa = <
+constant $dowa = <
      lun.   mart.   miér.  juev.
      vier.  sáb.    dom.
 >;

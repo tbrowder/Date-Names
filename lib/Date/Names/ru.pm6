@@ -23,45 +23,45 @@ unit module Date::Names::ru;
 
 #=== FULL NAMES ======================================================
 # 1
-our $mon = <
+constant $mon = <
     январь    февраль  март    апрель
     май       июнь     июль    август
     сентябрь  октябрь  ноябрь  декабрь
 >;
 
 # 2
-our $dow = <
+constant $dow = <
     понедельник вторник среда       четверг
     пятница     суббота воскресенье
 >;
 
 #=== THREE-LETTER ABBREVIATIONS ======================================
 # 3
-our $mon3 = <
+constant $mon3 = <
     янв фев мар  апр май июн
     июл авг сен  окт ноя дек
 >;
 
 # 4
-our $dow3 = <
+constant $dow3 = <
 >;
 
 #=== TWO-LETTER ABBREVIATIONS ========================================
 # 5
-our $mon2 = <
+constant $mon2 = <
 >;
 
 # 6
-our $dow2 = <
+constant $dow2 = <
     Пн Вт Ср Чт
     Пт Сб Вс
 >;
 
 #=== MIXED-LENGTH ABBREVIATIONS ======================================
 # 7
-our $mona = <
+constant $mona = <
 >;
 
 # 8
-our $dowa = <
+constant $dowa = <
 >;

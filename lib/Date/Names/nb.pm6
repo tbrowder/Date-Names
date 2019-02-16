@@ -23,41 +23,41 @@ unit module Date::Names::nb;
 
 #=== FULL NAMES ======================================================
 # 1
-our $mon = <
+constant $mon = <
     januar      februar   mars      april
     mai         juni      juli      august
     september   oktober   november  desember
 >;
 
-our $dow = <
+constant $dow = <
      mandag  tirsdag onsdag torsdag
      fredag  lørdag  søndag
 >;
 
 #=== THREE-LETTER ABBREVIATIONS ======================================
 # 3
-our $mon3 = <
+constant $mon3 = <
 >;
 
 # 4
-our $dow3 = <
+constant $dow3 = <
 >;
 
 
 #=== TWO-LETTER ABBREVIATIONS ========================================
 # 5
-our $mon2  = <
+constant $mon2  = <
 >;
 
 # 6
-our $dow2 = <
+constant $dow2 = <
 >;
 
 #=== MIXED-LENGTH ABBREVIATIONS ======================================
 # 7
-our $mona  = <
+constant $mona  = <
 >;
 
 # 8
-our $dowa  = <
+constant $dowa  = <
 >;
