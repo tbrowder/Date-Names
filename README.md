@@ -12,47 +12,30 @@ features compred to Version 1:
 
   - language-specific data set hashes have changed to arrays
 
-  - no symbols are exported, but direct access is available, but not recommended--use the new class instead
+  - no symbols are exported; direct access is available, but not recommended--use the new class instead
 
   - @lang renamed to @langs
 
-+ New:
+  - added class **Date::Names** for primary data access
 
-  class Date::Names
-
-Version 2:
-
-```perl6
-# Note the array name is now listed last in the identifier
-# following the language code:
-my @dow = $Date::Names::nl::dow;
-
-# indexing internally is from zero, but the class user will enter 1..N
-say "index {$_ + 1}" for %dow.keys.sort; # 1..7
-```
-
-Version 1 for comparison (not available in Version 2):
-
-``` perl6
-my %dow = %Date::Names::dow<nl>;
 
 ```
 
 SYNOPSIS
 ========
 
-~~~perl6
+```perl6
 use Date::Names;
 
-my $d = Date::Names.new: :lang<nl>;
+my $d = Date::Names.new: :lang('nl');
 say "Month 3, Dutch: '{$d.mon(3)}'"; # output: 'maart'
-$d.set-lang<it>;
+$d.clone: :lang('it');
 say "Weekday 3, Italian: '{$d.dow(3)}'"; # output: ''
-$d.set-lang<de>;
+$d.clone: :lang('de');
 say "Two-letter abbrev., weekday 3, German is '{$d.dow2(3)}'";
-$d.set-lang<en>;
+$d.clone: :lang('en');
 say "Three-letter abbrev., weekday 3, English is '{$d.dow2(3)}'";
-~~~
+```
 
 DESCRIPTION
 ===========
