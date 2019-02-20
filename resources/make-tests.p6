@@ -7,7 +7,7 @@ my @langs = @Date::Names::langs;
 
 if !@*ARGS {
     say qq:to/HERE/;
-    Usage: $*PROGRAM go [debug][force]
+    Usage: $*PROGRAM go | debug [force]
     
     Writes test files for languages:
     HERE
@@ -17,34 +17,33 @@ if !@*ARGS {
     exit;
 }
 
-my $debug = @*ARGS ~~ /d/ ?? 1 !! 0 ;
-my $force = @*ARGS ~~ /f/ ?? 1 !! 0 ;
+my $debug = @*ARGS ~~ /d/ ?? 1 !! 0;
+my $force = @*ARGS ~~ /f/ ?? 1 !! 0;
+
+my @ofils;
+# number prefix for the test series:
+my $N = 5;
 for @langs -> $L {
+
     my %parts;
     read-test-template %parts;
+
+    # collect data sets and other info for each language
+    my %data;
+    get-raw-lang-data :lang($L), :data(%data);
 
     # output file is hard-wired
     my ($f, $fh);
     if $debug {
-        $f  = sprintf "%03d-{$L}-lang-class.t';
+        $f  = sprintf "%03d-{$L}-lang-class.t'", $N;
         $fh = open $f, :w;
+        @ofils.append: $f;
     }
     else {
         # use the module's test directory
-        $f  = sprintf "../t/%03d-{$L}-lang-class.t';
+        $f  = sprintf "../t/%03d-{$L}-lang-class.t'", $N;
         $fh = get-file-handle $f, :$force;
-        =begin comment
-        if $f.IO.f {
-            note "NOTE: file '$f' exists";
-            if $force {
-                note "      overwriting'...";
-            }
-            else {
-                note "      NOT overwriting'...";
-                return;
-            }
-        }
-        =end comment
+        @ofils.append: $f;
     }
     
     if $debug {
@@ -58,10 +57,24 @@ for @langs -> $L {
         }
     }
     
+    # now write the pieces
+    write-test-file $fh, :%data, :$debug;
+
     if $debug {
         say "DEBUG: early exit";
         last;
     }
+}
+
+say "Normal end.";
+if @ofils {
+    my $n = +@ofils;
+    my $s = $n > 1 ?? 's' !! '';
+    say "Output file$s:";
+    say "  $_" for @ofils;
+}
+else {
+    say "No files were created.";
 }
 
 ##### SUBROUTINES #####
@@ -129,5 +142,55 @@ sub write-test-part3-data($fh) {
 }
 
 sub get-file-handle($f, :$force) {
+    my $f-exists = $f.IO.f ?? 1 !! 0;
+    note "NOTE: file '$f' exists" if $f-exists;
+    if $f-exists && !$force {
+        note "      NOT overwriting'...";
+        return 0;
+    }
+    note "      overwriting'..." if $f-exists;
+    return open($f, :w);
+}
+
+sub get-raw-lang-data(:$lang, :%data) {
+    my $base  = "Date::Names";
+    my $baseL = "Date::Names::{$lang}";
+
+    my $ds    = "{$base}::dsets";
+    my @dsets = @::($ds);
+    %data<dsets> = @dsets;
+    for @dsets -> $n {
+        my $set = "{$baseL}::{$n}";
+        #my @arr = @($::($set));
+        %data{$n} = @($::($set));
+    }
+
+    my $ms    = "{$base}::msets";
+    my @msets = @::($ms);
+    %data<msets> = @msets;
+    for @msets -> $n {
+        my $set = "{$baseL}::{$n}";
+        #my @arr = @($::($set));
+        %data{$n} = @($::($set));
+    }
+}
+
+sub write-test-file($fh, :%data, :$debug) {
+    for %data.keys.sort -> $n {
+        next if $n ~~ /^ [d|m] sets/;
+        my @arr = @(%data{$n});
+        next if !@arr;
+
+        # $n now has the name of non-empty arrays, so
+        # we print them in <> form
+        $fh.printf: "\@%-4s = <", $n;
+        my $ne = $n.comb[0] eq 'd' ?? 7 !! 12;
+
+        for @arr.kv -> $idx, $s {
+            $fh.print(" ") if $idx;
+            $fh.print: "$s"; 
+        }
+        $fh.say: ">;"; 
+    }
 }
 
