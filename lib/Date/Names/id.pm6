@@ -23,45 +23,45 @@ unit module Date::Names::id;
 
 #=== FULL NAMES ======================================================
 # 1
-constant $mon = <
-	Januari		Februari	Maret		April
-	Mei			Juni	 	Juli		Agustus
-	September	Oktober		November	Desember
+our $mon = <
+    Januari    Februari	 Maret     April
+    Mei        Juni      Juli      Agustus
+    September  Oktober   November  Desember
 >;
 
 # 2
-constant $dow = <
-	Senin	Selasa	Rabu	Kamis
-	Jumat	Sabtu	Minggu
+our $dow = <
+    Senin  Selasa  Rabu    Kamis
+    Jumat  Sabtu   Minggu
 >;
 
 #=== THREE-LETTER ABBREVIATIONS ======================================
 # 3
-constant $mon3 = <
-	Jan	Feb	Mar	Apr	Mei Jun
-	Jul	Agu	Sep	Okt	Nov	Des
+our $mon3 = <
+    Jan  Feb  Mar  Apr  Mei  Jun
+    Jul  Agu  Sep  Okt  Nov  Des
 >;
 
 # 4
-constant $dow3 = <
-	Sen	Sel Rab	Kam
-	Jum	Sab Min
+our $dow3 = <
+    Sen  Sel  Rab  Kam
+    Jum  Sab  Min
 >;
 
 #=== TWO-LETTER ABBREVIATIONS ========================================
 # 5
-constant $mon2 = <
+our $mon2 = <
 >;
 
 # 6
-constant $dow2 = <
+our $dow2 = <
 >;
 
 #=== MIXED-LENGTH ABBREVIATIONS ======================================
 # 7
-constant $mona = <
+our $mona = <
 >;
 
 # 8
-constant $dowa = <
+our $dowa = <
 >;

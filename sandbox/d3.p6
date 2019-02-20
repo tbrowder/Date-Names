@@ -17,10 +17,6 @@ for %h.keys.sort -> $k {
     say "  $_" for $v;
 }
 
-
-
-
-
 # testing existence of a a hash key (with no or some value)
 say "===============================";
 say "testing hash key existence";
@@ -28,8 +24,8 @@ say "testing hash key existence";
 
 # test 1
 if %h<1> { say "hash \%h<0> exists with value zero WITH BASIC IF TEST"; }
-else     { say "hash \%h<0> does NOT exist with value zero WITH BASIC IF TEST"; } 
+else     { say "hash \%h<0> does NOT exist with value zero WITH BASIC IF TEST"; }
 
 # test 2
 if %h<1>:exists { say "hash \%h<0> exists with value zero WITH EXISTS TEST"; }
-else            { say "hash \%h<0> does NOT exist with value zero WITH EXISTS TEST"; } 
+else            { say "hash \%h<0> does NOT exist with value zero WITH EXISTS TEST"; }
