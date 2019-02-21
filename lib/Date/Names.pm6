@@ -3,8 +3,10 @@ unit class Date::Names;
 # Languages currently available:
 #
 #   de - German
+#   en - English
 #   es - Spanish
 #   fr - French
+#   id - Indonesian
 #   it - Italian
 #   nb - Norwegian
 #   nl - Dutch
@@ -302,36 +304,3 @@ method show-all {
     }
 }
 
-=begin comment
-method make-test(:$dir, :$test-num, :$force)  {
-    if !$dir.IO.d {
-        die "FATAL: No dir '$dir' found.";
-    }
-
-    if $!debug {
-        say "Language {$!lang}:";
-        say "  non-empty sets ({%.s.elems} total):";
-    }
-
-    # create a file name
-    my $f = sprintf "%03d-{$!lang}-class.t";
-    if $f.IO.f {
-        note "NOTE: file '$f' exists";
-        if $force {
-            note "      overwriting'...";
-        }
-        else {
-            note "      NOT overwriting'...";
-            return;
-        }
-    }
-    my $fh = open $f, :w;
-    write-test $fh;
-    for %.s.keys.sort -> $k {
-        printf "  %-4s:", $k;
-        my $arr = %.s{$k};
-        print " '$_'" for @($arr);
-        say "";
-    }
-}
-=end comment

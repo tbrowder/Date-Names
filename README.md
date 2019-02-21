@@ -47,7 +47,7 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 Full names of the months and weekdays are currently available in the
 following nine languages:
 
-### Table 1. Language two-letter ISO codes (lower-case)
+### Table 1. Language ISO codes (lower-case)
 
 Language           | ISO code
 :---               | :---:
