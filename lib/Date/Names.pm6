@@ -179,14 +179,14 @@ method !define-attr-sets($L) {
     return %h;
 }
 
-method !handle-val-attrs(Str $val, :$is-abbrev!) {
+method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
     if !defined $val {
         die "FATAL: undefined \$val '{$val.^name}'";
     }
     # check for any changes that are to be made
     my $has-period = 0;
     my $nchars = $val.chars; # includes an ending period
-    if $val ~~ /^(\s+) '.'$/ {
+    if $val ~~ /^(\S+) '.'$/ {
         die "FATAL: found ending period in val $val (not an abbreviation)"
             if !$is-abbrev;
 
@@ -221,6 +221,9 @@ method !handle-val-attrs(Str $val, :$is-abbrev!) {
 
     # treat the period carefully, it may or may not
     # have been removed by now
+    if $val !~~ /'.'$/ && $has-period {
+        $val ~= '.';
+    }
 
     return $val;
 
@@ -303,4 +306,3 @@ method show-all {
         $d.show;
     }
 }
-

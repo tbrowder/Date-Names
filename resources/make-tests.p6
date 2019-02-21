@@ -7,7 +7,7 @@ my @langs = @Date::Names::langs;
 
 if !@*ARGS {
     say qq:to/HERE/;
-    Usage: $*PROGRAM go | debug [force]
+    Usage: $*PROGRAM go | -lang=L | debug [force]
 
     Writes test files for languages:
     HERE
@@ -17,12 +17,24 @@ if !@*ARGS {
     exit;
 }
 
-my $debug = @*ARGS ~~ /d/ ?? 1 !! 0;
-my $force = @*ARGS ~~ /f/ ?? 1 !! 0;
+my $debug = 0;
+my $force = 0;
+for @*ARGS {
+    when / '-'? 'lang=' (\S+) $/ {
+        @langs = ~$0;
+    }
+    when /^d/ {
+        $debug = 1;
+    }
+    when /^f/ {
+        $force = 1;
+    }
+}
+
 
 my @ofils;
-# number prefix for the test series:
-my $N = 5;
+# number prefix for the test series (00N):
+my $N = 7;
 for @langs -> $L {
 
     my %parts;
