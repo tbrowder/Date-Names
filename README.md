@@ -215,6 +215,7 @@ comments (@name is an alias on IRC #perl6):
 + Luc St-Louis (@lucs, github: lucs) - French data
 + Luis F. Uceta (github: uzluisf) - Spanish data
 + Elizabeth Mattijsen (@lizmat, github: lizmat) - Dutch data
++ github: heince - Indonesian data
 
 I am grateful for their help!
 

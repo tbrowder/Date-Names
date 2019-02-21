@@ -8,7 +8,7 @@ my @langs = @Date::Names::langs;
 if !@*ARGS {
     say qq:to/HERE/;
     Usage: $*PROGRAM go | debug [force]
-    
+
     Writes test files for languages:
     HERE
     print " ";
@@ -35,18 +35,18 @@ for @langs -> $L {
     # output file is hard-wired
     my ($f, $fh);
     if $debug {
-        $f  = sprintf "%03d-{$L}-lang-class.t'", $N;
+        $f  = sprintf "%03d-{$L}-lang-class.t", $N;
         $fh = open $f, :w;
         @ofils.append: $f;
     }
     else {
         # use the module's test directory
-        $f  = sprintf "../t/%03d-{$L}-lang-class.t'", $N;
+        $f  = sprintf "../t/%03d-{$L}-lang-class.t", $N;
         $fh = get-file-handle $f, :$force;
         @ofils.append: $f;
     }
-    
-    if $debug {
+
+    if 0 && $debug {
         say "DEBUG: dumping parts for lang $L:";
         for 1..3 -> $p {
             say "== part $p ============";
@@ -56,12 +56,13 @@ for @langs -> $L {
             say "======================";
         }
     }
-    
+
     # now write the pieces
-    write-test-file $fh, :%data, :$debug;
+    write-test-file $fh, :%data, :%parts, :$debug, :lang($L);
+    $fh.close;
 
     if $debug {
-        say "DEBUG: early exit";
+        say "DEBUG: early exit, file '{$?FILE.IO.basename}', line {$?LINE}";
         last;
     }
 }
@@ -78,6 +79,28 @@ else {
 }
 
 ##### SUBROUTINES #####
+sub write-test-file($fh, :%data!, :%parts!, :$debug, :$lang!) {
+
+    # part 1
+    write-test-file-part $fh, :%parts, :part(1), :$debug, :$lang;
+
+    # data part 1
+    write-test-file-data $fh, :%data, :data-part(1), :$debug,
+                         :$lang, :$N;
+
+    # part 2
+    write-test-file-part $fh, :%parts, :part(2), :$debug, :$lang;
+
+    # data part 2
+    write-test-file-data $fh, :%data, :data-part(2), :$debug,
+                         :$lang, :$N;
+
+    # part 3 (FINAL)
+    write-test-file-part $fh, :%parts, :part(3), :$debug, :$lang;
+
+
+}
+
 sub read-test-template(%parts) {
     # input file is hard-wired
     my $f = './lang-class.t';
@@ -92,7 +115,7 @@ sub read-test-template(%parts) {
             # %parts{$part} SHOULD be empty
             die "FATAL: unexpected non-empty \%parts{$part}" if %parts{$part};
             next;
-        } 
+        }
         elsif $line ~~ / \s+ end \s+ part \s+ (\d) \s+ / {
             my $p = +$0;
             # stop adding lines to part $part
@@ -102,7 +125,7 @@ sub read-test-template(%parts) {
             # make sure lines are ignored between parts
             $part = 0;
             next;
-        } 
+        }
         elsif $line ~~ / \s+ part \s+ (\d) \s+ data \s+ / {
             my $p = +$0;
             # add the data for part $part
@@ -113,16 +136,16 @@ sub read-test-template(%parts) {
                     say "DEBUG: dumping \%parts{$part}:";
                     say "  $_" for %parts{$part};
                     say "DEBUG: early exit"; exit;
-                } 
+                }
                 die "FATAL: part $part, unexpected non-empty \%parts{$part}" if %parts{$part};
             }
 
             # so we can skip lines between parts
             $part = 0;
             # do whatever here
-            
+
             next;
-        } 
+        }
         elsif !$part {
             # ignore line reads beteen parts
             next;
@@ -130,15 +153,6 @@ sub read-test-template(%parts) {
         %parts{$part}.append: $line;
     }
 
-}
-
-sub write-test-part1-data($fh) {
-}
-
-sub write-test-part2-data($fh) {
-}
-
-sub write-test-part3-data($fh) {
 }
 
 sub get-file-handle($f, :$force) {
@@ -161,7 +175,6 @@ sub get-raw-lang-data(:$lang, :%data) {
     %data<dsets> = @dsets;
     for @dsets -> $n {
         my $set = "{$baseL}::{$n}";
-        #my @arr = @($::($set));
         %data{$n} = @($::($set));
     }
 
@@ -170,27 +183,61 @@ sub get-raw-lang-data(:$lang, :%data) {
     %data<msets> = @msets;
     for @msets -> $n {
         my $set = "{$baseL}::{$n}";
-        #my @arr = @($::($set));
         %data{$n} = @($::($set));
     }
 }
 
-sub write-test-file($fh, :%data, :$debug) {
+sub write-test-file-part($fh, :%parts, :$part!, :$lang, :$debug) {
+    for @(%parts{$part}) -> $line {
+        $fh.say: $line;
+    }
+}
+
+sub write-test-file-data($fh, :%data, :$data-part!, :$debug,
+                        :$lang, :$N = 0) {
+
+    if $data-part == 1 {
+        $fh.say: "# Language '{$lang}' class";
+        $fh.say: "plan {$N};";
+        $fh.say: "";
+        $fh.say: "my \$lang = '{$lang}';";
+        $fh.say: "";
+        return;
+    }
+
+    die "FATAL: date is NOT part 2 (it's part $data-part)" if $data-part != 2;
+
+    # need a master array of non-valid data sets
+    my @n;
+
     for %data.keys.sort -> $n {
+        note "DEBUG: \$n = '$n'" if 0;
         next if $n ~~ /^ [d|m] sets/;
         my @arr = @(%data{$n});
+        # skip empty data sets
         next if !@arr;
+
+        note "DEBUG: appending \$n = '$n'" if 0;
+        @n.append: $n;
 
         # $n now has the name of non-empty arrays, so
         # we print them in <> form
-        $fh.printf: "\@%-4s = <", $n;
+        $fh.printf: "my \@%-4s = <", $n;
         my $ne = $n.comb[0] eq 'd' ?? 7 !! 12;
 
         for @arr.kv -> $idx, $s {
             $fh.print(" ") if $idx;
-            $fh.print: "$s"; 
+            $fh.print: "$s";
         }
-        $fh.say: ">;"; 
+        $fh.say: ">;";
     }
-}
 
+    # finally, print all the set names
+    $fh.print: "my \@sets = <";
+    for @n.kv -> $idx, $s {
+        $fh.print(" ") if $idx;
+        $fh.print: "$s";
+    }
+    $fh.say: ">;";
+
+}
