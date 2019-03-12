@@ -18,9 +18,6 @@ features compred to Version 1:
 
   - added class **Date::Names** for primary data access
 
-
-```
-
 SYNOPSIS
 ========
 
