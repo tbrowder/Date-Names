@@ -1,7 +1,7 @@
 use v6;
 use Test;
 
-plan 171;
+plan 190;
 
 use Date::Names;
 
