@@ -234,6 +234,7 @@ comments (@name is an alias on IRC #perl6):
 + Luis F. Uceta (github: uzluisf) - Spanish data
 + Elizabeth Mattijsen (@lizmat, github: lizmat) - Dutch data
 + github: heince - Indonesian data
++ github: tzjan - Polish data
 
 I am grateful for their help!
 
