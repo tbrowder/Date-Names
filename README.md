@@ -42,7 +42,7 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 **Perl 6**'s date functions.
 
 Full names of the months and weekdays are currently available in the
-following nine languages:
+following ten languages:
 
 ### Table 1. Language ISO codes (lower-case)
 
@@ -55,6 +55,7 @@ German             | de
 Indonesian         | id
 Italian            | it
 Norwegian (Bokmål) | nb
+Polish             | pl
 Russian            | ru
 Spanish            | es
 
@@ -104,6 +105,7 @@ German           |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 Indonesian       |   Y   |   Y   |   Y   |   Y   |       |       |       |
 Italian          |   Y   |   Y   |       |       |       |       |       |
 Norwegian        |   Y   |   Y   |       |       |       |       |       |
+Polish           |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Spanish          |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
 
