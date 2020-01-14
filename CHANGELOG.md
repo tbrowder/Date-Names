@@ -1,4 +1,8 @@
+## [v2.0.4] - 2020-01-14
+- Added Polish language data
+
 ## [v2.0.3] - 2020-01-09
+- Not released--errors in packaging
 - Added Polish language data
 
 ## [v2.0.2] - 2019-03-12
