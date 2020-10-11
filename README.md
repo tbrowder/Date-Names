@@ -55,6 +55,7 @@ German             | de
 Indonesian         | id
 Italian            | it
 Norwegian (Bokmål) | nb
+Norwegian (Nynorsk)| nn
 Polish             | pl
 Russian            | ru
 Spanish            | es
@@ -104,7 +105,8 @@ French           |   Y   |   Y   |       |   Y   |   Y*  |       |   Y   |   Y
 German           |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 Indonesian       |   Y   |   Y   |   Y   |   Y   |       |       |       |
 Italian          |   Y   |   Y   |       |       |       |       |       |
-Norwegian        |   Y   |   Y   |       |       |       |       |       |
+Norwegian Bokmål |   Y   |   Y   |       |       |       |       |       |
+Norwegian Nynorsk|   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
 Polish           |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Spanish          |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
@@ -228,13 +230,14 @@ ACKNOWLEDGEMENTS
 The following persons contributed to this project via PRs and
 comments (@name is an alias on IRC #perl6):
 
-+ Moritz Lenz (@moritz, github: moritz) - German and Norwegian data
++ Moritz Lenz (@moritz, github: moritz) - German and Norwegian Bokmål data
 + @sena_kun (github: Altai-man) - Russian data
 + Luc St-Louis (@lucs, github: lucs) - French data
 + Luis F. Uceta (github: uzluisf) - Spanish data
 + Elizabeth Mattijsen (@lizmat, github: lizmat) - Dutch data
 + github: heince - Indonesian data
 + github: tzjan - Polish data
++ Eskild Hustvedt (@Zero_Dogg, github: zerodogg) - Norwegian Nynorsk data
 
 I am grateful for their help!
 
