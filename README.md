@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tbrowder/Date-Names-Perl6.svg?branch=master)](https://travis-ci.org/tbrowder/Date-Names-Perl6)
+[![Actions Status](https://github.com/tbrowder/Date-Names/workflows/test/badge.svg)](https://github.com/tbrowder/Date-Names/actions)
 
 Date::Names
 ===========
