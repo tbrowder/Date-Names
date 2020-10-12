@@ -21,7 +21,7 @@ features compared to Version 1:
 SYNOPSIS
 ========
 
-```perl6
+```raku
 use Date::Names;
 
 my $d = Date::Names.new: :lang('nl');
@@ -39,10 +39,10 @@ DESCRIPTION
 
 Module **Date::Names** provides the full name of months and days of the week for
 the numbers 1..12 and 1..7, respectively, primarily for use with
-**Perl 6**'s date functions.
+**Raku**'s date functions.
 
 Full names of the months and weekdays are currently available in the
-following ten languages:
+following eleven languages:
 
 ### Table 1. Language ISO codes (lower-case)
 
@@ -68,7 +68,7 @@ Other languages vary in capitalization depending on where
 the word or abbreviation is used or other factors. The
 names and abbreviations herein are in the most common form,
 but the user can always explicitly set the case by applying
-the Perl 6 routines **tclc**, **uc**, or **lc** to the name or
+the Raku routines **tclc**, **uc**, or **lc** to the name or
 abbreviation.
 
 Some of the abbreviations include an ending period since that is
@@ -147,8 +147,8 @@ Class Date::Names
 
 Now available is class **Date::Names** to ease use of the module:
 
-```perl6
-perl6
+```raku
+raku
 use Date::Names;
 my $dn = Date::Names.new; # default: English, full names
 is $dn.dow(1), "Monday";  # ok
@@ -159,7 +159,7 @@ is $dn.mon(1, 3), "Jan";  # ok, raw truncation on full named only
 
 The full API for the class constructor looks like this:
 
-``` perl6
+``` raku
 enum Period <yes no keep-p>;
 enum Case <uc lc tc p keep-c>;
 my $dn = Date::Names.new(
@@ -176,7 +176,7 @@ my $dn = Date::Names.new(
 
 Some helper methods:
 
-``` perl6
+``` raku
 my $dn = Date::Names.new;
 # how many non-empty data sets?
 $dn.nsets;
@@ -228,7 +228,7 @@ ACKNOWLEDGEMENTS
 ================
 
 The following persons contributed to this project via PRs and
-comments (@name is an alias on IRC #perl6):
+comments (@name is an alias on IRC #raku):
 
 + Moritz Lenz (@moritz, github: moritz) - German and Norwegian Bokmål data
 + @sena_kun (github: Altai-man) - Russian data
@@ -256,7 +256,7 @@ Tom Browder, `<tom.browder@gmail.com> `
 COPYRIGHT & LICENSE
 ===================
 
-Copyright (c) 2019 Tom Browder, all rights reserved.
+Copyright &#x00A9; 2019-2020 Tom Browder, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl 6 itself.
+it under the same terms as Raku itself.

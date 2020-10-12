@@ -1,4 +1,4 @@
-#!/usr/bin/env perl6
+#!/usr/bin/env raku
 my $a0 = <a b c>;
 my $a1 = <1 2 3>;
 say "Using scalar version (\$a):";

@@ -1,4 +1,4 @@
-#!/usr/bin/env perl6
+#!/usr/bin/env raku
 
 use lib <./lib>;
 use T::F;
@@ -25,6 +25,3 @@ say $foo.gist;
 for $f.kv -> $i, $v {
     say "$i: $v";
 }
-
-
-
