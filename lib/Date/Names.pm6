@@ -8,14 +8,15 @@ unit class Date::Names;
 #   fr - French
 #   id - Indonesian
 #   it - Italian
-#   nb - Norwegian
+#   nb - Norwegian bokmål
+#   nn - Norwegian nynorsk
 #   nl - Dutch
 #   pl - Polish
 #   ru - Russian
 
 # a list of the language two-letter codes currently considered
 # in this module:
-our @langs = <de en es fr id it nb nl pl ru>;
+our @langs = <de en es fr id it nb nn nl pl ru>;
 
 # lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
@@ -32,6 +33,7 @@ use Date::Names::fr;
 use Date::Names::id;
 use Date::Names::it;
 use Date::Names::nb;
+use Date::Names::nn;
 use Date::Names::nl;
 use Date::Names::pl;
 use Date::Names::ru;
