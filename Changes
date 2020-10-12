@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.1.0  2020-10-12T18:16:05-05:00
     - added second Norwegian language
     - converted language and file to Raku conventions
     - converted change log and other conventions
