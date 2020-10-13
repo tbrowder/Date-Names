@@ -1,4 +1,4 @@
-unit class Date::Names:ver<2.1.0>;
+unit class Date::Names:ver<2.1.1>;
 
 # Languages currently available:
 #
