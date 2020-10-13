@@ -37,10 +37,15 @@ our $dow = <
 #=== THREE-LETTER ABBREVIATIONS ======================================
 # 3
 our $mon3 = <
+    jan feb mar apr
+    mai jun jul aug
+    sep okt nov des
 >;
 
 # 4
 our $dow3 = <
+    man tir ons tor
+    fre lør søn
 >;
 
 
@@ -60,4 +65,6 @@ our $mona  = <
 
 # 8
 our $dowa  = <
+    man tir ons tors
+    fre lør søn
 >;
