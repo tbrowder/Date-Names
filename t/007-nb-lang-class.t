@@ -1,7 +1,7 @@
 use Test;
 
 # Language 'nb' class
-plan 35;
+plan 85;
 
 my $lang = 'nb';
 
@@ -13,7 +13,10 @@ my $dn;
 # non-empty data set arrays
 my @dow  = <mandag tirsdag onsdag torsdag fredag lørdag søndag>;
 my @mon  = <januar februar mars april mai juni juli august september oktober november desember>;
-my @sets = <dow mon>;
+my @dow3 = <man tir ons tor fre lør søn>;
+my @mon3 = <jan feb mar apr mai jun jul aug sep okt nov des>;
+my @dowa = <man tir ons tors fre lør søn>;
+my @sets = <dow mon dow3 mon3 dowa>;
 
 for @sets -> $n {
     my $ne = $n ~~ /^d/ ?? 7 !! 12;

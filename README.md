@@ -105,7 +105,7 @@ French           |   Y   |   Y   |       |   Y   |   Y*  |       |   Y   |   Y
 German           |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
 Indonesian       |   Y   |   Y   |   Y   |   Y   |       |       |       |
 Italian          |   Y   |   Y   |       |       |       |       |       |
-Norwegian Bokmål |   Y   |   Y   |       |       |       |       |       |
+Norwegian Bokmål |   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
 Norwegian Nynorsk|   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
 Polish           |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |
