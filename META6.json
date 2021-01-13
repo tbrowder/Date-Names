@@ -24,6 +24,7 @@
     "Date::Names::nl": "lib/Date/Names/nl.rakumod",
     "Date::Names::nn": "lib/Date/Names/nn.rakumod",
     "Date::Names::pl": "lib/Date/Names/pl.rakumod",
+    "Date::Names::ro": "lib/Date/Names/ro.rakumod",
     "Date::Names::ru": "lib/Date/Names/ru.rakumod"
   },
   "resources": [
