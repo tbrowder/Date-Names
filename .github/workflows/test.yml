@@ -6,27 +6,26 @@ on:
     tags-ignore:
       - '*'
   pull_request:
+
 jobs:
   raku:
     strategy:
       matrix:
         os:
           - ubuntu-latest
-          #- macOS-latest
+          - macOS-latest
           #- windows-latest
         raku-version:
-          - "2020.07"
-          - "2019.11"
+          - 'latest'
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: Raku/setup-raku@v1
-      - run: raku -V
-      - name: Install dependencies
-        run: |
-          # install and test if need be (includes [test-depends])
-          zef install .
-          #zef install --/test --deps-only .
-          zef install --/test App::Prove6
-      - name: Run tests
+        with:
+          raku-version: ${{ matrix.raku-version }}
+      - name: Install Dependencies
+        run: zef install --/test --test-depends --deps-only .
+      - name: Install App::Prove6
+        run: zef install --/test App::Prove6
+      - name: Run Tests
         run: prove6 -l t
