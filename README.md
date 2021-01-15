@@ -7,7 +7,7 @@ Module **Date::Names** - Provides month and weekday names for numbers (multiling
 
 This is Version 2 with significant differences and more
 features compared to Version 1:
-
+m
 + Changes:
 
   - language-specific data set hashes have changed to arrays
@@ -42,7 +42,7 @@ the numbers 1..12 and 1..7, respectively, primarily for use with
 **Raku**'s date functions.
 
 Full names of the months and weekdays are currently available in the
-following eleven languages:
+following twelve languages:
 
 ### Table 1. Language ISO codes (lower-case)
 
