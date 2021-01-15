@@ -16,7 +16,7 @@ unit class Date::Names:ver<2.1.1>;
 
 # a list of the language two-letter codes currently considered
 # in this module:
-our @langs = <de en es fr id it nb nn nl pl ru>;
+our @langs = <de en es fr id it nb nn nl pl ro ru>;
 
 # lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
@@ -36,6 +36,7 @@ use Date::Names::nb;
 use Date::Names::nn;
 use Date::Names::nl;
 use Date::Names::pl;
+use Date::Names::ro;
 use Date::Names::ru;
 
 # the class (beta)

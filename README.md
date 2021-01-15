@@ -57,6 +57,7 @@ Italian            | it
 Norwegian (Bokmål) | nb
 Norwegian (Nynorsk)| nn
 Polish             | pl
+Romanian           | ro
 Russian            | ru
 Spanish            | es
 
@@ -108,6 +109,7 @@ Italian          |   Y   |   Y   |       |       |       |       |       |
 Norwegian Bokmål |   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
 Norwegian Nynorsk|   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
 Polish           |   Y   |   Y   |   Y   |       |       |   Y   |       |
+Romanian         |   Y   |   Y   |   Y   |       |       |   Y   |   Y   |
 Russian          |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Spanish          |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
 
