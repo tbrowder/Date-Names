@@ -240,7 +240,7 @@ comments (@name is an alias on IRC #raku):
 + github: heince - Indonesian data
 + github: tzjan - Polish data
 + Eskild Hustvedt (@Zero_Dogg, github: zerodogg) - Norwegian Nynorsk data
-+ gihub: altblu - Romanian data
++ gihub: altblue - Romanian data
 
 I am grateful for their help!
 
