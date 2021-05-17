@@ -21,15 +21,19 @@ SYNOPSIS
 ========
 
     use Date::Names;
-
-    my $d = Date::Names.new: :lang<nl>;
-    say "Month 3, Dutch: '{$d.mon(3)}'"; # OUTPUT: «Month 3, Dutch: 'maart'␤»
-    $d = Date::Names.new: :lang<it>;
-    say "Weekday 3, Italian: '{$d.dow(3)}'"; # OUTPUT: «Weekday 3, Italian: 'mercoledì'␤»
-    $d = Date::Names.new: :lang<de>;
-    say "Two-letter abbrev., weekday 3, German is '{$d.dow2(3)}'";
-    $d.clone: :lang<en>;
-    say "Three-letter abbrev., weekday 3, English is '{$d.dow2(3)}'";
+    # default is to show full names
+    my $d = Date::Names.new: :lang<de>;
+    say "Day 3, German: '{$d.day(3)}'"; # OUTPUT: ﾂDay 3, German: 'maart'竦､ﾂｻ
+    say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: ﾂｫMont 3, German: 'maart'竦､ﾂｻ
+    # what abbreviations are available?
+    $d.sets;
+    ...
+    # choose the desired sets
+    $d = Date::Names.new: :lang<de>, :mset<mon3>, :dset<dow2>;
+    say "Day 3, German: '{$d.day(3)}'";   # OUTPUT: Day 3, German: 'maart'竦､ﾂｻ
+    say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: ﾂｫMonth3, German 'maart'竦､ﾂｻ
+    # arbitrarily truncate a word
+    say "Month 6 (truncate to 2 chars), German: '{$d.mon(6,2)}'"; # OUTPUT: ﾂｫMonth3, German 'maart'竦､ﾂｻ
 
 DESCRIPTION
 ===========
@@ -74,7 +78,7 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 <th>Language / Array</th> <th>mon</th> <th>dow</th> <th>mon3</th> <th>dow3</th> <th>mon2</th> <th>dow2</th> <th>mona</th> <th>dowa</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian Bokmål</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian Nynorsk</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr>
+<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian Bokmﾃ･l</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian Nynorsk</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr>
 </tbody>
 </table>
 
@@ -100,32 +104,6 @@ CORRECTIONS and SUGGESTIONS
 ===========================
 
 The goal of this module is to be useful to non-English users as well as English users. The author welcomes suggestions for improvement and increased utility.
-
-Class Date::Names
-=================
-
-Now available is class **Date::Names** to ease use of the module:
-
-    use Date::Names;
-    my $dn = Date::Names.new; # default: English, full names
-    is $dn.dow(1), "Monday";  # ok
-    is $dn.mon(1), "January"; # ok
-    is $dn.dow(1, 3), "Mon";  # ok, raw truncation on full names only
-    is $dn.mon(1, 3), "Jan";  # ok, raw truncation on full named only
-
-The full API for the class constructor looks like this:
-
-    enum Period <yes no keep-p>;
-    enum Case <uc lc tc p keep-c>;
-    my $dn = Date::Names.new(
-        lang     => 'nl',   # default: 'en'
-        dset     => 'dow3', # default: 'dow'
-        mset     => 'mon',  # default: 'mon'
-        period   => yes,    # default: keep-p (use native)
-        case     => uc,     # default: keep-c (use native)
-        truncate => 0,      # default
-        pad      => 0,      # default
-    ):
 
 Some helper methods:
 
@@ -185,7 +163,7 @@ ACKNOWLEDGEMENTS
 
 The following persons contributed to this project via PRs and comments (@name is an alias on IRC #raku):
 
-+ Moritz Lenz (@moritz, github: moritz) - German and Norwegian Bokmål data
++ Moritz Lenz (@moritz, github: moritz) - German and Norwegian Bokmﾃ･l data
 
 + @sena_kun (github: Altai-man) - Russian data
 
