@@ -4,16 +4,18 @@ use lib <../lib>;
 use Date::Names;
 
 my @langs = @Date::Names::langs;
+my $f = './lang-class.t';
 
 if !@*ARGS {
     say qq:to/HERE/;
     Usage: $*PROGRAM go | -lang=L | debug [force]
 
+    Uses file '$f' as a test template.
     Writes test files for languages:
     HERE
     print " ";
     print " $_" for @langs;
-    say "";
+    say();
     exit;
 }
 
@@ -49,13 +51,13 @@ for @langs -> $L {
     if $debug {
         $f  = sprintf "%03d-{$L}-lang-class.t", $N;
         $fh = open $f, :w;
-        @ofils.append: $f;
+        @ofils.push: $f;
     }
     else {
         # use the module's test directory
         $f  = sprintf "../t/%03d-{$L}-lang-class.t", $N;
         $fh = get-file-handle $f, :$force;
-        @ofils.append: $f;
+        @ofils.push: $f;
     }
 
     if 0 && $debug {
@@ -162,7 +164,7 @@ sub read-test-template(%parts) {
             # ignore line reads beteen parts
             next;
         }
-        %parts{$part}.append: $line;
+        %parts{$part}.push: $line;
     }
 
 }
@@ -228,10 +230,10 @@ sub write-test-file-data($fh, :%data, :$data-part!, :$debug,
         $nt += $nd *  7; # dow
         $nt += $nm * 12; # mon
 
-        # add number of other method tests (can-ok) of the class instances
+        # add number of other method tests (isa-ok, can-ok) of the class instances
         # (see the language test template file for the current number)
-        my $ut = 7;
-        $nt += $ut * ($nd + $nm);
+        my $omt = 9;
+        $nt += $omt * ($nd + $nm);
 
         $fh.say: "# Language '{$lang}' class";
         $fh.say: "plan {$nt};";
@@ -256,8 +258,8 @@ sub write-test-file-data($fh, :%data, :$data-part!, :$debug,
         # skip empty data sets
         next if !@arr;
 
-        note "DEBUG: appending \$n = '$n'" if 0;
-        @n.append: $n;
+        note "DEBUG: pushing \$n = '$n'" if 0;
+        @n.push: $n;
 
         # $n now has the name of non-empty arrays, so
         # we print them in <> form
