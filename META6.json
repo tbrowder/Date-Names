@@ -2,11 +2,12 @@
   "auth": "github:tbrowder",
   "author": "github:tbrowder",
   "authors": [
-    "Tom Browder <tom.browder@gmail.com>"
+    "Tom Browder <tbrowder@cpan.org>"
   ],
   "build-depends": [
   ],
   "depends": [
+    "Abbreviations"
   ],
   "description": "Provides names for month and weekday numbers (multilingual).",
   "license": "Artistic-2.0",
@@ -37,6 +38,9 @@
   "tags": [
     "date",
     "names",
+    "weekday",
+    "month",
+    "moy",
     "dow"
   ],
   "test-depends": [
