@@ -1,22 +1,22 @@
 use Test;
 
 # Language 'ro' class
-plan 90;
+plan 100;
 
 my $lang = 'ro';
 
 use Date::Names;
 
-my $dn;
+my $dn; # holds the class objects
 
 # these data are auto-generated:
 # non-empty data set arrays
-my @mon  = <ianuarie februarie martie aprilie mai iunie iulie august septembrie octombrie noiembrie decembrie>;
 my @dow  = <luni marți miercuri joi vineri sâmbătă duminică>;
-my @mon3 = <ian feb mar apr mai iun iul aug sep oct nov dec>;
 my @dow2 = <lu ma mi jo vi sâ du>;
+my @mon  = <ianuarie februarie martie aprilie mai iunie iulie august septembrie octombrie noiembrie decembrie>;
+my @mon3 = <ian feb mar apr mai iun iul aug sep oct nov dec>;
 my @mona = <ian febr mart apr mai iun iul aug sept oct nov dec>;
-my @sets = <mon dow mon3 dow2 mona>;
+my @sets = <dow dow2 mon mon3 mona>;
 
 for @sets -> $n {
     my $ne = $n ~~ /^d/ ?? 7 !! 12;
@@ -34,25 +34,26 @@ for @sets -> $n {
 
     # test the class construction
     isa-ok $dn, Date::Names;
-    # test class methods (6)
+    # test class methods (8)
     can-ok $dn, 'nsets';
     can-ok $dn, 'sets';
     can-ok $dn, 'show';
     can-ok $dn, 'show-all';
     can-ok $dn, 'dow';
     can-ok $dn, 'mon';
+    can-ok $dn, 'dow2num';
+    can-ok $dn, 'mon2num';
     # test the data array
-    is @v.elems, $ne, $n ~ ' length = ' ~ $ne;
+    is @v.elems, $ne;
 
     # test the main methods for return values
     for 1..$ne -> $d {
         my $val = @v[$d-1];
-        my $dsc = $n ~ '[' ~ $d ~ ']' ~ ' = ' ~ $val;
         if $is-dow {
-            is $dn.dow($d), $val, $dsc;
+            is $dn.dow($d), $val;
         }
         else {
-            is $dn.mon($d), $val, $dsc;
+            is $dn.mon($d), $val;
         }
     }
 }

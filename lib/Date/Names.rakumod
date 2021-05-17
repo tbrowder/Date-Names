@@ -1,5 +1,7 @@
 unit class Date::Names:ver<2.1.2>;
 
+use Abbreviations;
+
 # Languages currently available:
 #
 #   de - German
@@ -14,16 +16,16 @@ unit class Date::Names:ver<2.1.2>;
 #   pl - Polish
 #   ru - Russian
 
-# a list of the language two-letter codes currently considered
+# A list of the language two-letter codes currently considered
 # in this module:
 our @langs = <de en es fr id it nb nn nl pl ro ru>;
 
-# lists of the eight standard data set names for each language:
+# Lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
 our @dsets = <dow dow2 dow3 dowa>;
 our @allsets;
-@allsets.append($_) for @msets;
-@allsets.append($_) for @dsets;
+@allsets.push($_) for @msets;
+@allsets.push($_) for @dsets;
 
 # the language-specfic data
 use Date::Names::de;
@@ -234,6 +236,7 @@ method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
 
 }
 
+# public methods ================================
 =begin comment
 # TOTO get this working!!
 method clone {
@@ -259,12 +262,64 @@ method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0) {
 
     my $val = $.d[$n];
     my $is-abbrev = $.dset eq 'dow' ?? False !! True;
-    if $trunc && !$is-abbrev {
-        return $val.substr(0, $trunc);
+    if $trunc and $trunc < $val.chars {
+        # TODO this may have to change if the class $trunc is used
+        $val .= substr(0, $trunc);
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
     return $val;
+}
+
+method mon2num($s, :$debug) {
+    # given a leading portion of a full name,
+    # return its number (1..12)
+
+    # TODO reword for use of Abbrevs module
+    # get a hash of the abbreviations of the list of months (lower-cased)
+    # create a new hash keyed by month number
+    # invert that hash so each unique abbrev points to the month number
+    # if the input is not a key, return zero
+
+    # TODO should be able to use the original array
+    =begin comment
+    my @w;
+    for 0..11 -> $n {
+        my $w = $.m[$n];
+        @w.push: $w;
+        note "DEBUG: month {$n+1} is $w" if $debug;;
+    }
+    =end comment
+
+    my @w   = $.m;
+    my @ab  = abbrevs @w, :out-type(AL);
+    my $ret = 0;
+    my $i   = 0;
+    ABBREV: for @w -> $a {
+        my $w = @w[$i];
+        ++$i;
+        note "DEBUG: month abbrev $i ($a) is for month $w" if $debug;;
+        if $a ~~ /^:i $s/ {
+            $ret = $i;
+            note "DEBUG: BINGO month number $i ($a) is for month $w" if $debug;;
+            last ABBREV;
+        }
+    }
+    $ret
+}
+
+method dow2num($s) {
+    # given a leading portion of a full name,
+    # return its number (1..7)
+
+    # get a hash of the abbreviations of the list of days of the week (lower-cased)
+    # create a new hash keyed by dow number
+    # invert that hash so each unique abbrev points to the dow number
+    # if the input is not a key, return zero
+
+    for 0..6 {
+        note "DEBUG: day of the week {$_ + 1} is {$.d[$_]}";
+    }
 }
 
 method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
@@ -272,8 +327,9 @@ method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
 
     my $val = $.m[$n];
     my $is-abbrev = $.mset eq 'mon' ?? False !! True;
-    if $trunc && !$is-abbrev {
-        return $val.substr(0, $trunc);
+    if $trunc and $trunc < $val.chars {
+        # TODO this may have to change if the class $trunc is used
+        $val .= substr(0, $trunc);
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
@@ -283,7 +339,8 @@ method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
 # utility methods
 method sets {
     say "name sets with values:";
-    say "  $_" for %.s.keys.sort;
+    print "  $_" for %.s.keys.sort;
+    say();
 }
 
 method nsets {

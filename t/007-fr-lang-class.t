@@ -1,13 +1,13 @@
 use Test;
 
 # Language 'fr' class
-plan 105;
+plan 117;
 
 my $lang = 'fr';
 
 use Date::Names;
 
-my $dn;
+my $dn; # holds the class objects
 
 # these data are auto-generated:
 # non-empty data set arrays
@@ -35,13 +35,15 @@ for @sets -> $n {
 
     # test the class construction
     isa-ok $dn, Date::Names;
-    # test class methods (6)
+    # test class methods (8)
     can-ok $dn, 'nsets';
     can-ok $dn, 'sets';
     can-ok $dn, 'show';
     can-ok $dn, 'show-all';
     can-ok $dn, 'dow';
     can-ok $dn, 'mon';
+    can-ok $dn, 'dow2num';
+    can-ok $dn, 'mon2num';
     # test the data array
     is @v.elems, $ne;
 
