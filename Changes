@@ -1,8 +1,10 @@
 {{$NEXT}}
+    - Added new methods 'mon2num' and 'dow2nm'
+    - Added a new test for the new methods
     - Added dependency Abbreviations
+    - Add missing OUTPUT data in code block in README.pod
+    - Correct spellings in code block in README.pod
     - Converted README to Raku pod source
-    - Add missing OUTPUT data in code block in README.md
-    - Correct spellings in code block in README.md
     - Add more tags
 
 2.1.2  2021-01-15T13:27:33-06:00
