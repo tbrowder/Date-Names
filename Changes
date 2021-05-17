@@ -1,17 +1,22 @@
 {{$NEXT}}
+    - Added dependency Abbreviations
+    - Converted README to Raku pod source
+    - Add missing OUTPUT data in code block in README.md
+    - Correct spellings in code block in README.md
+    - Add more tags
 
 2.1.2  2021-01-15T13:27:33-06:00
     - Added Romanian language data
 
 2.1.1  2020-10-13T06:04:41-05:00
-    - added more Norwegian nn values
+    - Added more Norwegian nn values
 
 2.1.0  2020-10-12T18:16:05-05:00
-    - added second Norwegian language
-    - converted language and file to Raku conventions
-    - converted change log and other conventions
+    - Added second Norwegian language
+    - Converted language and file to Raku conventions
+    - Converted change log and other conventions
       to use App::Mi6
-    - remove unneeded Makefile
+    - Remove unneeded Makefile
 
 2.0.4  2020-01-14T05:00:00-05:00
     - Added Polish language data
