@@ -1,7 +1,6 @@
 Sets available for all languages
 ================================
 
-    Available languages and name sets:
     Language: de - German
       non-empty sets (4 total):
       dow : 'Montag' 'Dienstag' 'Mittwoch' 'Donnerstag' 'Freitag' 'Samstag' 'Sonntag'
