@@ -26,7 +26,7 @@ SYNOPSIS
     say "Day 3, German: '{$d.dow(3)}'";   # OUTPUT: «Day 3, German: 'Mittwoch'␤»
     say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: «Month 3, German: 'März'␤»
     # what abbreviations are available?
-    say $d.sets; # OUTPUT: «name sets with values:␤  dow  dow2  mon  mon3␤»
+    $d.sets; # OUTPUT: «name sets with values:␤  dow  dow2  mon  mon3␤»
     # choose the desired sets
     $d = Date::Names.new: :lang<de>, :mset<mon3>, :dset<dow2>;
     say "Day 4, German: '{$d.dow(4)}'";   # OUTPUT: «Day 4, German: 'Do'␤»
@@ -97,25 +97,16 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 
 Note that when the **Date::Names** class is fully implemented in Version 3, the user will be able to specify desired array table attributes for his or her tastes (case, trailing period, truncation or padding);
 
-PULL REQUESTS
-=============
+Some helper methods to see what is available:
 
-Native language speakers please submit PRs to (1) complete the existing language abbreviations, (2), correct errors, and (3) provide more languages. See the [docs/CONTRIBUTING](./docs/CONTRIBUTING.md) file for details.
-
-CORRECTIONS and SUGGESTIONS
-===========================
-
-The goal of this module is to be useful to non-English users as well as English users. The author welcomes suggestions for improvement and increased utility.
-
-Some helper methods:
-
-    my $dn = Date::Names.new;
+    use Date::Names
+    my $dn = Date::Names.new: :lang<nl>;
     # how many non-empty data sets?
-    $dn.nsets;
+    say $dn.nsets; # OUTPUT: «5␤»
     # show the sets:
-    $dn.sets
+    $dn.sets; # OUTPUT: «name sets with values:␤  dow  dow2  dow3  mon  mon3␤»
     # show all sets in all available languages
-    $dn.show-all
+    $dn.show-all; # OUTPUT: (see [ALL-SETS](./ALL-SETS.md)
 
 New features:
 =============
@@ -162,6 +153,16 @@ VERSION 3
   * All CLDR data set names will also be available as aliases or native arrays.
 
   * The **Date::Names** class API will be fixed and all currently planned features will be fully implemented and tested.
+
+PULL REQUESTS
+=============
+
+Native language speakers please submit PRs to (1) complete the existing language abbreviations, (2), correct errors, and (3) provide more languages. See the [docs/CONTRIBUTING](./docs/CONTRIBUTING.md) file for details.
+
+CORRECTIONS and SUGGESTIONS
+===========================
+
+The goal of this module is to be useful to non-English users as well as English users. The author welcomes suggestions for improvement and increased utility.
 
 ACKNOWLEDGEMENTS
 ================
