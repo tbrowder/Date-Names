@@ -11,9 +11,9 @@ This is Version 2 with significant differences and more features compared to Ver
 
   * language-specific data set hashes have changed to arrays
 
-  * no symbols are exported; direct access is available, but not recommended--use the new class instead
+  * no symbols are exported; direct access is available, but not recommendedemdashuse the new class instead
 
-  * @lang renamed to @langs
+  * `@lang` renamed to `@langs`
 
   * added class **Date::Names** for primary data access
 
@@ -23,17 +23,19 @@ SYNOPSIS
     use Date::Names;
     # default is to show full names
     my $d = Date::Names.new: :lang<de>;
-    say "Day 3, German: '{$d.day(3)}'"; # OUTPUT: ﾂDay 3, German: 'maart'竦､ﾂｻ
-    say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: ﾂｫMont 3, German: 'maart'竦､ﾂｻ
+    say "Day 3, German: '{$d.dow(3)}'";   # OUTPUT: «Day 3, German: 'Mittwoch'␤»
+    say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: «Month 3, German: 'März'␤»
     # what abbreviations are available?
-    $d.sets;
-    ...
+    say $d.sets; # OUTPUT: «name sets with values:␤  dow  dow2  mon  mon3␤»
     # choose the desired sets
     $d = Date::Names.new: :lang<de>, :mset<mon3>, :dset<dow2>;
-    say "Day 3, German: '{$d.day(3)}'";   # OUTPUT: Day 3, German: 'maart'竦､ﾂｻ
-    say "Month 3, German: '{$d.mon(3)}'"; # OUTPUT: ﾂｫMonth3, German 'maart'竦､ﾂｻ
+    say "Day 4, German: '{$d.dow(4)}'";   # OUTPUT: «Day 4, German: 'Do'␤»
+    say "Month 4, German: '{$d.mon(4)}'"; # OUTPUT: «Month 4, German: 'Apr'␤»
     # arbitrarily truncate a word
-    say "Month 6 (truncate to 2 chars), German: '{$d.mon(6,2)}'"; # OUTPUT: ﾂｫMonth3, German 'maart'竦､ﾂｻ
+    say "Month 8 (truncate to 2 chars), German: '{$d.mon(8,2)}'"; # OUTPUT: «Month 8, German 'Au'␤»
+    # given a name, return the number of month of year or day of week
+    say "Month number, German 'März': {$d.mon2num('März')}";  # OUTPUT: «Month number, German 'März': 3␤»
+    say "Day of week number, German 'Mittwoch': {$d.dow2num('Mittwoch')}"; # OUTPUT: «Day of week number, German 'Mittwoch': 3␤»
 
 DESCRIPTION
 ===========
@@ -78,7 +80,7 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 <th>Language / Array</th> <th>mon</th> <th>dow</th> <th>mon3</th> <th>dow3</th> <th>mon2</th> <th>dow2</th> <th>mona</th> <th>dowa</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian Bokmﾃ･l</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian Nynorsk</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr>
+<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr>
 </tbody>
 </table>
 
@@ -115,37 +117,40 @@ Some helper methods:
     # show all sets in all available languages
     $dn.show-all
 
+New features:
+=============
+
+1. English language default
+
+2. Default month and weekday array choices
+
+3. User chooses which month and weekday array to use
+
+4. Methods for entering a valid abbreviation of weekday or month name and returning its number
+
+5. Graceful messages if a desired array is empty [version 2+]
+
 Planned features:
 =================
 
-1. English language default [complete]
+1. User chooses truncation or padding [API complete, needs tests]
 
-2. Default month and weekday array choices [complete]
+2. User chooses case of the output names [API complete, needs tests]
 
-3. User chooses truncation or padding [API complete, needs tests]
+3. User can choose to have a period or not for abbreviations [API complete, needs tests]
 
-4. User chooses which month and weekday array to use [complete]
+4. User can choose raw truncation on a full name, if permitted by the language [API partially complete]
 
-5. User chooses case of the output names [API complete, needs tests]
-
-6. User can choose raw truncation on a full name, if permitted by the language [API partially complete]
-
-7. User can choose to have a period or not for abbreviations [API complete, needs tests]
-
-8. Functions for entering three-char abbreviation of weekday or month name and returning its number
-
-Future features:
-================
+Possible future features
+========================
 
 1. Language-specific attributes to affect class behavior (e.g., allow raw truncation or not)
 
-2. Add additional array names and types on a language basis (automatically via a separate CLDR date module)
+2. Add additional array names and types on a language basis automatically via a separate Common Locale Data Repository (CLDR) date module
 
-3. Graceful messages if a desired array is empty [version 2+]
+3. Features desired by users
 
-4. Features desired by users
-
-The basic class is working (see **Planned features** above) and is tested briefly. More is to be done, but eventually it will be able to proved a unified handling of full names and abbreviations. The user will be able to control casing, absence or presence of periods on abbreviations, and truncation or padding as desired.
+The basic class is working (see **New features** and **Planned features** above) and is will be able to control casing, absence or presence of periods on abbreviations, and truncation or padding as desired.
 
 VERSION 3
 =========
