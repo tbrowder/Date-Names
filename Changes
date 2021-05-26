@@ -1,4 +1,6 @@
 {{$NEXT}}
+    - Improved documentation
+    - Added a document showing all the current data by language
     - Added new methods 'mon2num' and 'dow2nm'
     - Added a new test for the new methods
     - Added dependency Abbreviations

@@ -10,15 +10,31 @@ use Abbreviations;
 #   fr - French
 #   id - Indonesian
 #   it - Italian
-#   nb - Norwegian bokmål
-#   nn - Norwegian nynorsk
+#   nb - Norwegian (bokmål)
+#   nn - Norwegian (nynorsk)
 #   nl - Dutch
 #   pl - Polish
+#   ro - Romanian
 #   ru - Russian
 
 # A list of the language two-letter codes currently considered
 # in this module:
 our @langs = <de en es fr id it nb nn nl pl ro ru>;
+our %langs =
+de => 'German',
+en => 'English',
+es => 'Spanish',
+fr => 'French',
+id => 'Indonesian',
+it => 'Italian',
+nb => 'Norwegian (bokmål)',
+nn => 'Norwegian (nynorsk)',
+nl => 'Dutch',
+pl => 'Polish',
+ro => 'Romanian',
+ru => 'Russian',
+;
+
 
 # Lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
@@ -281,45 +297,51 @@ method mon2num($s, :$debug) {
     # invert that hash so each unique abbrev points to the month number
     # if the input is not a key, return zero
 
-    # TODO should be able to use the original array
-    =begin comment
-    my @w;
-    for 0..11 -> $n {
-        my $w = $.m[$n];
-        @w.push: $w;
-        note "DEBUG: month {$n+1} is $w" if $debug;;
-    }
-    =end comment
-
-    my @w   = $.m;
+    my @w   = @($.m);
     my @ab  = abbrevs @w, :out-type(AL);
     my $ret = 0;
     my $i   = 0;
-    ABBREV: for @w -> $a {
+    ABBREV: for @ab -> $a {
         my $w = @w[$i];
         ++$i;
         note "DEBUG: month abbrev $i ($a) is for month $w" if $debug;;
-        if $a ~~ /^:i $s/ {
+        if $s ~~ /^:i $a/ {
             $ret = $i;
-            note "DEBUG: BINGO month number $i ($a) is for month $w" if $debug;;
+            note "DEBUG: BINGO month number $i ($a) is for month $w" if $debug;
             last ABBREV;
         }
     }
     $ret
 }
 
-method dow2num($s) {
+method dow2num($s, :$debug) {
     # given a leading portion of a full name,
     # return its number (1..7)
 
-    # get a hash of the abbreviations of the list of days of the week (lower-cased)
-    # create a new hash keyed by dow number
-    # invert that hash so each unique abbrev points to the dow number
+    # TODO reword for use of Abbrevs module
+    # get a hash of the abbreviations of the list of months (lower-cased)
+    # create a new hash keyed by month number
+    # invert that hash so each unique abbrev points to the month number
     # if the input is not a key, return zero
 
     for 0..6 {
-        note "DEBUG: day of the week {$_ + 1} is {$.d[$_]}";
+        note "DEBUG: day of the week {$_ + 1} is {$.d[$_]}" if $debug;
     }
+    my @w   = @($.d);
+    my @ab  = abbrevs @w, :out-type(AL);
+    my $ret = 0;
+    my $i   = 0;
+    ABBREV: for @ab -> $a {
+        my $w = @w[$i];
+        ++$i;
+        note "DEBUG: dow abbrev $i ($a) is for day $w" if $debug;;
+        if $s ~~ /^:i $a/ {
+            $ret = $i;
+            note "DEBUG: BINGO day number $i ($a) is for day $w" if $debug;
+            last ABBREV;
+        }
+    }
+    $ret
 }
 
 method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
@@ -349,7 +371,7 @@ method nsets {
 
 # could make tests!
 method show {
-    say "Language {$!lang}";
+    #say "Language {$!lang}";
     say "  non-empty sets ({%.s.elems} total):";
     for %.s.keys.sort -> $k {
         printf "  %-4s:", $k;
@@ -363,8 +385,9 @@ method show-all {
     # loop over all langs and show all available sets:
     say "Available languages and name sets:";
     for @langs -> $L {
+        my $lang = %langs{$L};
         my $d = Date::Names.new: :lang($L);
-        #say "Language: $L";
+        say "Language: $L - $lang";
         $d.show;
     }
 }
