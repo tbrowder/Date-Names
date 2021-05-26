@@ -1,4 +1,5 @@
-#head1 Sets available for all languages
+Sets available for all languages
+================================
 
     Available languages and name sets:
     Language de

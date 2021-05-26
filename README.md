@@ -97,7 +97,7 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 
 Note that when the **Date::Names** class is fully implemented in Version 3, the user will be able to specify desired array table attributes for his or her tastes (case, trailing period, truncation or padding);
 
-Some helper methods to see what is available:
+Some helper methods to see what is available (see [All-SETS](ALL-SETS.md)):
 
     use Date::Names
     my $dn = Date::Names.new: :lang<nl>;
@@ -106,7 +106,7 @@ Some helper methods to see what is available:
     # show the sets:
     $dn.sets; # OUTPUT: «name sets with values:␤  dow  dow2  dow3  mon  mon3␤»
     # show all sets in all available languages
-    $dn.show-all; # OUTPUT: (see [ALL-SETS](./ALL-SETS.md)
+    $dn.show-all; # OUTPUT: see ALL-SETS.md)
 
 New features:
 =============
