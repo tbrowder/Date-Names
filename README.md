@@ -11,7 +11,7 @@ This is Version 2 with significant differences and more features compared to Ver
 
   * language-specific data set hashes have changed to arrays
 
-  * no symbols are exported; direct access is available, but not recommendedemdashuse the new class instead
+  * no symbols are exported; direct access is available, but not recommended—use the new class instead
 
   * `@lang` renamed to `@langs`
 
