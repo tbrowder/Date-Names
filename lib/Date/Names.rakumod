@@ -1,4 +1,4 @@
-unit class Date::Names:ver<2.1.2>;
+unit class Date::Names:ver<2.2.0>;
 
 use Abbreviations;
 

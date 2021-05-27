@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.2.0  2021-05-27T05:45:29-05:00
     - Improved documentation
     - Added a document showing all the current data by language
     - Added new methods 'mon2num' and 'dow2nm'
