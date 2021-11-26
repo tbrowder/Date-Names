@@ -1,8 +1,8 @@
 {
-  "auth": "github:tbrowder",
+  "auth": "zef:tbrowder",
   "author": "github:tbrowder",
   "authors": [
-    "Tom Browder <tbrowder@cpan.org>"
+    "Tom Browder <tbrowder@acm.org>"
   ],
   "build-depends": [
   ],

@@ -1,9 +1,10 @@
 {{$NEXT}}
+    - Converted to use the Raku Zef Ecosystem
 
 2.2.0  2021-05-27T05:45:29-05:00
     - Improved documentation
     - Added a document showing all the current data by language
-    - Added new methods 'mon2num' and 'dow2nm'
+    - Added new methods 'mon2num' and 'dow2num'
     - Added a new test for the new methods
     - Added dependency Abbreviations
     - Add missing OUTPUT data in code block in README.pod
