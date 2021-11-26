@@ -257,7 +257,7 @@ I am grateful for their help!
 
 =head1 AUTHOR
 
-Tom Browder, <tom.browder@cpan.org>
+Tom Browder, <tom.browder@acm.org>
 
 =head1 COPYRIGHT and LICENSE
 
