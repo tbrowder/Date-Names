@@ -209,7 +209,7 @@ REFERENCES
 AUTHOR
 ======
 
-Tom Browder, <tom.browder@cpan.org>
+Tom Browder, <tom.browder@acm.org>
 
 COPYRIGHT and LICENSE
 =====================
