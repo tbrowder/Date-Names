@@ -1,4 +1,4 @@
-unit class Date::Names:ver<2.2.1>:auth<zef:tbrowder>;
+unit class Date::Names;
 
 use Abbreviations;
 
