@@ -1,5 +1,5 @@
 {{$NEXT}}
-    - Converted to use the Raku Zef Ecosystem
+    - Published on the Raku module Zef repository
 
 2.2.0  2021-05-27T05:45:29-05:00
     - Improved documentation
