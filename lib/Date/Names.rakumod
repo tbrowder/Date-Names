@@ -16,10 +16,11 @@ use Abbreviations;
 #   pl - Polish
 #   ro - Romanian
 #   ru - Russian
+#   uk - Ukrainian
 
 # A list of the language two-letter codes currently considered
 # in this module:
-our @langs = <de en es fr id it nb nn nl pl ro ru>;
+our @langs = <de en es fr id it nb nn nl pl ro ru uk>;
 our %langs =
 de => 'German',
 en => 'English',
@@ -33,6 +34,7 @@ nl => 'Dutch',
 pl => 'Polish',
 ro => 'Romanian',
 ru => 'Russian',
+uk => 'Ukrainian',
 ;
 
 
@@ -56,6 +58,7 @@ use Date::Names::nl;
 use Date::Names::pl;
 use Date::Names::ro;
 use Date::Names::ru;
+use Date::Names::uk;
 
 # the class (beta)
 enum Period <yes no keep>;
