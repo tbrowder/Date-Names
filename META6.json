@@ -30,6 +30,10 @@
     "Date::Names::uk": "lib/Date/Names/uk.rakumod"
   },
   "resources": [
+    "ISO-690-1.md",
+    "lang-class.t",
+    "run-test.sh",
+    "xx.rakumod"
   ],
   "source-type": "git",
   "source-url": "git://github.com/tbrowder/Date-Names.git",
@@ -47,5 +51,5 @@
   "test-depends": [
     "Test::META"
   ],
-  "version": "2.2.1"
+  "version": "2.2.2"
 }
