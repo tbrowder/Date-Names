@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.2.2  2022-01-22T09:20:35-06:00
     - Added Ukranian language data
     - Improved contribution documentation
     - Add resources to META6.json per App::Mi6 error
