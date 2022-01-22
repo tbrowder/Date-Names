@@ -1,12 +1,16 @@
 use v6;
 use Test;
 
-plan 228;
 
 use Date::Names;
 
 # all langs must have mon and dow values
 my @langs = @Date::Names::langs;
+
+# 19 tests per language
+my $ntests = @langs.elems * 19;
+plan $ntests;
+
 for 1..12 -> $mon {
     for @langs -> $L {
         my $val = $::("Date::Names::{$L}::mon")[$mon-1];

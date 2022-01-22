@@ -71,6 +71,8 @@ Polish              | pl
 Romanian            | ro
 Russian             | ru
 Spanish             | es
+Ukranian            | uk
+
 =end table
 
 =head1 CAPITALIZATION and PUNCTUATION
@@ -124,6 +126,7 @@ Polish              |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Romanian            |   Y   |   Y   |   Y   |       |       |   Y   |   Y   |
 Russian             |   Y   |   Y   |   Y   |       |       |   Y   |       |
 Spanish             |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
+Ukranian            |   Y   |   Y   |   Y   |       |   Y   |   Y   |   P   |
 =end table
 
 =head3 Table 3. Name array cell codes and meaning
@@ -245,6 +248,8 @@ comments (@name is an alias on IRC #raku):
 
 + github: altblue - Romanian data
 
++ Andrij Mizyk (github: andmizyk) - Ukranian data 
+
 I am grateful for their help!
 
 =head1 REFERENCES
@@ -261,7 +266,7 @@ Tom Browder, <tom.browder@acm.org>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright E<0x00a9> 2019-2021 Tom Browder
+Copyright E<0x00a9> 2019-2022 Tom Browder
 
 This program is free software; you may redistribute or modify
 it under the same terms as Raku itself.

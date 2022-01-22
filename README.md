@@ -57,7 +57,7 @@ Full names of the months and weekdays are currently available in the following t
 <th>Language</th> <th>ISO code</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>nl</td> </tr> <tr> <td>English</td> <td>en</td> </tr> <tr> <td>French</td> <td>fr</td> </tr> <tr> <td>German</td> <td>de</td> </tr> <tr> <td>Indonesian</td> <td>id</td> </tr> <tr> <td>Italian</td> <td>it</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> </tr> <tr> <td>Polish</td> <td>pl</td> </tr> <tr> <td>Romanian</td> <td>ro</td> </tr> <tr> <td>Russian</td> <td>ru</td> </tr> <tr> <td>Ukrainian</td> <td>uk</td> </tr> <tr> <td>Spanish</td> <td>es</td> </tr>
+<tr> <td>Dutch</td> <td>nl</td> </tr> <tr> <td>English</td> <td>en</td> </tr> <tr> <td>French</td> <td>fr</td> </tr> <tr> <td>German</td> <td>de</td> </tr> <tr> <td>Indonesian</td> <td>id</td> </tr> <tr> <td>Italian</td> <td>it</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> </tr> <tr> <td>Polish</td> <td>pl</td> </tr> <tr> <td>Romanian</td> <td>ro</td> </tr> <tr> <td>Russian</td> <td>ru</td> </tr> <tr> <td>Spanish</td> <td>es</td> </tr> <tr> <td>Ukranian</td> <td>uk</td> </tr>
 </tbody>
 </table>
 
@@ -86,7 +86,7 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 <th>Language / Array</th> <th>mon</th> <th>dow</th> <th>mon3</th> <th>dow3</th> <th>mon2</th> <th>dow2</th> <th>mona</th> <th>dowa</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Ukrainian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y</td> <td>P</td> <td>P</td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr>
+<tr> <td>Dutch</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Ukranian</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y</td> <td>P</td> <td></td> </tr>
 </tbody>
 </table>
 
@@ -195,6 +195,8 @@ The following persons contributed to this project via PRs and comments (@name is
 
 + github: altblue - Romanian data
 
++ Andrij Mizyk (github: andmizyk) - Ukranian data 
+
 I am grateful for their help!
 
 REFERENCES
@@ -214,7 +216,7 @@ Tom Browder, <tom.browder@acm.org>
 COPYRIGHT and LICENSE
 =====================
 
-Copyright © 2019-2021 Tom Browder
+Copyright © 2019-2022 Tom Browder
 
 This program is free software; you may redistribute or modify it under the same terms as Raku itself.
 

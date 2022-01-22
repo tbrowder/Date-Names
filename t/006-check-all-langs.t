@@ -24,7 +24,7 @@ constant %min-abbrev = [
     },
 ];
 
-my $ntests = 228 + %min-abbrev.elems * 19;
+my $ntests = @langs.elems * 19 + %min-abbrev.elems * 19;
 
 plan $ntests;
 
