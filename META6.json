@@ -33,6 +33,7 @@
     "ISO-690-1.md",
     "lang-class.t",
     "run-test.sh",
+    "make-tests.raku",
     "xx.rakumod"
   ],
   "source-type": "git",
