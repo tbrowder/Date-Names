@@ -1,4 +1,5 @@
 {{$NEXT}}
+    - Remove Test::META dependency
 
 2.2.2  2022-01-22T09:20:35-06:00
     - Added Ukranian language data

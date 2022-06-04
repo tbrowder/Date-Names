@@ -50,7 +50,6 @@
     "dow"
   ],
   "test-depends": [
-    "Test::META"
   ],
   "version": "2.2.2"
 }
