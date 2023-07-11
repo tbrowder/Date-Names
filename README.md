@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/tbrowder/Date-Names/workflows/test/badge.svg)](https://github.com/tbrowder/Date-Names/actions)
+[![Actions Status](https://github.com/tbrowder/Date-Names/workflows/linux/badge.svg)](https://github.com/tbrowder/Date-Names/actions) [![Actions Status](https://github.com/tbrowder/Date-Names/workflows/macos/badge.svg)](https://github.com/tbrowder/Date-Names/actions) [![Actions Status](https://github.com/tbrowder/Date-Names/workflows/win64/badge.svg)](https://github.com/tbrowder/Date-Names/actions)
 
 Date::Names
 ===========

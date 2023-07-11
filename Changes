@@ -1,4 +1,7 @@
 {{$NEXT}}
+    - Split testing into separate tests by OS
+      + Add the changes to the 'dist.ini' file
+    - Rename .pod files to .rakudoc
 
 2.2.3  2022-06-04T10:07:36-05:00
     - Remove Test::META dependency

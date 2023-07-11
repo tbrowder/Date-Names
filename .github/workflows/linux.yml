@@ -1,4 +1,4 @@
-name: test
+name: linux
 on:
   push:
     branches:
@@ -13,8 +13,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macOS-latest
-          #- windows-latest
+          # - macOS-latest
+          # - windows-latest
         raku-version:
           - 'latest'
     runs-on: ${{ matrix.os }}
