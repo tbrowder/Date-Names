@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.2.4  2023-07-11T16:42:05-05:00
     - Split testing into separate tests by OS
       + Add the changes to the 'dist.ini' file
     - Rename .pod files to .rakudoc
