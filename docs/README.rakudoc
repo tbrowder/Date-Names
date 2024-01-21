@@ -111,21 +111,21 @@ constructor.
 =head3 Table 2. Name array availability by language
 
 =begin table
-Language / Array    |  mon  | dow   | mon3  | dow3  | mon2  | dow2  | mona  | dowa
---------------------+-------+-------+-------+-------+-------+-------+-------+------
-Dutch               |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
-English             |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
-French              |   Y   |   Y   |       |   Y   |   Y*  |       |   Y   |   Y
-German              |   Y   |   Y   |   Y   |   Y   |       |   Y   |       |
-Indonesian          |   Y   |   Y   |   Y   |   Y   |       |       |       |
-Italian             |   Y   |   Y   |       |       |       |       |       |
-Norwegian (Bokmål)  |   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
-Norwegian (Nynorsk) |   Y   |   Y   |   Y   |   Y   |       |       |       |   Y
-Polish              |   Y   |   Y   |   Y   |       |       |   Y   |       |
-Romanian            |   Y   |   Y   |   Y   |       |       |   Y   |   Y   |
-Russian             |   Y   |   Y   |   Y   |       |       |   Y   |       |
-Spanish             |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
-Ukranian            |   Y   |   Y   |   Y   |       |   Y   |   Y   |   P   |
+Language - ISO   / Array | mon  | dow  | mon3 | dow3 | mon2 | dow2 | mona | dowa
+-------------------------+------+------+------+------+------+------+------+-----
+Dutch               - nl |  Y   |  Y   |  Y   |  Y   |      |  Y   |      |
+English             - en |  Y   |  Y   |  Y   |  Y   |      |  Y   |      |
+French              - fr |  Y   |  Y   |      |  Y   |  Y*  |      |  Y   |  Y
+German              - de |  Y   |  Y   |  Y   |  Y   |      |  Y   |      |
+Indonesian          - id |  Y   |  Y   |  Y   |  Y   |      |      |      |
+Italian             - it |  Y   |  Y   |      |      |      |      |      |
+Norwegian (Bokmål)  - nb |  Y   |  Y   |  Y   |  Y   |      |      |      |  Y
+Norwegian (Nynorsk) - nn |  Y   |  Y   |  Y   |  Y   |      |      |      |  Y
+Polish              - pl |  Y   |  Y   |  Y   |      |      |  Y   |      |
+Romanian            - ro |  Y   |  Y   |  Y   |      |      |  Y   |  Y   |
+Russian             - ru |  Y   |  Y   |  Y   |      |      |  Y   |      |
+Spanish             - es |  Y   |  Y   |  Y*  |  Y*  |  Y   |  Y   |      |
+Ukranian            - uk |  Y   |  Y   |  Y   |      |  Y   |  Y   |  P   |
 =end table
 
 =head3 Table 3.  Name array for truncated dow2 and dow3 languages

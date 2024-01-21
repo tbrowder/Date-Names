@@ -4,7 +4,7 @@ use Test;
 plan 52;
 
 my @dlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
-my @bad-dlangs = < >;
+my @bad-dlangs = < it fr nn nb id >;
 my @mlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
 my @bad-mlangs = < >;
 
