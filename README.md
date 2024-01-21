@@ -48,7 +48,7 @@ DESCRIPTION
 
 Module **Date::Names** provides the full name of months and days of the week for the numbers 1..12 and 1..7, respectively, primarily for use with **Raku**'s date functions.
 
-Full names of the months and weekdays are currently available in the following twelve languages:
+Full names of the months and weekdays are currently available in the following thirteen languages:
 
 ### Table 1. Language ISO codes (lower-case)
 
@@ -90,7 +90,18 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 </tbody>
 </table>
 
-### Table 3. Name array cell codes and meaning
+### Table 3. Name array for truncated dow2 and dow3 languages
+
+<table class="pod-table">
+<thead><tr>
+<th>Language</th> <th>ISO</th> <th>dow3</th> <th>dow2</th>
+</tr></thead>
+<tbody>
+<tr> <td>French</td> <td>fr</td> <td>Y</td> <td></td> </tr> <tr> <td>Indonesian</td> <td></td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td></td> <td>Y</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td></td> <td>Y</td> <td></td> </tr>
+</tbody>
+</table>
+
+### Table 4. Name array cell codes and meaning
 
 <table class="pod-table">
 <thead><tr>

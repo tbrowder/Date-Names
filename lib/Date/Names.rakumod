@@ -205,7 +205,7 @@ method !define-attr-sets($L) {
     return %h;
 }
 
-method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
+method !handle-val-attrs($val is copy, :$is-abbrev!) {
     if !defined $val {
         die "FATAL: undefined \$val '{$val.^name}'";
     }
@@ -224,21 +224,21 @@ method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
         die "FATAL: found INTERIOR period in val $val";
     }
 
-    if $.trunc && $val.chars > $.trunc {
+    if $!trunc && $val.chars > $.trunc {
         $val .= substr(0, self.trunc);
     }
-    elsif $.trunc && $.pad && $val.chars < $.trunc {
+    elsif $!trunc && $.pad && $val.chars < $.trunc {
         $val .= substr(0, $.trunc);
     }
 
-    if $.case !~~ /keep/ {
+    if $!case !~~ /keep/ {
         # more checks needed
     }
 
-    if $.trunc && $val.chars > self.trunc {
+    if $!trunc && $val.chars > self.trunc {
         $val .= substr(0, $.trunc);
     }
-    elsif $.trunc && $.pad && $val.chars < $.truncx {
+    elsif $!trunc && $.pad && $val.chars < $.truncx {
         $val .= substr(0, $.trunc);
     }
     if $.case !~~ /keep/ {
@@ -276,18 +276,35 @@ method clone {
 }
 =end comment
 
-method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0) {
+method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0, :$debug) {
     --$n; # <-- CRITICAL for proper array indexing internally
 
-    my $val = $.d[$n];
-    my $is-abbrev = $.dset eq 'dow' ?? False !! True;
+    my $val = $!d[$n];
+
+    my $is-abbrev = $!dset eq 'dow' ?? False !! True;
+
+    if 1 or $debug {
+        my $lng = $!lang;
+        note "DEBUG: \$n = '$n'; \$val = '$val'";
+        note "  lang: ", $lng;
+        note "  is-abbrev: ", $is-abbrev;
+        note "  trunc: ", $trunc;
+        #exit;00
+    }
+
+
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
     }
 
+    if not $val.defined {
+        die "FATAL: undefined \$val"
+    }
+
     $val = self!handle-val-attrs($val, :$is-abbrev);
-    return $val;
+
+    $val;
 }
 
 method mon2num($s, :$debug) {
@@ -300,7 +317,7 @@ method mon2num($s, :$debug) {
     # invert that hash so each unique abbrev points to the month number
     # if the input is not a key, return zero
 
-    my @w   = @($.m);
+    my @w   = @($!m);
     my @ab  = abbrevs @w, :out-type(AL);
     my $ret = 0;
     my $i   = 0;
@@ -328,9 +345,9 @@ method dow2num($s, :$debug) {
     # if the input is not a key, return zero
 
     for 0..6 {
-        note "DEBUG: day of the week {$_ + 1} is {$.d[$_]}" if $debug;
+        note "DEBUG: day of the week {$_ + 1} is {$!d[$_]}" if $debug;
     }
-    my @w   = @($.d);
+    my @w   = @($!d);
     my @ab  = abbrevs @w, :out-type(AL);
     my $ret = 0;
     my $i   = 0;
@@ -350,7 +367,7 @@ method dow2num($s, :$debug) {
 method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
     --$n; # <-- CRITICAL for proper array indexing internally
 
-    my $val = $.m[$n];
+    my $val = $!m[$n];
     my $is-abbrev = $.mset eq 'mon' ?? False !! True;
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used

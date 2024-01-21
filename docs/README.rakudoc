@@ -52,7 +52,7 @@ week for the numbers 1..12 and 1..7, respectively, primarily for use
 with B<Raku>'s date functions.
 
 Full names of the months and weekdays are currently available in the
-following twelve languages:
+following thirteen languages:
 
 =head3 Table 1. Language ISO codes (lower-case)
 
@@ -72,7 +72,6 @@ Romanian            | ro
 Russian             | ru
 Spanish             | es
 Ukranian            | uk
-
 =end table
 
 =head1 CAPITALIZATION and PUNCTUATION
@@ -129,7 +128,19 @@ Spanish             |   Y   |   Y   |   Y*  |   Y*  |   Y   |   Y   |       |
 Ukranian            |   Y   |   Y   |   Y   |       |   Y   |   Y   |   P   |
 =end table
 
-=head3 Table 3. Name array cell codes and meaning
+=head3 Table 3.  Name array for truncated dow2 and dow3 languages
+
+=begin table
+Language            | ISO | dow3  | dow2  
+--------------------+-----+-------+-------
+French              | fr  |   Y   |       
+Indonesian          |     |   Y   |       
+Italian             | it  |       |       
+Norwegian (Bokmål)  |     |   Y   |       
+Norwegian (Nynorsk) |     |   Y   |       
+=end table
+
+=head3 Table 4. Name array cell codes and meaning
 
 =begin table
 Code | Meaning
