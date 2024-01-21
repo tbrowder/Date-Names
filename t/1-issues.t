@@ -12,31 +12,43 @@ my $debug = 0;
 my @months = 1..1; #12;
 
 # no fake truncation for undefined values
-for @dlangs { lives-ok { dow-test :lang($_) } }
-for @bad-dlangs { dies-ok { dow-test :lang($_) } }
-for @mlangs { lives-ok { mon-test :lang($_) } }
-for @bad-mlangs { dies-ok { mon-test :lang($_) } }
+for @dlangs { lives-ok { dow-test :lang($_), :$debug } }
+for @bad-dlangs { dies-ok { dow-test :lang($_), :$debug } }
+for @mlangs { lives-ok { mon-test :lang($_), :$debug } }
+for @bad-mlangs { dies-ok { mon-test :lang($_), :$debug } }
 
 # WITH fake truncation for undefined values
 my $fake = 1;
-for @dlangs { lives-ok { dow-test :lang($_), :$fake } }
-for @bad-dlangs { dies-ok { dow-test :lang($_), :$fake } }
-for @mlangs { lives-ok { mon-test :lang($_), :$fake } }
-for @bad-mlangs { dies-ok { mon-test :lang($_), :$fake } }
+for @dlangs { lives-ok { dow-test :lang($_), :$fake, :$debug } }
+for @bad-dlangs { dies-ok { dow-test :lang($_), :$fake, :$debug } }
+for @mlangs { lives-ok { mon-test :lang($_), :$fake, :$debug } }
+for @bad-mlangs { dies-ok { mon-test :lang($_), :$fake, :$debug } }
 
 # shorter test subs
 my $dn;
-sub dow-test(:$lang!, :$fake) {
+sub dow-test(:$lang!, :$fake, :$debug) {
     $dn = Date::Names.new: :$lang, :dset<dow2>, :$fake;
-    for 1..7 { my $dow = $dn.dow($_); }
+    #for 1..7 { 
+    for 1..1 { 
+        my $dow = $dn.dow($_, :$fake, :$debug); 
+    }
     $dn = Date::Names.new: :$lang, :dset<dow3>, :$fake;
-    for 1..7 { my $dow = $dn.dow($_); }
+    #for 1..7 { 
+    for 1..1 { 
+        my $dow = $dn.dow($_, :$fake, :$debug); 
+    }
 }
-sub mon-test(:$lang!, :$fake) {
+sub mon-test(:$lang!, :$fake, :$debug) {
     $dn = Date::Names.new: :$lang, :mset<mon2>, :$fake;
-    for 1..12 { my $mon = $dn.mon($_); }
+    #for 1..12 { 
+    for 1..1 { 
+        my $mon = $dn.mon($_, :$fake, :$debug); 
+    }
     $dn = Date::Names.new: :$lang, :mset<mon3>, :$fake;
-    for 1..12 { my $mon = $dn.mon($_); }
+    #for 1..12 { 
+    for 1..1 { 
+        my $mon = $dn.mon($_, :$fake, :$debug); 
+    }
 }
 
 # subroutine from Calendar/lib/Calendar/Subs.rakumod

@@ -64,9 +64,11 @@ use Date::Names::uk;
 enum Period <yes no keep>;
 enum Case <tc uc lc nc>; # 'nc' no change
 
-has Str $.lang is rw = 'en';  # default: English
-has Str $.mset is rw = 'mon'; # default: full names
-has Str $.dset is rw = 'dow'; # default: full names
+has Str $.lang  is rw = 'en';  # default: English
+has Str $.mset  is rw = 'mon'; # default: full names
+has Str $.dset  is rw = 'dow'; # default: full names
+has Str $.msetF       = 'mon'; # constant: full names
+has Str $.dsetF       = 'dow'; # constant: full names
 
 has Period $.period = keep;  # add, remove, or keep a period to end abbreviations
 has UInt $.trunc    = 0;     # truncate to N chars if N > 0
@@ -78,27 +80,30 @@ has $.debug is rw   = 0;
 # these objects take the value of the chosen name of each type of data
 # set:
 has $.d is rw;
-has $.dfull is rw;
+has $.dfull;
 has $.m is rw;
-has $.mfull is rw;
+has $.mfull;
 # this an auto-generated hash of the names of
 # all non-empty data sets and values of that array
 has %.s is rw;
 
 submethod TWEAK() {
-    # this sets the class var to the desired
+    # This sets the class var to the desired
     # dow and mon name sets (lang and value width)
+
     # convenience string vars
     my $L = $!lang;
     my $M = $!mset;
     my $D = $!dset;
+    my $MF = $!msetF;
+    my $DF = $!dsetF;
 
     $!m = self!define-attr-mset($L, $M);
     $!d = self!define-attr-dset($L, $D);
     %!s = self!define-attr-sets($L);
 
-    $!mfull = self!define-attr-mset($L, $M);
-    $!dfull = self!define-attr-mset($L, $D);
+    $!mfull = self!define-attr-mset($L, $MF);
+    $!dfull = self!define-attr-mset($L, $DF);
 
     =begin comment
     my $mm = "Date::Names::{$L}::{$M}";
@@ -290,37 +295,65 @@ method clone {
 method dow(UInt $n is copy where { 0  < $n < 8 }, 
            $trunc = 0, 
            :$fake, # special for undefined values
-           :$debug) {
+           :$debug
+          ) {
 
-    --$n; # <-- CRITICAL for proper array indexing internally
+    --$n; # <-- CRITICAL for proper array indexing internally in the $!d array
+          #     1..7 dow
 
     my $val = $!d[$n];
 
     my $is-abbrev = $!dset eq 'dow' ?? False !! True;
     my $nchars    = $!dset.chars;
-
-    if 0 or $debug {
+    my $nc-abbrev = 0;
+    if $is-abbrev {
+        if $!dset eq 'dow2' {
+            $nc-abbrev = 2;
+        }
+        elsif $!dset eq 'dow3' {
+            $nc-abbrev = 3;
+        }
+        else {
+            die "FATAL: unrecognized dset = '$!dset'";
+        }
+    }
+    if not $val.defined {
+        note "DEBUG:";
+        note "  val is NOT defined";
         my $lng = $!lang;
-        note "DEBUG: \$n = '$n'; \$val = '$val'";
-        note "  lang: ", $lng;
-        note "  is-abbrev: ", $is-abbrev;
-        note "  trunc: ", $trunc;
-        #exit;00
+        print qq:to/HERE/;
+            lang:  $lng
+            dset:  $!dset
+            index: $n 
+        HERE
+
+        if $fake.defined {
+            note "  fake is defined";
+            # truncate the full-length dow
+            my $v = $!dfull[$n];
+            $val  = $v.substr(0, $nc-abbrev);
+            if 1 or $debug {
+                print qq:to/HERE/;
+                    v:    $v
+                    val:  $val
+                HERE
+            }
+        }
+        else {
+            note "  fake is NOT defined";
+            # use question marks (the "gracious" notification)
+            $val = ('?' xx $nc-abbrev).join;
+            if 1 or $debug {
+                note qq:to/HERE/;
+                    val:  $val
+                HERE
+            }
+        }
     }
 
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
-    }
-
-    if not $val.defined {
-        if $fake.defined {
-            # truncate the full-length dow
-            $val = ('?' xx $nchars).join;
-        }
-        else {
-            $val = ('?' xx $nchars).join;
-        }
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
@@ -391,11 +424,12 @@ method mon(UInt $n is copy where { 0 < $n < 13 },
            :$debug
 ) {
 
-    --$n; # <-- CRITICAL for proper array indexing internally
+    --$n; # <-- CRITICAL for proper array indexing internally in the $!m array
+          #     1..12 mon
 
     my $val = $!m[$n];
-    my $is-abbrev = $.mset eq 'mon' ?? False !! True;
-    my $nchars    = $.mset.chars;
+    my $is-abbrev = $!mset eq 'mon' ?? False !! True;
+    my $nchars    = $!mset.chars;
 
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
