@@ -235,11 +235,11 @@ method !handle-val-attrs($val is copy, :$is-abbrev!) {
         die "FATAL: found INTERIOR period in val $val";
     }
 
-    if $!trunc && $val.chars > $.trunc {
+    if $!trunc && $val.chars > $!trunc {
         $val .= substr(0, self.trunc);
     }
-    elsif $!trunc && $.pad && $val.chars < $.trunc {
-        $val .= substr(0, $.trunc);
+    elsif $!trunc && $.pad && $val.chars < $!trunc {
+        $val .= substr(0, $!trunc);
     }
 
     if $!case !~~ /keep/ {
@@ -247,10 +247,10 @@ method !handle-val-attrs($val is copy, :$is-abbrev!) {
     }
 
     if $!trunc && $val.chars > self.trunc {
-        $val .= substr(0, $.trunc);
+        $val .= substr(0, $!trunc);
     }
-    elsif $!trunc && $.pad && $val.chars < $.truncx {
-        $val .= substr(0, $.trunc);
+    elsif $!trunc && $.pad && $val.chars < $!trunc {
+        $val .= substr(0, $!trunc);
     }
     if $.case !~~ /keep/ {
         # more checks needed
@@ -387,6 +387,8 @@ method dow2num($s, :$debug) {
 
 method mon(UInt $n is copy where { 0 < $n < 13 }, 
            $trunc = 0,
+           :$fake, # special for undefined values
+           :$debug
 ) {
 
     --$n; # <-- CRITICAL for proper array indexing internally

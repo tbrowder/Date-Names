@@ -1,7 +1,7 @@
 use Date::Names;
 use Test;
 
-plan 26;
+plan 52;
 
 my @dlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
 my @bad-dlangs = < >;
@@ -11,31 +11,31 @@ my @bad-mlangs = < >;
 my $debug = 0;
 my @months = 1..1; #12;
 
-# no truncation
+# no fake truncation for undefined values
 for @dlangs { lives-ok { dow-test :lang($_) } }
 for @bad-dlangs { dies-ok { dow-test :lang($_) } }
 for @mlangs { lives-ok { mon-test :lang($_) } }
 for @bad-mlangs { dies-ok { mon-test :lang($_) } }
 
-# WITH truncation
-my $trunc = 1;
-for @dlangs { lives-ok { dow-test :lang($_), :$trunc } }
-for @bad-dlangs { dies-ok { dow-test :lang($_), :$trunc } }
-for @mlangs { lives-ok { mon-test :lang($_) }, :$trunc }
-for @bad-mlangs { dies-ok { mon-test :lang($_), :$trunc } }
+# WITH fake truncation for undefined values
+my $fake = 1;
+for @dlangs { lives-ok { dow-test :lang($_), :$fake } }
+for @bad-dlangs { dies-ok { dow-test :lang($_), :$fake } }
+for @mlangs { lives-ok { mon-test :lang($_), :$fake } }
+for @bad-mlangs { dies-ok { mon-test :lang($_), :$fake } }
 
 # shorter test subs
 my $dn;
-sub dow-test(:$lang!, :$trunc) {
-    $dn = Date::Names.new: :$lang, :dset<dow2>;
+sub dow-test(:$lang!, :$fake) {
+    $dn = Date::Names.new: :$lang, :dset<dow2>, :$fake;
     for 1..7 { my $dow = $dn.dow($_); }
-    $dn = Date::Names.new: :$lang, :dset<dow3>;
+    $dn = Date::Names.new: :$lang, :dset<dow3>, :$fake;
     for 1..7 { my $dow = $dn.dow($_); }
 }
-sub mon-test(:$lang!, :$trunc) {
-    my $dn = Date::Names.new: :$lang, :mset<mon2>;
+sub mon-test(:$lang!, :$fake) {
+    $dn = Date::Names.new: :$lang, :mset<mon2>, :$fake;
     for 1..12 { my $mon = $dn.mon($_); }
-    $dn = Date::Names.new: :$lang, :mset<mon3>;
+    $dn = Date::Names.new: :$lang, :mset<mon3>, :$fake;
     for 1..12 { my $mon = $dn.mon($_); }
 }
 
