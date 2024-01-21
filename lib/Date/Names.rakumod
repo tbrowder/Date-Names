@@ -78,7 +78,9 @@ has $.debug is rw   = 0;
 # these objects take the value of the chosen name of each type of data
 # set:
 has $.d is rw;
+has $.dfull is rw;
 has $.m is rw;
+has $.mfull is rw;
 # this an auto-generated hash of the names of
 # all non-empty data sets and values of that array
 has %.s is rw;
@@ -94,6 +96,9 @@ submethod TWEAK() {
     $!m = self!define-attr-mset($L, $M);
     $!d = self!define-attr-dset($L, $D);
     %!s = self!define-attr-sets($L);
+
+    $!mfull = self!define-attr-mset($L, $M);
+    $!dfull = self!define-attr-mset($L, $D);
 
     =begin comment
     my $mm = "Date::Names::{$L}::{$M}";
@@ -135,7 +140,10 @@ submethod TWEAK() {
         my $nhas = %!s{$n}.elems;
         my $nreq = $n eq 'mon' ?? 12 !! 7;
         if $nhas != $nreq {
-            note "WARNING: lang {$!lang}, data set '$n' has $nhas elements,\n  but it should have $nreq";
+            note qq:to/HERE/;
+            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
+                     but it should have $nreql
+            HERE
         }
         else {
             ++$mo if $n eq 'mon';
@@ -152,7 +160,10 @@ submethod TWEAK() {
         my $nhas = %!s{$n}.elems;
         my $nreq = $n eq 'mon' ?? 12 !! 7;
         if $nhas != $nreq {
-            note "WARNING: lang {$!lang}, data set '$n' has $nhas elements, but it should have $nreq";
+            note qq:to/HERE/;
+            WARNING: lang {$!lang}, data set '$n' has $nhas elements, 
+                     but it should have $nreq
+            HERE
         }
         else {
             my $c = $n.comb[0];
@@ -251,7 +262,7 @@ method !handle-val-attrs($val is copy, :$is-abbrev!) {
         $val ~= '.';
     }
 
-    return $val;
+    $val;
 
 }
 
@@ -276,14 +287,19 @@ method clone {
 }
 =end comment
 
-method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0, :$debug) {
+method dow(UInt $n is copy where { 0  < $n < 8 }, 
+           $trunc = 0, 
+           :$fake, # special for undefined values
+           :$debug) {
+
     --$n; # <-- CRITICAL for proper array indexing internally
 
     my $val = $!d[$n];
 
     my $is-abbrev = $!dset eq 'dow' ?? False !! True;
+    my $nchars    = $!dset.chars;
 
-    if 1 or $debug {
+    if 0 or $debug {
         my $lng = $!lang;
         note "DEBUG: \$n = '$n'; \$val = '$val'";
         note "  lang: ", $lng;
@@ -292,19 +308,24 @@ method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0, :$debug) {
         #exit;00
     }
 
-
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
     }
 
     if not $val.defined {
-        die "FATAL: undefined \$val"
+        if $fake.defined {
+            # truncate the full-length dow
+            $val = ('?' xx $nchars).join;
+        }
+        else {
+            $val = ('?' xx $nchars).join;
+        }
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
 
-    $val;
+    $val
 }
 
 method mon2num($s, :$debug) {
@@ -364,18 +385,28 @@ method dow2num($s, :$debug) {
     $ret
 }
 
-method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
+method mon(UInt $n is copy where { 0 < $n < 13 }, 
+           $trunc = 0,
+) {
+
     --$n; # <-- CRITICAL for proper array indexing internally
 
     my $val = $!m[$n];
     my $is-abbrev = $.mset eq 'mon' ?? False !! True;
+    my $nchars    = $.mset.chars;
+
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
     }
 
+    if not $val.defined {
+        $val = ('?' xx $nchars).join;
+    }
+
     $val = self!handle-val-attrs($val, :$is-abbrev);
-    return $val;
+
+    $val
 }
 
 # utility methods

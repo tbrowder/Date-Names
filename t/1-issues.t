@@ -1,41 +1,45 @@
 use Date::Names;
 use Test;
 
-plan 1;
+plan 26;
 
-my $year = 2024;
-
-my @langs = @Date::Names::langs;
-
-my @langs =  <
-    uk
-    ro
-    ru
-    es
-    pl
-    de
-    en
-    nl
->;
-
-my $bad-lang = <
-    it
-    fr
-    nn
-    nb
-    id
->;
+my @dlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
+my @bad-dlangs = < >;
+my @mlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
+my @bad-mlangs = < >;
 
 my $debug = 0;
 my @months = 1..1; #12;
-lives-ok {
-    for @langs {
-        caldata @months, :$year, :lang($_), :$debug;
-        #note "DEBUG: lang: $_";
-    }
+
+# no truncation
+for @dlangs { lives-ok { dow-test :lang($_) } }
+for @bad-dlangs { dies-ok { dow-test :lang($_) } }
+for @mlangs { lives-ok { mon-test :lang($_) } }
+for @bad-mlangs { dies-ok { mon-test :lang($_) } }
+
+# WITH truncation
+my $trunc = 1;
+for @dlangs { lives-ok { dow-test :lang($_), :$trunc } }
+for @bad-dlangs { dies-ok { dow-test :lang($_), :$trunc } }
+for @mlangs { lives-ok { mon-test :lang($_) }, :$trunc }
+for @bad-mlangs { dies-ok { mon-test :lang($_), :$trunc } }
+
+# shorter test subs
+my $dn;
+sub dow-test(:$lang!, :$trunc) {
+    $dn = Date::Names.new: :$lang, :dset<dow2>;
+    for 1..7 { my $dow = $dn.dow($_); }
+    $dn = Date::Names.new: :$lang, :dset<dow3>;
+    for 1..7 { my $dow = $dn.dow($_); }
+}
+sub mon-test(:$lang!, :$trunc) {
+    my $dn = Date::Names.new: :$lang, :mset<mon2>;
+    for 1..12 { my $mon = $dn.mon($_); }
+    $dn = Date::Names.new: :$lang, :mset<mon3>;
+    for 1..12 { my $mon = $dn.mon($_); }
 }
 
-# subroutine from Calendar/lib/Caalendar/Subs.rakumod
+# subroutine from Calendar/lib/Calendar/Subs.rakumod
 sub caldata(@months? is copy, :$lang is copy, :$year is copy, :$debug) is export {
     # Produces output for all months or the specified
     # months identically to the Linux program 'cal'.
