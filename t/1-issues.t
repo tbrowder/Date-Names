@@ -1,57 +1,51 @@
 use Date::Names;
 use Test;
 
-plan 52;
+plan 26;
 
-my @dlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
-my @bad-dlangs = < it fr nn nb id >;
-my @mlangs =  < uk ro ru es pl de en nl it fr nn nb id >;
-my @bad-mlangs = < >;
+my @langs =  < uk ro ru es pl de en nl it fr nn nb id >;
 
 my $debug = 0;
-my @months = 1..1; #12;
 
-# no fake truncation for undefined values
-for @dlangs { lives-ok { dow-test :lang($_), :$debug } }
-for @bad-dlangs { dies-ok { dow-test :lang($_), :$debug } }
-for @mlangs { lives-ok { mon-test :lang($_), :$debug } }
-for @bad-mlangs { dies-ok { mon-test :lang($_), :$debug } }
-
-# WITH fake truncation for undefined values
-my $fake = 1;
-for @dlangs { lives-ok { dow-test :lang($_), :$fake, :$debug } }
-for @bad-dlangs { dies-ok { dow-test :lang($_), :$fake, :$debug } }
-for @mlangs { lives-ok { mon-test :lang($_), :$fake, :$debug } }
-for @bad-mlangs { dies-ok { mon-test :lang($_), :$fake, :$debug } }
+# automatic truncation for undefined values
+for @langs { lives-ok { dow-test :lang($_), :$debug } }
+for @langs { lives-ok { mon-test :lang($_), :$debug } }
 
 # shorter test subs
 my $dn;
-sub dow-test(:$lang!, :$fake, :$debug) {
-    $dn = Date::Names.new: :$lang, :dset<dow2>, :$fake;
-    #for 1..7 { 
-    for 1..1 { 
-        my $dow = $dn.dow($_, :$fake, :$debug); 
+my @mons = 1..12;
+my @dows = 1..7;
+sub dow-test(:$lang!, :$debug) {
+    $dn = Date::Names.new: :$lang, :dset<dow2>;
+    for @dows { 
+        my $dow = $dn.dow($_, :$debug); 
+        die "???" if $dow ~~ /'?'/;
+        die "failed length test" if $dow.chars !== 2;
     }
-    $dn = Date::Names.new: :$lang, :dset<dow3>, :$fake;
-    #for 1..7 { 
-    for 1..1 { 
-        my $dow = $dn.dow($_, :$fake, :$debug); 
+    $dn = Date::Names.new: :$lang, :dset<dow3>;
+    for @dows { 
+        my $dow = $dn.dow($_, :$debug); 
+        die "???" if $dow ~~ /'?'/;
+        die "failed length test" if $dow.chars !== 3;
     }
 }
-sub mon-test(:$lang!, :$fake, :$debug) {
-    $dn = Date::Names.new: :$lang, :mset<mon2>, :$fake;
-    #for 1..12 { 
-    for 1..1 { 
-        my $mon = $dn.mon($_, :$fake, :$debug); 
+sub mon-test(:$lang!, :$debug) {
+    $dn = Date::Names.new: :$lang, :mset<mon2>;
+    for @mons {
+        my $mon = $dn.mon($_, :$debug); 
+        die "???" if $mon ~~ /'?'/;
+        die "failed length test" if $mon.chars !== 2;
     }
-    $dn = Date::Names.new: :$lang, :mset<mon3>, :$fake;
-    #for 1..12 { 
-    for 1..1 { 
-        my $mon = $dn.mon($_, :$fake, :$debug); 
+    $dn = Date::Names.new: :$lang, :mset<mon3>;
+    for @mons {
+        my $mon = $dn.mon($_, :$debug); 
+        die "???" if $mon ~~ /'?'/;
+        die "failed length test" if $mon.chars !== 3;
     }
 }
 
 # subroutine from Calendar/lib/Calendar/Subs.rakumod
+my @months = 1..1; #12;
 sub caldata(@months? is copy, :$lang is copy, :$year is copy, :$debug) is export {
     # Produces output for all months or the specified
     # months identically to the Linux program 'cal'.
