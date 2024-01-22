@@ -92,10 +92,6 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 
 ### Table 3. Name array for truncated dow2 and dow3 languages
 
-Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The following five languages don't have a complete set of dow2 and dow3 abbreviations, so this module will create one by truncating the full dow name to the desired length. 
-
-There are more languages that don't have a full set of two- and three-letter month abbreviations, as can be seen in Table 2. If they are required by the user, they will also be created by truncation.
-
 <table class="pod-table">
 <thead><tr>
 <th>Language</th> <th>ISO</th> <th>dow3</th> <th>dow2</th>
@@ -104,6 +100,10 @@ There are more languages that don't have a full set of two- and three-letter mon
 <tr> <td>French</td> <td>fr</td> <td>Y</td> <td></td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>Y</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>Y</td> <td></td> </tr>
 </tbody>
 </table>
+
+Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The following five languages don't have a complete set of dow2 and dow3 abbreviations, so this module will automatically create one by truncating the full dow or month name to the desired length. 
+
+There are more languages that don't have a full set of two- and three-letter month abbreviations, as can be seen in Table 2. If they are required by the user, they will also be created automatically by truncation.
 
 ### Table 4. Name array cell codes and meaning
 
@@ -147,13 +147,9 @@ New features:
 Planned features:
 =================
 
-1. User chooses truncation or padding [API complete, needs tests]
+1. User chooses case of the output names [API complete, needs tests]
 
-2. User chooses case of the output names [API complete, needs tests]
-
-3. User can choose to have a period or not for abbreviations [API complete, needs tests]
-
-4. User can choose raw truncation on a full name, if permitted by the language [API partially complete]
+2. User can choose to have a period or not for abbreviations [API complete, needs tests]
 
 Possible future features
 ========================
@@ -164,7 +160,7 @@ Possible future features
 
 3. Features desired by users
 
-The basic class is working (see **New features** and **Planned features** above) and is will be able to control casing, absence or presence of periods on abbreviations, and truncation or padding as desired.
+The basic class is working (see **New features** and **Planned features** above) and will be able to control casing, absence or presence of periods on abbreviations, and truncation or padding as desired.
 
 VERSION 3
 =========
@@ -192,25 +188,25 @@ ACKNOWLEDGEMENTS
 
 The following persons contributed to this project via PRs and comments (@name is an alias on IRC #raku):
 
-+ Moritz Lenz (@moritz, github: moritz) - German and Norwegian Bokmﾃ･l data
++ Moritz Lenz (@moritz, Github: moritz) - German and Norwegian Bokmﾃ･l data
 
-+ @sena_kun (github: Altai-man) - Russian data
++ @sena_kun (Github: Altai-man) - Russian data
 
-+ Luc St-Louis (@lucs, github: lucs) - French data
++ Luc St-Louis (@lucs, Github: lucs) - French data
 
-+ Luis F. Uceta (github: uzluisf) - Spanish data
++ Luis F. Uceta (Github: uzluisf) - Spanish data
 
-+ Elizabeth Mattijsen (@lizmat, github: lizmat) - Dutch data
++ Elizabeth Mattijsen (@lizmat, Github: lizmat) - Dutch data
 
-+ github: heince - Indonesian data
++ Github: heince - Indonesian data
 
-+ github: tzjan - Polish data
++ Github: tzjan - Polish data
 
-+ Eskild Hustvedt (@Zero_Dogg, github: zerodogg) - Norwegian Nynorsk data
++ Eskild Hustvedt (@Zero_Dogg, Github: zerodogg) - Norwegian Nynorsk data
 
-+ github: altblue - Romanian data
++ Github: altblue - Romanian data
 
-+ Andrij Mizyk (github: andmizyk) - Ukranian data 
++ Andrij Mizyk (Github: andmizyk) - Ukranian data 
 
 I am grateful for their help!
 
