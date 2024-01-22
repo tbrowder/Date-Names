@@ -66,7 +66,7 @@ CAPITALIZATION and PUNCTUATION
 
 All English month and weekday names are always capitalized. Other languages vary in capitalization depending on where the word or abbreviation is used or other factors. The names and abbreviations herein are in the most common form, but the user can always explicitly set the case by applying the Raku routines **tclc**, **uc**, or **lc** to the name or abbreviation.
 
-Some of the abbreviations include an ending period since that is customary use in some languages (e.g., French).
+Some of the abbreviations include an ending period since that is customary use in some languages (e.g., Spanish and Ukranian).
 
 LIMITATIONS
 ===========

@@ -84,7 +84,7 @@ set the case by applying the Raku routines B<tclc>, B<uc>, or B<lc> to
 the name or abbreviation.
 
 Some of the abbreviations include an ending period since that is
-customary use in some languages (e.g., French).
+customary use in some languages (e.g., Spanish and Ukranian).
 
 =head1 LIMITATIONS
 
