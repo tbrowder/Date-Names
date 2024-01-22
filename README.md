@@ -99,7 +99,7 @@ Table 3 defines the note codes used in Table 2.
 <th>Code</th> <th>Meaning</th>
 </tr></thead>
 <tbody>
-<tr> <td>*</td> <td>code rather than an abbreviation</td> </tr> <tr> <td>L</td> <td>array values are lower-case</td> </tr> <tr> <td>M</td> <td>array values are mixed-case</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>T</td> <td>array values are title-case</td> </tr> <tr> <td>U</td> <td>array values are upper-case</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
+<tr> <td>*</td> <td>code rather than an abbreviation</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
 </tbody>
 </table>
 

@@ -135,13 +135,16 @@ Table 3 defines the note codes used in Table 2.
 Code | Meaning
 -----+---------------------------------
 *    | code rather than an abbreviation
-L    | array values are lower-case
-M    | array values are mixed-case
 P    | array values have a trailing period
-T    | array values are title-case
-U    | array values are upper-case
 Y    | language has this array
 =end table
+
+Z< following codes are to be added:
+L    | array values are lower-case
+M    | array values are mixed-case
+T    | array values are title-case
+U    | array values are upper-case
+>
 
 Some of the most-used names in calendar construction are the abbreviations
 for the days-of-the-week (dow), both two- and three-letter ones. One
