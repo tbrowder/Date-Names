@@ -86,11 +86,13 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 <th>Language - ISO / Array</th> <th>mon</th> <th>dow</th> <th>mon3</th> <th>dow3</th> <th>mon2</th> <th>dow2</th> <th>mona</th> <th>dowa</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch - nl</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>English - en</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French - fr</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y*</td> <td></td> <td>Y</td> <td>Y</td> </tr> <tr> <td>German - de</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian - id</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian - it</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål) - nb</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Norwegian (Nynorsk) - nn</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td>Y</td> </tr> <tr> <td>Polish - pl</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Romanian - ro</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td>Y</td> <td></td> </tr> <tr> <td>Russian - ru</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Spanish - es</td> <td>Y</td> <td>Y</td> <td>Y*</td> <td>Y*</td> <td>Y</td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Ukranian - uk</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td>Y</td> <td>P</td> <td></td> </tr>
+<tr> <td>Dutch - nl</td> <td>YL</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td>YL</td> <td></td> <td></td> </tr> <tr> <td>English - en</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>French - fr</td> <td>YL</td> <td>YL</td> <td></td> <td>YL</td> <td>YU*</td> <td></td> <td>YL</td> <td>Y</td> </tr> <tr> <td>German - de</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td>Y</td> <td></td> <td></td> </tr> <tr> <td>Indonesian - id</td> <td>Y</td> <td>Y</td> <td>Y</td> <td>Y</td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Italian - it</td> <td>Y</td> <td>YL</td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål) - nb</td> <td>YL</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td></td> <td></td> <td>YL</td> </tr> <tr> <td>Norwegian (Nynorsk) - nn</td> <td>YL</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td></td> <td></td> <td>YL</td> </tr> <tr> <td>Polish - pl</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td></td> <td>YL</td> <td></td> <td></td> </tr> <tr> <td>Romanian - ro</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td></td> <td>YL</td> <td>YL</td> <td></td> </tr> <tr> <td>Russian - ru</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td></td> <td>YL</td> <td></td> <td></td> </tr> <tr> <td>Spanish - es</td> <td>YL</td> <td>YL</td> <td>YL*</td> <td>YL*</td> <td>YL</td> <td>YL</td> <td>LP</td> <td>LP</td> </tr> <tr> <td>Ukranian - uk</td> <td>YL</td> <td>YL</td> <td>YL</td> <td></td> <td>YL</td> <td>YL</td> <td>LP</td> <td>LP</td> </tr>
 </tbody>
 </table>
 
 Table 3 defines the note codes used in Table 2.
+
+Note all arrays are title-cased unless marked with a 'U' or an 'L'.
 
 ### Table 3. Name array cell codes and meaning
 
@@ -99,11 +101,11 @@ Table 3 defines the note codes used in Table 2.
 <th>Code</th> <th>Meaning</th>
 </tr></thead>
 <tbody>
-<tr> <td>*</td> <td>code rather than an abbreviation</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
+<tr> <td>*</td> <td>a code rather than an abbreviation</td> </tr> <tr> <td>L</td> <td>array values are lower-case</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>U</td> <td>array values are upper-case</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
 </tbody>
 </table>
 
-Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The five languages in Table 4 don't have a complete set of dow2 and dow3 abbreviations, so this module will automatically create one by truncating the full dow or month name to the desired length. 
+Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The five languages in Table 4 don't have a complete set of dow2 and dow3 abbreviations, so this module will automatically create one by truncating the full dow or month name to the desired length.
 
 ### Table 4. Name array for truncated dow2 and dow3 languages
 
@@ -208,7 +210,7 @@ The following persons contributed to this project via PRs and comments (@name is
 
 + Github: altblue - Romanian data
 
-+ Andrij Mizyk (Github: andmizyk) - Ukranian data 
++ Andrij Mizyk (Github: andmizyk) - Ukranian data
 
 I am grateful for their help!
 
