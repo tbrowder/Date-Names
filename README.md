@@ -133,8 +133,8 @@ Note that when the **Date::Names** class is fully implemented in Version 3, the 
     # show all sets in all available languages
     $dn.show-all; # OUTPUT: see ALL-SETS.md)
 
-New features:
-=============
+Features:
+=========
 
 1. English language default
 
@@ -144,7 +144,7 @@ New features:
 
 4. Methods for entering a valid abbreviation of weekday or month name and returning its number
 
-5. Graceful messages if a desired array is empty [version 2+]
+5. When requesting an abbreviation that doesn't exist, the full name is automatically truncated to the desired length.
 
 Planned features:
 =================
