@@ -294,7 +294,6 @@ method clone {
 
 method dow(UInt $n is copy where { 0  < $n < 8 }, 
            $trunc = 0, 
-           :$fake, # special for undefined values
            :$debug
           ) {
 
@@ -317,37 +316,28 @@ method dow(UInt $n is copy where { 0  < $n < 8 },
             die "FATAL: unrecognized dset = '$!dset'";
         }
     }
-    if not $val.defined {
-        note "DEBUG:";
-        note "  val is NOT defined";
-        my $lng = $!lang;
-        print qq:to/HERE/;
-            lang:  $lng
-            dset:  $!dset
-            index: $n 
-        HERE
 
-        if $fake.defined {
-            note "  fake is defined";
-            # truncate the full-length dow
-            my $v = $!dfull[$n];
-            $val  = $v.substr(0, $nc-abbrev);
-            if 1 or $debug {
-                print qq:to/HERE/;
-                    v:    $v
-                    val:  $val
-                HERE
-            }
+    if not $val.defined {
+        # auto-truncate to the desired length
+        if $debug {
+            print qq:to/HERE/;
+            DEBUG:
+              val is NOT defined
+                lang:  $!lang
+                dset:  $!dset
+                index: $n 
+            HERE
         }
-        else {
-            note "  fake is NOT defined";
-            # use question marks (the "gracious" notification)
-            $val = ('?' xx $nc-abbrev).join;
-            if 1 or $debug {
-                note qq:to/HERE/;
-                    val:  $val
-                HERE
-            }
+
+        # truncate the full-length dow
+        my $v = $!dfull[$n];
+        $val  = $v.substr(0, $nc-abbrev);
+
+        if $debug {
+            print qq:to/HERE/;
+                v:    $v
+                val:  $val
+            HERE
         }
     }
 
@@ -420,7 +410,6 @@ method dow2num($s, :$debug) {
 
 method mon(UInt $n is copy where { 0 < $n < 13 }, 
            $trunc = 0,
-           :$fake, # special for undefined values
            :$debug
 ) {
 
@@ -430,14 +419,46 @@ method mon(UInt $n is copy where { 0 < $n < 13 },
     my $val = $!m[$n];
     my $is-abbrev = $!mset eq 'mon' ?? False !! True;
     my $nchars    = $!mset.chars;
+    my $nc-abbrev = 0;
+    if $is-abbrev {
+        if $!mset eq 'mon2' {
+            $nc-abbrev = 2;
+        }
+        elsif $!mset eq 'mon3' {
+            $nc-abbrev = 3;
+        }
+        else {
+            die "FATAL: unrecognized mset = '$!mset'";
+        }
+    }
+
+    if not $val.defined {
+        # auto-truncate to the desired length
+        if $debug {
+            print qq:to/HERE/;
+            DEBUG:
+              val is NOT defined
+                lang:  $!lang
+                dset:  $!mset
+                index: $n 
+            HERE
+        }
+
+        # truncate the full-length dow
+        my $v = $!mfull[$n];
+        $val  = $v.substr(0, $nc-abbrev);
+
+        if $debug {
+            print qq:to/HERE/;
+                v:    $v
+                val:  $val
+            HERE
+        }
+    }
 
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
-    }
-
-    if not $val.defined {
-        $val = ('?' xx $nchars).join;
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
