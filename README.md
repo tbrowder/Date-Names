@@ -116,7 +116,7 @@ There are more languages that don't have a full set of two- and three-letter mon
 <th>Language</th> <th>ISO</th> <th>dow3</th> <th>dow2</th>
 </tr></thead>
 <tbody>
-<tr> <td>French</td> <td>fr</td> <td>Y</td> <td></td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>Y</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>Y</td> <td></td> </tr>
+<tr> <td>French</td> <td>fr</td> <td>YL</td> <td></td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>YL</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>YL</td> <td></td> </tr>
 </tbody>
 </table>
 

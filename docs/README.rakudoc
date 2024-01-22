@@ -163,11 +163,11 @@ by truncation.
 =begin table
 Language            | ISO | dow3  | dow2
 --------------------+-----+-------+-------
-French              | fr  |   Y   |
+French              | fr  |   YL  |
 Indonesian          | id  |   Y   |
 Italian             | it  |       |
-Norwegian (Bokmål)  | nb  |   Y   |
-Norwegian (Nynorsk) | nn  |   Y   |
+Norwegian (Bokmål)  | nb  |   YL  |
+Norwegian (Nynorsk) | nn  |   YL  |
 =end table
 
 Note that when the B<Date::Names> class is fully implemented in
