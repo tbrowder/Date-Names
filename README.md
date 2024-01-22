@@ -75,7 +75,7 @@ Not all languages have a complete set of two- and three-letter abbreviations, an
 
 Table 2 shows the array names for the full names and abbreviations currently available. Array names with a 2 or 3 appended are complete abbreviation sets of that length only. Array names with an 'a' appended are sets of abbreviations of mixed length. A 'Y' in a cell indicates a language has a complete set of that type of abbreviation.
 
-Note that in some countries the term "abbreviation" is distinctly different than "code" as it applies to date names. An asterisk in a cell marks those which are technically codes rather than abbreviations. Table 4 shows the meaning of other codes used in the Table 2 cells.
+Note that in some countries the term "abbreviation" is distinctly different than "code" as it applies to date names. An asterisk in a cell marks those which are technically codes rather than abbreviations. Table 3 shows the meaning of other codes used in the Table 2 cells.
 
 The array names in Table 2 (without a sigil) are the ones to be used for the day and month array names for the **Date::Names** class constructor.
 
@@ -118,7 +118,7 @@ Some of the most-used names in calendar construction are the abbreviations for t
 
 There are more languages that don't have a full set of two- and three-letter month abbreviations, as can be seen in Table 2. If they are required by the user, they will also be created automatically by truncation.
 
-Note that when the **Date::Names** class is fully implemented in Version 3, the user will be able to specify desired array table attributes for his or her tastes (case, trailing period, truncation or padding);
+Note that when the **Date::Names** class is fully implemented in Version 3, the user will be able to specify desired array table attributes for his or her tastes (case, trailing period, truncation or padding).
 
 ### Methods to see what is available
 
