@@ -90,7 +90,22 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 </tbody>
 </table>
 
-### Table 3. Name array for truncated dow2 and dow3 languages
+Table 3 defines the note codes used in Table 2.
+
+### Table 3. Name array cell codes and meaning
+
+<table class="pod-table">
+<thead><tr>
+<th>Code</th> <th>Meaning</th>
+</tr></thead>
+<tbody>
+<tr> <td>*</td> <td>code rather than an abbreviation</td> </tr> <tr> <td>L</td> <td>array values are lower-case</td> </tr> <tr> <td>M</td> <td>array values are mixed-case</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>T</td> <td>array values are title-case</td> </tr> <tr> <td>U</td> <td>array values are upper-case</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
+</tbody>
+</table>
+
+Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The five languages in Table 4 don't have a complete set of dow2 and dow3 abbreviations, so this module will automatically create one by truncating the full dow or month name to the desired length. 
+
+### Table 4. Name array for truncated dow2 and dow3 languages
 
 <table class="pod-table">
 <thead><tr>
@@ -101,20 +116,7 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 </tbody>
 </table>
 
-Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The following five languages don't have a complete set of dow2 and dow3 abbreviations, so this module will automatically create one by truncating the full dow or month name to the desired length. 
-
 There are more languages that don't have a full set of two- and three-letter month abbreviations, as can be seen in Table 2. If they are required by the user, they will also be created automatically by truncation.
-
-### Table 4. Name array cell codes and meaning
-
-<table class="pod-table">
-<thead><tr>
-<th>Code</th> <th>Meaning</th>
-</tr></thead>
-<tbody>
-<tr> <td>*</td> <td>code rather than an abbreviation</td> </tr> <tr> <td>L</td> <td>array values are lower-case</td> </tr> <tr> <td>M</td> <td>array values are mixed-case</td> </tr> <tr> <td>P</td> <td>array values have a trailing period</td> </tr> <tr> <td>T</td> <td>array values are title-case</td> </tr> <tr> <td>U</td> <td>array values are upper-case</td> </tr> <tr> <td>Y</td> <td>language has this array</td> </tr>
-</tbody>
-</table>
 
 Note that when the **Date::Names** class is fully implemented in Version 3, the user will be able to specify desired array table attributes for his or her tastes (case, trailing period, truncation or padding);
 
