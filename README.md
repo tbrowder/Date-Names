@@ -75,7 +75,7 @@ Not all languages have a complete set of two- and three-letter abbreviations, an
 
 Table 2 shows the array names for the full names and abbreviations currently available. Array names with a 2 or 3 appended are complete abbreviation sets of that length only. Array names with an 'a' appended are sets of abbreviations of mixed length. A 'Y' in a cell indicates a language has a complete set of that type of abbreviation.
 
-Note that in some countries the term "abbreviation" is distinctly different than "code" as it applies to date names. An asterisk in a cell marks those which are technically codes rather than abbreviations. Table 3 shows the meaning of other codes used in the Table 2 cells.
+Note that in some countries the term "abbreviation" is distinctly different than "code" as it applies to date names. An asterisk in a cell marks those which are technically codes rather than abbreviations. Table 4 shows the meaning of other codes used in the Table 2 cells.
 
 The array names in Table 2 (without a sigil) are the ones to be used for the day and month array names for the **Date::Names** class constructor.
 
@@ -92,12 +92,16 @@ The array names in Table 2 (without a sigil) are the ones to be used for the day
 
 ### Table 3. Name array for truncated dow2 and dow3 languages
 
+Some of the most-used names in calendar construction are the abbreviations for the days-of-the-week (dow), both two- and three-letter ones. One common example of using a two-letter dow abbreviation use is in the Linux system utility 'cal'. And very common, at least in the US, are the three-letter dow abbreviations on many printed calendars, especially ones printed by users on home printers. The following five languages don't have a complete set of dow2 and dow3 abbreviations, so this module will create one by truncating the full dow name to the desired length. 
+
+There are more languages that don't have a full set of two- and three-letter month abbreviations, as can be seen in Table 2. If they are required by the user, they will also be created by truncation.
+
 <table class="pod-table">
 <thead><tr>
 <th>Language</th> <th>ISO</th> <th>dow3</th> <th>dow2</th>
 </tr></thead>
 <tbody>
-<tr> <td>French</td> <td>fr</td> <td>Y</td> <td></td> </tr> <tr> <td>Indonesian</td> <td></td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td></td> <td>Y</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td></td> <td>Y</td> <td></td> </tr>
+<tr> <td>French</td> <td>fr</td> <td>Y</td> <td></td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>Y</td> <td></td> </tr> <tr> <td>Italian</td> <td>it</td> <td></td> <td></td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>Y</td> <td></td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>Y</td> <td></td> </tr>
 </tbody>
 </table>
 
