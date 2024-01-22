@@ -153,6 +153,11 @@ in Table 4 don't have a complete set of dow2 and dow3 abbreviations, so this
 module will automatically create one by truncating the full dow or
 month name to the desired length.
 
+There are more languages that don't have a full set of two-
+and three-letter month abbreviations, as can be seen in Table 2. If
+they are required by the user, they will also be created automatically
+by truncation.
+
 =head3 Table 4.  Name array for truncated dow2 and dow3 languages
 
 =begin table
@@ -164,11 +169,6 @@ Italian             | it  |       |
 Norwegian (Bokmål)  | nb  |   Y   |
 Norwegian (Nynorsk) | nn  |   Y   |
 =end table
-
-There are more languages that don't have a full set of two-
-and three-letter month abbreviations, as can be seen in Table 2. If
-they are required by the user, they will also be created automatically
-by truncation.
 
 Note that when the B<Date::Names> class is fully implemented in
 Version 3, the user will be able to specify desired array table
@@ -289,7 +289,7 @@ Tom Browder, <tom.browder@acm.org>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright E<0x00a9> 2019-2022 Tom Browder
+Copyright E<0x00a9> 2019-2024 Tom Browder
 
 This program is free software; you may redistribute or modify
 it under the same terms as Raku itself.
