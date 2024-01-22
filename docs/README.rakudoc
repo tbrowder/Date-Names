@@ -177,7 +177,7 @@ padding).
 
 =head3 Methods to see what is available
 
-(See [All-SETS](ALL-SETS.md) for the complete list for all languages.)
+(See L<All-SETS|ALL-SETS.md> for the complete list for all languages.)
 
 =begin code
 use Date::Names
