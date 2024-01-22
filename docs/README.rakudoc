@@ -193,7 +193,7 @@ $dn.sets; # OUTPUT: «name sets with values:␤  dow  dow2  dow3  mon  mon3␤»
 $dn.show-all; # OUTPUT: see ALL-SETS.md)
 =end code
 
-=head1 New features:
+=head1 Features:
 
 1. English language default
 
@@ -203,8 +203,8 @@ $dn.show-all; # OUTPUT: see ALL-SETS.md)
 
 4. Methods for entering a valid abbreviation of weekday or month name and returning its number
 
-5. Graceful messages if a desired array is empty [version 2+]
-
+5. When requesting an abbreviation that doesn't exist, the full name
+is automatically truncated to the desired length.
 =head1 Planned features:
 
 1. User chooses case of the output names [API complete, needs tests]
