@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+2.3.0  2024-01-22T21:14:34-06:00
     - For a language without a valid dow2 or dow3 or mon2 or mon3 array,
         truncation will automatically be used to shorten the full name 
         to two or three characters.
