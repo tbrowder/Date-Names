@@ -9,6 +9,7 @@
     - Changed document generation to mi6 from rakudoc source
         in ./docs and .md files in the base directory
     - Removed Makefile
+    - Fixed tests to recognize dowa and mona for abbreviations
 
 2.2.4  2023-07-11T16:42:05-05:00
     - Split testing into separate tests by OS
