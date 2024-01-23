@@ -16,9 +16,6 @@ t/007-nl-lang-class.t
 t/007-pl-lang-class.t
 t/007-ru-lang-class.t
 t/1-issues.t
->;
-
-my @bad = <
 t/007-es-lang-class.t
 t/007-fr-lang-class.t
 t/007-nb-lang-class.t
@@ -27,12 +24,16 @@ t/007-ro-lang-class.t
 t/007-uk-lang-class.t
 >;
 
+my @bad = <
+>;
+
 #for @good -> $t {
 for @bad -> $t {
 
     my $res = cmd "raku -I. $t";
     say "== running test '$t'...";
     say $res;
+    last
 }
 
 

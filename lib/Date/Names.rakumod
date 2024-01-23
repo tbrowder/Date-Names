@@ -312,6 +312,9 @@ method dow(UInt $n is copy where { 0  < $n < 8 },
         elsif $!dset eq 'dow3' {
             $nc-abbrev = 3;
         }
+        elsif $!dset eq 'dowa' {
+            $nc-abbrev = 3;
+        }
         else {
             die "FATAL: unrecognized dset = '$!dset'";
         }
@@ -425,6 +428,9 @@ method mon(UInt $n is copy where { 0 < $n < 13 },
             $nc-abbrev = 2;
         }
         elsif $!mset eq 'mon3' {
+            $nc-abbrev = 3;
+        }
+        elsif $!mset eq 'mona' {
             $nc-abbrev = 3;
         }
         else {
