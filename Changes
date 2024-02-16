@@ -7,6 +7,7 @@
         example: The Year 2024 
         + the value is accessed by the class attribute .the-year
         + add tests for the value
+    - Add column of '.the-year' values to the ISO language table
 
 2.3.0  2024-01-22T21:14:34-06:00
     - For a language without a valid dow2 or dow3 or mon2 or mon3 array,

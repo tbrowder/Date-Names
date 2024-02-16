@@ -41,7 +41,7 @@ Module **Date::Names** provides the full name of months and days of the week for
 
 Full names of the months and weekdays are currently available in the following thirteen languages:
 
-### Table 1. Language ISO codes (lower-case) and '.the-year' value
+### Table 1. Language ISO codes (lower-case) and '.the-year' values
 
 <table class="pod-table">
 <thead><tr>
@@ -52,7 +52,7 @@ Full names of the months and weekdays are currently available in the following t
 </tbody>
 </table>
 
-The '.the-year' attribute values were obtained from Google and may not be correct. Please file an issue if you are a native language speaker and see an error.
+The '.the-year' attribute was added for use with the Calendar module to use on a cover page. The attribute values were obtained using Google's translation capability, and they may not be correct. Please file an issue if you are a native language speaker and see an error.
 
 CAPITALIZATION and PUNCTUATION
 ==============================

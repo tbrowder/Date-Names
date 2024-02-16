@@ -43,7 +43,7 @@ with B<Raku>'s date functions.
 Full names of the months and weekdays are currently available in the
 following thirteen languages:
 
-=head3 Table 1. Language ISO codes (lower-case) and '.the-year' value
+=head3 Table 1. Language ISO codes (lower-case) and '.the-year' values
 
 =begin table
 Language            | ISO code | .the-year
@@ -63,7 +63,9 @@ Spanish             | es       | El año
 Ukranian            | uk       | Рік
 =end table
 
-The '.the-year' attribute values were obtained from Google and may not
+The '.the-year' attribute was added for use with the Calendar module to
+use on a cover page. The attribute values were obtained using Google's
+translation capability, and they may not
 be correct. Please file an issue if you are a native
 language speaker and see an error.
 
