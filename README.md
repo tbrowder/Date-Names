@@ -5,18 +5,6 @@ Date::Names
 
 Module **Date::Names** - Provides month and weekday names for numbers (multilingual)
 
-This is Version 2 with significant differences and more features compared to Version 1:
-
-### Changes:
-
-  * language-specific data set hashes have changed to arrays
-
-  * no symbols are exported; direct access is available, but not recommended—use the new class instead
-
-  * `@lang` renamed to `@langs`
-
-  * added class **Date::Names** for primary data access
-
 SYNOPSIS
 ========
 
@@ -24,24 +12,27 @@ SYNOPSIS
     # choose the German language (English is the default)
     my $d = Date::Names.new: :lang<de>;
 
-    # default is to show full names
+    # Default is to show full names
     say $d.dow(3); # OUTPUT: «Mittwoch␤»
     say $d.mon(3); # OUTPUT: «März␤»
 
-    # what abbreviations are available?
+    # What abbreviations are available?
     $d.sets; # OUTPUT: «name sets with values:␤  dow  dow2  mon  mon3␤»
 
-    # choose the desired sets
+    # Choose the desired sets
     $d = Date::Names.new: :lang<de>, :mset<mon3>, :dset<dow2>;
     say $d.dow(4); # OUTPUT: «Do␤»
     say $d.mon(4); # OUTPUT: «Apr␤»
 
-    # arbitrarily truncate a word
+    # Arbitrarily truncate a word
     say $d.mon(8,2); # OUTPUT: «Au␤»
 
-    # given a name, return the number of month of year or day of week
+    # Given a name, return the number of month of year or day of week
     say $d.mon2num('März');     # OUTPUT: «3␤»
     say $d.dow2num('Mittwoch'); # OUTPUT: «3␤»
+
+    # How to say "The Year 2030"
+    say "{$d.the-year} 2030"; # OUTPUT: «Das Jahr 2030␤»
 
 DESCRIPTION
 ===========
@@ -50,16 +41,18 @@ Module **Date::Names** provides the full name of months and days of the week for
 
 Full names of the months and weekdays are currently available in the following thirteen languages:
 
-### Table 1. Language ISO codes (lower-case)
+### Table 1. Language ISO codes (lower-case) and '.this-year' value
 
 <table class="pod-table">
 <thead><tr>
-<th>Language</th> <th>ISO code</th>
+<th>Language</th> <th>ISO code</th> <th>.the-year</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>nl</td> </tr> <tr> <td>English</td> <td>en</td> </tr> <tr> <td>French</td> <td>fr</td> </tr> <tr> <td>German</td> <td>de</td> </tr> <tr> <td>Indonesian</td> <td>id</td> </tr> <tr> <td>Italian</td> <td>it</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> </tr> <tr> <td>Polish</td> <td>pl</td> </tr> <tr> <td>Romanian</td> <td>ro</td> </tr> <tr> <td>Russian</td> <td>ru</td> </tr> <tr> <td>Spanish</td> <td>es</td> </tr> <tr> <td>Ukranian</td> <td>uk</td> </tr>
+<tr> <td>Dutch</td> <td>nl</td> <td>&#39;Het jaar&#39;</td> </tr> <tr> <td>English</td> <td>en</td> <td>&#39;The Year&#39;</td> </tr> <tr> <td>French</td> <td>fr</td> <td>&quot;L&#39;année&quot;</td> </tr> <tr> <td>German</td> <td>de</td> <td>&#39;Das Jahr&#39;</td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>&#39;Tahun&#39;</td> </tr> <tr> <td>Italian</td> <td>it</td> <td>&quot;L&#39;anno&quot;</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>&#39;Год» да бокмал&#39;</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>&#39;Год» на нюнорск&#39;</td> </tr> <tr> <td>Polish</td> <td>pl</td> <td>&#39;Rok&#39;</td> </tr> <tr> <td>Romanian</td> <td>ro</td> <td>&#39;Anul&#39;</td> </tr> <tr> <td>Russian</td> <td>ru</td> <td>&#39;Год&#39;</td> </tr> <tr> <td>Spanish</td> <td>es</td> <td>&#39;El año&#39;</td> </tr> <tr> <td>Ukranian</td> <td>uk</td> <td>&#39;Рік&#39;</td> </tr>
 </tbody>
 </table>
+
+The '.the-year' attribute values were obtained from Google and may not be the correct value. Please file an issue if you are a native language speaker and see an error.
 
 CAPITALIZATION and PUNCTUATION
 ==============================

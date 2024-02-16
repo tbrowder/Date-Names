@@ -4,20 +4,6 @@
 
 Module B<Date::Names> - Provides month and weekday names for numbers (multilingual)
 
-This is Version 2 with significant differences and more
-features compared to Version 1:
-
-=head3 Changes:
-
-=item language-specific data set hashes have changed to arrays
-
-=item no symbols are exported; direct access is available, but not
-     recommendedE<0x2014>use the new class instead
-
-=item C<@lang> renamed to C<@langs>
-
-=item added class B<Date::Names> for primary data access
-
 =head1 SYNOPSIS
 
 =begin code
@@ -25,24 +11,27 @@ use Date::Names;
 # choose the German language (English is the default)
 my $d = Date::Names.new: :lang<de>;
 
-# default is to show full names
+# Default is to show full names
 say $d.dow(3); # OUTPUT: «Mittwoch␤»
 say $d.mon(3); # OUTPUT: «März␤»
 
-# what abbreviations are available?
+# What abbreviations are available?
 $d.sets; # OUTPUT: «name sets with values:␤  dow  dow2  mon  mon3␤»
 
-# choose the desired sets
+# Choose the desired sets
 $d = Date::Names.new: :lang<de>, :mset<mon3>, :dset<dow2>;
 say $d.dow(4); # OUTPUT: «Do␤»
 say $d.mon(4); # OUTPUT: «Apr␤»
 
-# arbitrarily truncate a word
+# Arbitrarily truncate a word
 say $d.mon(8,2); # OUTPUT: «Au␤»
 
-# given a name, return the number of month of year or day of week
+# Given a name, return the number of month of year or day of week
 say $d.mon2num('März');     # OUTPUT: «3␤»
 say $d.dow2num('Mittwoch'); # OUTPUT: «3␤»
+
+# How to say "The Year 2030"
+say "{$d.the-year} 2030"; # OUTPUT: «Das Jahr 2030␤»
 =end code
 
 =head1 DESCRIPTION
@@ -54,25 +43,29 @@ with B<Raku>'s date functions.
 Full names of the months and weekdays are currently available in the
 following thirteen languages:
 
-=head3 Table 1. Language ISO codes (lower-case)
+=head3 Table 1. Language ISO codes (lower-case) and '.this-year' value
 
 =begin table
-Language            | ISO code
---------------------+---------
-Dutch               | nl
-English             | en
-French              | fr
-German              | de
-Indonesian          | id
-Italian             | it
-Norwegian (Bokmål)  | nb
-Norwegian (Nynorsk) | nn
-Polish              | pl
-Romanian            | ro
-Russian             | ru
-Spanish             | es
-Ukranian            | uk
+Language            | ISO code | .the-year
+--------------------+----------+----------
+Dutch               | nl       | 'Het jaar'
+English             | en       | 'The Year'
+French              | fr       | "L'année"
+German              | de       | 'Das Jahr'
+Indonesian          | id       | 'Tahun'
+Italian             | it       | "L'anno"
+Norwegian (Bokmål)  | nb       | 'Год» да бокмал'
+Norwegian (Nynorsk) | nn       | 'Год» на нюнорск'
+Polish              | pl       | 'Rok'
+Romanian            | ro       | 'Anul'
+Russian             | ru       | 'Год'
+Spanish             | es       | 'El año'
+Ukranian            | uk       | 'Рік'
 =end table
+
+The '.the-year' attribute values were obtained from Google and may not
+be the correct value. Please file an issue if you are a native
+language speaker and see an error.
 
 =head1 CAPITALIZATION and PUNCTUATION
 

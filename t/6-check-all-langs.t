@@ -26,10 +26,12 @@ constant %min-abbrev = [
 
 my $ntests = @langs.elems * 19 + %min-abbrev.elems * 19;
 
-plan $ntests;
+plan $ntests + @langs.elems;
 
 for @langs -> $L {
     $dn = Date::Names.new: :lang($L);
+    my $s = $dn.ty;
+    is $s, %the-year{$L};
 
     if %min-abbrev{$L}:exists {
         # check all months (min-abbrevs)
@@ -58,4 +60,3 @@ for @langs -> $L {
     }
 
 }
-

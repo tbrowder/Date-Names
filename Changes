@@ -1,4 +1,12 @@
 {{$NEXT}}
+    - Clean up and remove lots of language about 
+        possible changes.
+    - Add phrase 'The Year' for all languages to use
+        on a cover sheet for a calendar. (The initial
+        translation will come from Google.)  For
+        example: The Year 2024 
+        + the value is accessed by the class attribute .the-year
+        + add tests for the value
 
 2.3.0  2024-01-22T21:14:34-06:00
     - For a language without a valid dow2 or dow3 or mon2 or mon3 array,

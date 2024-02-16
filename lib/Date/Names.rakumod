@@ -37,6 +37,24 @@ ru => 'Russian',
 uk => 'Ukrainian',
 ;
 
+# Start with Google's translation
+#   translate "The Year" to lang
+#   note some these are suspect
+our %the-year is export =
+de => 'Das Jahr',        # ok
+en => 'The Year',        # ok
+es => 'El año',          # ok
+fr => "L'année",         # ok
+id => 'Tahun',           # ok
+it => "L'anno",          # ok
+nb => 'Год» да бокмал',  # ok bokmal
+nn => 'Год» на нюнорск', # ok nynorsk
+nl => 'Het jaar',        # ok
+pl => 'Rok',             # ok
+ro => 'Anul',            # ok
+ru => 'Год',             # ok
+uk => 'Рік',             # ok
+;
 
 # Lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
@@ -69,6 +87,7 @@ has Str $.mset  is rw = 'mon'; # default: full names
 has Str $.dset  is rw = 'dow'; # default: full names
 has Str $.msetF       = 'mon'; # constant: full names
 has Str $.dsetF       = 'dow'; # constant: full names
+has Str $.the-year    = 'The Year'; # default
 
 has Period $.period = keep;  # add, remove, or keep a period to end abbreviations
 has UInt $.trunc    = 0;     # truncate to N chars if N > 0
@@ -86,6 +105,8 @@ has $.mfull;
 # this an auto-generated hash of the names of
 # all non-empty data sets and values of that array
 has %.s is rw;
+# this is the string "This Year" translated to the language class
+has $.ty is rw;
 
 submethod TWEAK() {
     # This sets the class var to the desired
@@ -98,9 +119,10 @@ submethod TWEAK() {
     my $MF = $!msetF;
     my $DF = $!dsetF;
 
-    $!m = self!define-attr-mset($L, $M);
-    $!d = self!define-attr-dset($L, $D);
-    %!s = self!define-attr-sets($L);
+    $!m  = self!define-attr-mset($L, $M);
+    $!d  = self!define-attr-dset($L, $D);
+    %!s  = self!define-attr-sets($L);
+    $!ty = %the-year{$L};
 
     $!mfull = self!define-attr-mset($L, $MF);
     $!dfull = self!define-attr-mset($L, $DF);
@@ -166,7 +188,7 @@ submethod TWEAK() {
         my $nreq = $n eq 'mon' ?? 12 !! 7;
         if $nhas != $nreq {
             note qq:to/HERE/;
-            WARNING: lang {$!lang}, data set '$n' has $nhas elements, 
+            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
                      but it should have $nreq
             HERE
         }
@@ -187,6 +209,13 @@ submethod TWEAK() {
 }
 
 # private methods ================================
+=begin comment
+method !define-attr-ty() {
+    my $ty = %the-year{$!lang};
+    return $ty;
+}
+=end comment
+
 method !define-attr-mset($L, $M) {
     my $mm = "Date::Names::{$L}::{$M}";
     my $m  =  $::($mm);
@@ -292,8 +321,8 @@ method clone {
 }
 =end comment
 
-method dow(UInt $n is copy where { 0  < $n < 8 }, 
-           $trunc = 0, 
+method dow(UInt $n is copy where { 0  < $n < 8 },
+           $trunc = 0,
            :$debug
           ) {
 
@@ -328,7 +357,7 @@ method dow(UInt $n is copy where { 0  < $n < 8 },
               val is NOT defined
                 lang:  $!lang
                 dset:  $!dset
-                index: $n 
+                index: $n
             HERE
         }
 
@@ -411,7 +440,7 @@ method dow2num($s, :$debug) {
     $ret
 }
 
-method mon(UInt $n is copy where { 0 < $n < 13 }, 
+method mon(UInt $n is copy where { 0 < $n < 13 },
            $trunc = 0,
            :$debug
 ) {
@@ -446,7 +475,7 @@ method mon(UInt $n is copy where { 0 < $n < 13 },
               val is NOT defined
                 lang:  $!lang
                 dset:  $!mset
-                index: $n 
+                index: $n
             HERE
         }
 
