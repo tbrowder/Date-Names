@@ -64,7 +64,7 @@ Ukranian            | uk       | 'Рік'
 =end table
 
 The '.the-year' attribute values were obtained from Google and may not
-be the correct value. Please file an issue if you are a native
+be correct. Please file an issue if you are a native
 language speaker and see an error.
 
 =head1 CAPITALIZATION and PUNCTUATION

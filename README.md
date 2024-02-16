@@ -52,7 +52,7 @@ Full names of the months and weekdays are currently available in the following t
 </tbody>
 </table>
 
-The '.the-year' attribute values were obtained from Google and may not be the correct value. Please file an issue if you are a native language speaker and see an error.
+The '.the-year' attribute values were obtained from Google and may not be correct. Please file an issue if you are a native language speaker and see an error.
 
 CAPITALIZATION and PUNCTUATION
 ==============================
