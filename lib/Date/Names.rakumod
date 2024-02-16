@@ -37,6 +37,24 @@ ru => 'Russian',
 uk => 'Ukrainian',
 ;
 
+# Start with Google's translation
+#   translate "The Year" to lang
+#   note some these are suspect
+our %the-year is export =
+de => 'Das Jahr',        # ok
+en => 'The Year',        # ok
+es => 'El año',          # ok
+fr => "L'année",         # ok
+id => 'Tahun',           # ok
+it => "L'anno",          # ok
+nb => 'Год» да бокмал',  # ok bokmal
+nn => 'Год» на нюнорск', # ok nynorsk
+nl => 'Het jaar',        # ok
+pl => 'Rok',             # ok
+ro => 'Anul',            # ok
+ru => 'Год',             # ok
+uk => 'Рік',             # ok
+;
 
 # Lists of the eight standard data set names for each language:
 our @msets = <mon mon2 mon3 mona>;
@@ -64,9 +82,12 @@ use Date::Names::uk;
 enum Period <yes no keep>;
 enum Case <tc uc lc nc>; # 'nc' no change
 
-has Str $.lang is rw = 'en';  # default: English
-has Str $.mset is rw = 'mon'; # default: full names
-has Str $.dset is rw = 'dow'; # default: full names
+has Str $.lang  is rw = 'en';  # default: English
+has Str $.mset  is rw = 'mon'; # default: full names
+has Str $.dset  is rw = 'dow'; # default: full names
+has Str $.msetF       = 'mon'; # constant: full names
+has Str $.dsetF       = 'dow'; # constant: full names
+has Str $.the-year    = 'The Year'; # default
 
 has Period $.period = keep;  # add, remove, or keep a period to end abbreviations
 has UInt $.trunc    = 0;     # truncate to N chars if N > 0
@@ -78,22 +99,33 @@ has $.debug is rw   = 0;
 # these objects take the value of the chosen name of each type of data
 # set:
 has $.d is rw;
+has $.dfull;
 has $.m is rw;
+has $.mfull;
 # this an auto-generated hash of the names of
 # all non-empty data sets and values of that array
 has %.s is rw;
+# this is the string "This Year" translated to the language class
+has $.ty is rw;
 
 submethod TWEAK() {
-    # this sets the class var to the desired
+    # This sets the class var to the desired
     # dow and mon name sets (lang and value width)
+
     # convenience string vars
     my $L = $!lang;
     my $M = $!mset;
     my $D = $!dset;
+    my $MF = $!msetF;
+    my $DF = $!dsetF;
 
-    $!m = self!define-attr-mset($L, $M);
-    $!d = self!define-attr-dset($L, $D);
-    %!s = self!define-attr-sets($L);
+    $!m  = self!define-attr-mset($L, $M);
+    $!d  = self!define-attr-dset($L, $D);
+    %!s  = self!define-attr-sets($L);
+    $!ty = %the-year{$L};
+
+    $!mfull = self!define-attr-mset($L, $MF);
+    $!dfull = self!define-attr-mset($L, $DF);
 
     =begin comment
     my $mm = "Date::Names::{$L}::{$M}";
@@ -135,7 +167,10 @@ submethod TWEAK() {
         my $nhas = %!s{$n}.elems;
         my $nreq = $n eq 'mon' ?? 12 !! 7;
         if $nhas != $nreq {
-            note "WARNING: lang {$!lang}, data set '$n' has $nhas elements,\n  but it should have $nreq";
+            note qq:to/HERE/;
+            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
+                     but it should have $nreql
+            HERE
         }
         else {
             ++$mo if $n eq 'mon';
@@ -152,7 +187,10 @@ submethod TWEAK() {
         my $nhas = %!s{$n}.elems;
         my $nreq = $n eq 'mon' ?? 12 !! 7;
         if $nhas != $nreq {
-            note "WARNING: lang {$!lang}, data set '$n' has $nhas elements, but it should have $nreq";
+            note qq:to/HERE/;
+            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
+                     but it should have $nreq
+            HERE
         }
         else {
             my $c = $n.comb[0];
@@ -171,6 +209,13 @@ submethod TWEAK() {
 }
 
 # private methods ================================
+=begin comment
+method !define-attr-ty() {
+    my $ty = %the-year{$!lang};
+    return $ty;
+}
+=end comment
+
 method !define-attr-mset($L, $M) {
     my $mm = "Date::Names::{$L}::{$M}";
     my $m  =  $::($mm);
@@ -205,7 +250,7 @@ method !define-attr-sets($L) {
     return %h;
 }
 
-method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
+method !handle-val-attrs($val is copy, :$is-abbrev!) {
     if !defined $val {
         die "FATAL: undefined \$val '{$val.^name}'";
     }
@@ -224,22 +269,22 @@ method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
         die "FATAL: found INTERIOR period in val $val";
     }
 
-    if $.trunc && $val.chars > $.trunc {
+    if $!trunc && $val.chars > $!trunc {
         $val .= substr(0, self.trunc);
     }
-    elsif $.trunc && $.pad && $val.chars < $.trunc {
-        $val .= substr(0, $.trunc);
+    elsif $!trunc && $.pad && $val.chars < $!trunc {
+        $val .= substr(0, $!trunc);
     }
 
-    if $.case !~~ /keep/ {
+    if $!case !~~ /keep/ {
         # more checks needed
     }
 
-    if $.trunc && $val.chars > self.trunc {
-        $val .= substr(0, $.trunc);
+    if $!trunc && $val.chars > self.trunc {
+        $val .= substr(0, $!trunc);
     }
-    elsif $.trunc && $.pad && $val.chars < $.truncx {
-        $val .= substr(0, $.trunc);
+    elsif $!trunc && $.pad && $val.chars < $!trunc {
+        $val .= substr(0, $!trunc);
     }
     if $.case !~~ /keep/ {
         # more checks needed
@@ -251,7 +296,7 @@ method !handle-val-attrs(Str $val is copy, :$is-abbrev!) {
         $val ~= '.';
     }
 
-    return $val;
+    $val;
 
 }
 
@@ -276,18 +321,66 @@ method clone {
 }
 =end comment
 
-method dow(UInt $n is copy where { $n > 0 && $n < 8 }, $trunc = 0) {
-    --$n; # <-- CRITICAL for proper array indexing internally
+method dow(UInt $n is copy where { 0  < $n < 8 },
+           $trunc = 0,
+           :$debug
+          ) {
 
-    my $val = $.d[$n];
-    my $is-abbrev = $.dset eq 'dow' ?? False !! True;
+    --$n; # <-- CRITICAL for proper array indexing internally in the $!d array
+          #     1..7 dow
+
+    my $val = $!d[$n];
+
+    my $is-abbrev = $!dset eq 'dow' ?? False !! True;
+    my $nchars    = $!dset.chars;
+    my $nc-abbrev = 0;
+    if $is-abbrev {
+        if $!dset eq 'dow2' {
+            $nc-abbrev = 2;
+        }
+        elsif $!dset eq 'dow3' {
+            $nc-abbrev = 3;
+        }
+        elsif $!dset eq 'dowa' {
+            $nc-abbrev = 3;
+        }
+        else {
+            die "FATAL: unrecognized dset = '$!dset'";
+        }
+    }
+
+    if not $val.defined {
+        # auto-truncate to the desired length
+        if $debug {
+            print qq:to/HERE/;
+            DEBUG:
+              val is NOT defined
+                lang:  $!lang
+                dset:  $!dset
+                index: $n
+            HERE
+        }
+
+        # truncate the full-length dow
+        my $v = $!dfull[$n];
+        $val  = $v.substr(0, $nc-abbrev);
+
+        if $debug {
+            print qq:to/HERE/;
+                v:    $v
+                val:  $val
+            HERE
+        }
+    }
+
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
-    return $val;
+
+    $val
 }
 
 method mon2num($s, :$debug) {
@@ -300,7 +393,7 @@ method mon2num($s, :$debug) {
     # invert that hash so each unique abbrev points to the month number
     # if the input is not a key, return zero
 
-    my @w   = @($.m);
+    my @w   = @($!m);
     my @ab  = abbrevs @w, :out-type(AL);
     my $ret = 0;
     my $i   = 0;
@@ -328,9 +421,9 @@ method dow2num($s, :$debug) {
     # if the input is not a key, return zero
 
     for 0..6 {
-        note "DEBUG: day of the week {$_ + 1} is {$.d[$_]}" if $debug;
+        note "DEBUG: day of the week {$_ + 1} is {$!d[$_]}" if $debug;
     }
-    my @w   = @($.d);
+    my @w   = @($!d);
     my @ab  = abbrevs @w, :out-type(AL);
     my $ret = 0;
     my $i   = 0;
@@ -347,18 +440,65 @@ method dow2num($s, :$debug) {
     $ret
 }
 
-method mon(UInt $n is copy where { $n > 0 && $n < 13 }, $trunc = 0) {
-    --$n; # <-- CRITICAL for proper array indexing internally
+method mon(UInt $n is copy where { 0 < $n < 13 },
+           $trunc = 0,
+           :$debug
+) {
 
-    my $val = $.m[$n];
-    my $is-abbrev = $.mset eq 'mon' ?? False !! True;
+    --$n; # <-- CRITICAL for proper array indexing internally in the $!m array
+          #     1..12 mon
+
+    my $val = $!m[$n];
+    my $is-abbrev = $!mset eq 'mon' ?? False !! True;
+    my $nchars    = $!mset.chars;
+    my $nc-abbrev = 0;
+    if $is-abbrev {
+        if $!mset eq 'mon2' {
+            $nc-abbrev = 2;
+        }
+        elsif $!mset eq 'mon3' {
+            $nc-abbrev = 3;
+        }
+        elsif $!mset eq 'mona' {
+            $nc-abbrev = 3;
+        }
+        else {
+            die "FATAL: unrecognized mset = '$!mset'";
+        }
+    }
+
+    if not $val.defined {
+        # auto-truncate to the desired length
+        if $debug {
+            print qq:to/HERE/;
+            DEBUG:
+              val is NOT defined
+                lang:  $!lang
+                dset:  $!mset
+                index: $n
+            HERE
+        }
+
+        # truncate the full-length dow
+        my $v = $!mfull[$n];
+        $val  = $v.substr(0, $nc-abbrev);
+
+        if $debug {
+            print qq:to/HERE/;
+                v:    $v
+                val:  $val
+            HERE
+        }
+    }
+
     if $trunc and $trunc < $val.chars {
         # TODO this may have to change if the class $trunc is used
         $val .= substr(0, $trunc);
     }
 
     $val = self!handle-val-attrs($val, :$is-abbrev);
-    return $val;
+
+    $val
 }
 
 # utility methods

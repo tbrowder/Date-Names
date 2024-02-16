@@ -1,7 +1,6 @@
 use v6;
 use Test;
 
-
 use Date::Names;
 
 # all langs must have mon and dow values

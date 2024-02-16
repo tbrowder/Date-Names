@@ -12,7 +12,7 @@
   "description": "Provides names for month and weekday numbers (multilingual).",
   "license": "Artistic-2.0",
   "name": "Date::Names",
-  "perl": "6.c",
+  "perl": "6.d",
   "provides": {
     "Date::Names": "lib/Date/Names.rakumod",
     "Date::Names::de": "lib/Date/Names/de.rakumod",
@@ -51,5 +51,5 @@
   ],
   "test-depends": [
   ],
-  "version": "2.2.4"
+  "version": "2.3.0"
 }
