@@ -43,24 +43,24 @@ with B<Raku>'s date functions.
 Full names of the months and weekdays are currently available in the
 following thirteen languages:
 
-=head3 Table 1. Language ISO codes (lower-case) and '.this-year' value
+=head3 Table 1. Language ISO codes (lower-case) and '.the-year' value
 
 =begin table
 Language            | ISO code | .the-year
 --------------------+----------+----------
-Dutch               | nl       | 'Het jaar'
-English             | en       | 'The Year'
-French              | fr       | "L'année"
-German              | de       | 'Das Jahr'
-Indonesian          | id       | 'Tahun'
-Italian             | it       | "L'anno"
-Norwegian (Bokmål)  | nb       | 'Год» да бокмал'
-Norwegian (Nynorsk) | nn       | 'Год» на нюнорск'
-Polish              | pl       | 'Rok'
-Romanian            | ro       | 'Anul'
-Russian             | ru       | 'Год'
-Spanish             | es       | 'El año'
-Ukranian            | uk       | 'Рік'
+Dutch               | nl       | Het jaar
+English             | en       | The Year
+French              | fr       | L'année
+German              | de       | Das Jahr
+Indonesian          | id       | Tahun
+Italian             | it       | L'anno
+Norwegian (Bokmål)  | nb       | Год» да бокмал
+Norwegian (Nynorsk) | nn       | Год» на нюнорск
+Polish              | pl       | Rok
+Romanian            | ro       | Anul
+Russian             | ru       | Год
+Spanish             | es       | El año
+Ukranian            | uk       | Рік
 =end table
 
 The '.the-year' attribute values were obtained from Google and may not

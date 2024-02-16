@@ -41,14 +41,14 @@ Module **Date::Names** provides the full name of months and days of the week for
 
 Full names of the months and weekdays are currently available in the following thirteen languages:
 
-### Table 1. Language ISO codes (lower-case) and '.this-year' value
+### Table 1. Language ISO codes (lower-case) and '.the-year' value
 
 <table class="pod-table">
 <thead><tr>
 <th>Language</th> <th>ISO code</th> <th>.the-year</th>
 </tr></thead>
 <tbody>
-<tr> <td>Dutch</td> <td>nl</td> <td>&#39;Het jaar&#39;</td> </tr> <tr> <td>English</td> <td>en</td> <td>&#39;The Year&#39;</td> </tr> <tr> <td>French</td> <td>fr</td> <td>&quot;L&#39;année&quot;</td> </tr> <tr> <td>German</td> <td>de</td> <td>&#39;Das Jahr&#39;</td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>&#39;Tahun&#39;</td> </tr> <tr> <td>Italian</td> <td>it</td> <td>&quot;L&#39;anno&quot;</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>&#39;Год» да бокмал&#39;</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>&#39;Год» на нюнорск&#39;</td> </tr> <tr> <td>Polish</td> <td>pl</td> <td>&#39;Rok&#39;</td> </tr> <tr> <td>Romanian</td> <td>ro</td> <td>&#39;Anul&#39;</td> </tr> <tr> <td>Russian</td> <td>ru</td> <td>&#39;Год&#39;</td> </tr> <tr> <td>Spanish</td> <td>es</td> <td>&#39;El año&#39;</td> </tr> <tr> <td>Ukranian</td> <td>uk</td> <td>&#39;Рік&#39;</td> </tr>
+<tr> <td>Dutch</td> <td>nl</td> <td>Het jaar</td> </tr> <tr> <td>English</td> <td>en</td> <td>The Year</td> </tr> <tr> <td>French</td> <td>fr</td> <td>L&#39;année</td> </tr> <tr> <td>German</td> <td>de</td> <td>Das Jahr</td> </tr> <tr> <td>Indonesian</td> <td>id</td> <td>Tahun</td> </tr> <tr> <td>Italian</td> <td>it</td> <td>L&#39;anno</td> </tr> <tr> <td>Norwegian (Bokmål)</td> <td>nb</td> <td>Год» да бокмал</td> </tr> <tr> <td>Norwegian (Nynorsk)</td> <td>nn</td> <td>Год» на нюнорск</td> </tr> <tr> <td>Polish</td> <td>pl</td> <td>Rok</td> </tr> <tr> <td>Romanian</td> <td>ro</td> <td>Anul</td> </tr> <tr> <td>Russian</td> <td>ru</td> <td>Год</td> </tr> <tr> <td>Spanish</td> <td>es</td> <td>El año</td> </tr> <tr> <td>Ukranian</td> <td>uk</td> <td>Рік</td> </tr>
 </tbody>
 </table>
 
