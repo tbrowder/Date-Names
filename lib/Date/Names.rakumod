@@ -126,96 +126,9 @@ submethod TWEAK() {
 
     $!mfull = self!define-attr-mset($L, $MF);
     $!dfull = self!define-attr-mset($L, $DF);
-
-    =begin comment
-    my $mm = "Date::Names::{$L}::{$M}";
-    my $dd = "Date::Names::{$L}::{$D}";
-    $!m = $::($mm);
-    $!d = $::($dd);
-
-    # create hash of non-empty sets:
-    # TODO make private method to use with a deep clone method
-    %!s = self!define-objects;
-    =end comment
-
-    =begin comment
-    for @allsets -> $n {
-        my $nn = "Date::Names::{$L}::{$n}";
-        #my $nn = "{$L}::{$n}";
-        #my $nn = "{$n}";
-        my $s = $::($nn);
-        #next if !$s;
-        say $s.gist if $!debug;;
-        note "DEBUG: lang $L, set $n, elems {$s.elems}" if $!debug;
-        next if !$s.elems;
-        %!s{$n} = $s;
-    }
-    =end comment
-
-    =begin comment
-    die "no \$sets set for this lang {$!lang}" if !%!s.elems;
-
-    # other requirements for a valid lang class
-    # must have at least four total data sets:
-    #   mon
-    #   dow
-    #   mowX - one month abbreviation data set
-    #   dowX - one weekday abbreviation data set
-    my $mo = 0;
-    my $do = 0;
-    for <mon dow> -> $n  {
-        my $nhas = %!s{$n}.elems;
-        my $nreq = $n eq 'mon' ?? 12 !! 7;
-        if $nhas != $nreq {
-            note qq:to/HERE/;
-            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
-                     but it should have $nreql
-            HERE
-        }
-        else {
-            ++$mo if $n eq 'mon';
-            ++$do if $n eq 'dow';
-        }
-    }
-
-    my $ma = 0;
-    my $da = 0;
-    for @allsets -> $n  {
-        # already checked mon and dow
-        next if $n ~~ /^mon|dow$/;
-
-        my $nhas = %!s{$n}.elems;
-        my $nreq = $n eq 'mon' ?? 12 !! 7;
-        if $nhas != $nreq {
-            note qq:to/HERE/;
-            WARNING: lang {$!lang}, data set '$n' has $nhas elements,
-                     but it should have $nreq
-            HERE
-        }
-        else {
-            my $c = $n.comb[0];
-            ++$ma if $c eq 'm';
-            ++$da if $c eq 'd';
-        }
-    }
-    my $totreq = $mo + $do + $ma + $da;
-
-    if $totreq != 4 {
-        note "FATAL: Minimum data requirements not satisfied.";
-        note "TODO: be specific";
-        exit;
-    }
-    =end comment
 }
 
 # private methods ================================
-=begin comment
-method !define-attr-ty() {
-    my $ty = %the-year{$!lang};
-    return $ty;
-}
-=end comment
-
 method !define-attr-mset($L, $M) {
     my $mm = "Date::Names::{$L}::{$M}";
     my $m  =  $::($mm);
@@ -514,7 +427,6 @@ method nsets {
 
 # could make tests!
 method show {
-    #say "Language {$!lang}";
     say "  non-empty sets ({%.s.elems} total):";
     for %.s.keys.sort -> $k {
         printf "  %-4s:", $k;
